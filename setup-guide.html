@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One-Time Setup: GitHub + Netlify — Behind The Numbers</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .guide-wrap { max-width: 780px; margin: 0 auto; padding: 0 24px 80px; }
+  .guide-head { text-align: center; padding: 48px 0 8px; }
+  .guide-head .kicker { display: block; margin-bottom: 14px; }
+  .guide-head h1 {
+    font-family: var(--display);
+    font-size: clamp(32px, 4.4vw, 46px);
+    line-height: 1.08;
+    font-weight: 600;
+    text-wrap: pretty;
+  }
+  .guide-head .deck {
+    margin: 16px auto 0;
+    font-size: 19px;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    max-width: 600px;
+    text-wrap: pretty;
+  }
+  .time-pills {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 22px;
+    flex-wrap: wrap;
+  }
+  .time-pill {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 7px 14px;
+    border: 1px solid var(--rule-strong);
+    border-radius: 2px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  .phase {
+    margin-top: 52px;
+    border-top: 3px solid var(--rule-strong);
+    padding-top: 14px;
+  }
+  .phase-label {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--navy);
+  }
+  .phase h2 {
+    font-family: var(--display);
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.15;
+    margin-top: 4px;
+  }
+  .phase > p.intro {
+    margin-top: 10px;
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    gap: 20px;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .step:last-child { border-bottom: none; }
+  .step .num {
+    font-family: var(--display);
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1;
+    border-right: 2px solid var(--rule);
+    padding-right: 0;
+  }
+  .step .body h3 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-wrap: pretty;
+  }
+  .step .body p {
+    margin-top: 9px;
+    font-size: 16.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    text-wrap: pretty;
+  }
+  .step .body p + p { margin-top: 10px; }
+  .step .body strong { color: var(--ink); font-weight: 600; }
+  .step .body a { color: var(--navy); text-decoration: underline; text-underline-offset: 2px; }
+
+  .seen {
+    margin-top: 12px;
+    font-family: var(--sans);
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    background: var(--paper-tint);
+    border-left: 3px solid var(--navy);
+    padding: 11px 16px;
+  }
+  .seen b {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 11px;
+    color: var(--navy);
+    display: block;
+    margin-bottom: 3px;
+  }
+  .btn-name {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    background: var(--navy);
+    color: #FDFCF8;
+    padding: 2px 9px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  .daily-flow {
+    margin-top: 52px;
+    background: var(--navy-deep);
+    color: #F4EFE5;
+    padding: 40px 36px;
+    border-radius: 3px;
+  }
+  .daily-flow .phase-label { color: #9DB8D6; }
+  .daily-flow h2 { font-family: var(--display); font-size: 28px; font-weight: 600; margin-top: 4px; color: #FFFFFF; }
+  .daily-flow p.intro { margin-top: 10px; color: rgba(244,239,229,0.78); font-size: 16px; line-height: 1.55; }
+  .flow-row {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(244,239,229,0.16);
+  }
+  .flow-row:last-child { border-bottom: none; }
+  .flow-row .fn { font-family: var(--display); font-size: 20px; font-weight: 600; color: #9DB8D6; }
+  .flow-row .ft { font-size: 16px; line-height: 1.5; color: rgba(244,239,229,0.9); }
+  .flow-row .ft strong { color: #FFFFFF; font-weight: 600; }
+
+  .faq { margin-top: 52px; border-top: 3px solid var(--rule-strong); padding-top: 14px; }
+  .faq .phase-label { display: block; margin-bottom: 22px; }
+  .faq-item { padding: 18px 0; border-bottom: 1px solid var(--rule); }
+  .faq-item .q { font-size: 17px; font-weight: 600; }
+  .faq-item .a { margin-top: 8px; font-size: 16px; line-height: 1.6; color: var(--ink-soft); }
+  .faq-item .a a { color: var(--navy); text-decoration: underline; }
+
+  @media (max-width: 560px) {
+    .step { grid-template-columns: 36px 1fr; gap: 14px; }
+    .step .num { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════ MASTHEAD ════════════════ -->
+<header class="masthead compact">
+  <div class="wrap">
+    <a class="lockup" href="index.html">
+      <span class="nameplate">Behind The Numbers</span>
+      <img src="logo-mark.png" alt="Behind The Numbers — bar chart logo mark">
+    </a>
+    <hr class="double-rule">
+  </div>
+</header>
+
+<div class="guide-wrap">
+
+  <div class="guide-head">
+    <span class="kicker">Setup Guide · For you only · Not part of the public site</span>
+    <h1>Publish Once. Update Forever With One Click.</h1>
+    <p class="deck">A one‑time, no‑coding setup that connects your site to GitHub and Netlify. After this, you edit a file in your browser and the live site updates by itself in about 30 seconds — no more dragging folders.</p>
+    <div class="time-pills">
+      <span class="time-pill">⏱ 15–20 min, once</span>
+      <span class="time-pill">🧩 No coding</span>
+      <span class="time-pill">💻 In your browser</span>
+      <span class="time-pill">🆓 Free</span>
+    </div>
+  </div>
+
+  <!-- ───────── PHASE 1: GITHUB ───────── -->
+  <section class="phase">
+    <span class="phase-label">Phase 1 — Put your files on GitHub</span>
+    <h2>GitHub is the filing cabinet that holds your website.</h2>
+    <p class="intro">Think of GitHub as cloud storage built for website files. You upload your folder here once; later you'll edit files right on this site and they'll auto‑publish. Have your unzipped website folder ready on your computer.</p>
+
+    <div class="step">
+      <div class="num">1</div>
+      <div class="body">
+        <h3>Create a free GitHub account</h3>
+        <p>Go to <a href="https://github.com/signup" target="_blank" rel="noopener">github.com/signup</a>. Enter your email, pick a username and password, and verify your email. It's free — no card needed.</p>
+        <div class="seen"><b>What you'll see</b>Once signed in, a mostly‑empty dashboard with a green button to make something new. That's next.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">2</div>
+      <div class="body">
+        <h3>Create a new repository</h3>
+        <p>A "repository" (or "repo") is just a project folder. Click the <span class="btn-name">+</span> icon at the very top‑right of the page, then choose <strong>New repository</strong>.</p>
+        <p>In the <strong>Repository name</strong> box, type <strong>behind-the-numbers</strong> (no spaces). Leave everything else as it is. Make sure <strong>Public</strong> is selected. Then scroll down and click the green <span class="btn-name">Create repository</span> button.</p>
+        <div class="seen"><b>Why public?</b>It's needed for the free website hosting and only exposes your site's files — which are public on the web anyway.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">3</div>
+      <div class="body">
+        <h3>Upload your website files</h3>
+        <p>On the new repo page, find the line that says <em>"uploading an existing file"</em> and click that link. (If you don't see it, click the <span class="btn-name">Add file</span> button → <strong>Upload files</strong>.)</p>
+        <p>Open your unzipped website folder on your computer, select <strong>all the files inside it</strong> — <code>index.html</code>, <code>article.html</code>, <code>spacex-ipo-valuation.html</code>, <code>styles.css</code>, <code>site.js</code>, and the image files — and drag them onto the upload area.</p>
+        <p>Important: drag the <strong>files themselves</strong>, not the outer folder. <code>index.html</code> must sit at the top level.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">4</div>
+      <div class="body">
+        <h3>Save them (this is called a "commit")</h3>
+        <p>Scroll down to the box that says <strong>Commit changes</strong>. You can leave the default message ("Add files") or type something like "First upload." Then click the green <span class="btn-name">Commit changes</span> button.</p>
+        <div class="seen"><b>What you'll see</b>The page reloads and now lists all your files. That's it — your whole site is safely on GitHub. ✅</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── PHASE 2: NETLIFY ───────── -->
+  <section class="phase">
+    <span class="phase-label">Phase 2 — Connect Netlify so it goes live</span>
+    <h2>Netlify turns your GitHub files into a real website.</h2>
+    <p class="intro">Netlify watches your GitHub repo. Every time you change a file there, Netlify automatically rebuilds your live site. You connect them once here.</p>
+
+    <div class="step">
+      <div class="num">5</div>
+      <div class="body">
+        <h3>Sign up for Netlify with your GitHub account</h3>
+        <p>Go to <a href="https://app.netlify.com/signup" target="_blank" rel="noopener">app.netlify.com/signup</a> and click <span class="btn-name">GitHub</span> to sign up. Using GitHub to sign in is what links the two together. Approve the access it asks for.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">6</div>
+      <div class="body">
+        <h3>Import your repository</h3>
+        <p>On your Netlify dashboard click <span class="btn-name">Add new site</span> → <strong>Import an existing project</strong>. Choose <strong>Deploy with GitHub</strong>. If asked, authorize Netlify to see your repositories.</p>
+        <p>From the list, click your <strong>behind-the-numbers</strong> repo.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">7</div>
+      <div class="body">
+        <h3>Deploy</h3>
+        <p>A settings screen appears. You don't need to change anything — leave every box empty/default. Scroll down and click the <span class="btn-name">Deploy</span> button.</p>
+        <p>Wait about 30–60 seconds while it builds. When it's done you'll see a status of <strong>Published</strong> and a link near the top like <code>random-name-123.netlify.app</code>. Click it — that's your live site. 🎉</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">8</div>
+      <div class="body">
+        <h3>Give it a nicer name (optional)</h3>
+        <p>To change the random address, go to <strong>Site configuration</strong> → <strong>Change site name</strong>, and type something like <strong>behind-the-numbers</strong>. Your link becomes <code>behind-the-numbers.netlify.app</code> — that's the link you post on LinkedIn and share with friends.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── DAILY FLOW ───────── -->
+  <section class="daily-flow">
+    <span class="phase-label">From now on</span>
+    <h2>How you publish a new brief — the whole routine</h2>
+    <p class="intro">No folders, no Netlify, no dragging. Just edit the file on GitHub:</p>
+    <div class="flow-row">
+      <div class="fn">A</div>
+      <div class="ft">Go to your repo on <strong>github.com</strong> and click <strong>index.html</strong> to open it.</div>
+    </div>
+    <div class="flow-row">
+      <div class="fn">B</div>
+      <div class="ft">Click the <strong>pencil ✏️ icon</strong> (top‑right of the file) to edit it.</div>
+    </div>
+    <div class="flow-row">
+      <div class="fn">C</div>
+      <div class="ft">Find a Daily Brief block, copy it, paste it at the top of the list, and change the date and text. (I leave comments in the file marking exactly where.)</div>
+    </div>
+    <div class="flow-row">
+      <div class="fn">D</div>
+      <div class="ft">Click <strong>Commit changes</strong>. Netlify republishes automatically within ~30 seconds. <strong>Done.</strong></div>
+    </div>
+    <p class="intro" style="margin-top:20px;">Easier still: paste your notes to me, I rewrite the brief in your voice and hand you the updated file or the exact text to drop in.</p>
+  </section>
+
+  <!-- ───────── FAQ ───────── -->
+  <section class="faq">
+    <span class="phase-label">If something looks off</span>
+    <div class="faq-item">
+      <div class="q">My site link shows a list of files, not the website.</div>
+      <div class="a">Your <code>index.html</code> got uploaded inside a sub‑folder. Re‑upload so <code>index.html</code> sits at the top level of the repo (not inside another folder).</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">I edited a file but the live site didn't change.</div>
+      <div class="a">Give it a minute, then refresh with the cache cleared (Ctrl/Cmd+Shift+R). On Netlify, the <strong>Deploys</strong> tab shows whether the latest build finished — a green "Published" means it's live.</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">Do I ever need the "drag the folder" method again?</div>
+      <div class="a">No. That was the old way. Once GitHub and Netlify are linked, editing on GitHub is all you need. The two methods do the same job — pick one.</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">Will headlines, the date, and market data still auto‑update?</div>
+      <div class="a">Yes — those refresh on their own for every visitor regardless of how the site is hosted. This setup is only about making <em>your</em> edits easier to publish.</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">Is any of this going to cost money?</div>
+      <div class="a">No. GitHub and Netlify both have free tiers that comfortably cover a site like this. You'd only pay if you wanted a custom domain (e.g. behindthenumbers.com), which is optional.</div>
+    </div>
+  </section>
+
+  <p style="margin-top:48px; text-align:center; font-family:var(--sans); font-size:13px; color:var(--ink-faint);">
+    Keep this page for reference. It isn't linked from your public site. · <a href="index.html" style="color:var(--navy);">← Back to the site</a>
+  </p>
+
+</div>
+
+</body>
+</html>

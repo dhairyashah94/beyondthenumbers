@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ✏️ EDIT: this title appears in the browser tab and when shared on LinkedIn -->
+<title>Behind The Numbers — Daily Finance Briefs, Research &amp; Opinion</title>
+<meta name="description" content="Daily market briefs, research columns and opinion on global markets — US equities, Indian markets, macro, rates, commodities and FX.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ════════════════ TOP BAR (date fills in automatically) ════════════════ -->
+<div class="topbar">
+  <div class="wrap">
+    <span data-today="">—</span>
+    <nav>
+      <a href="#daily-briefs">Daily Brief</a>
+      <a href="#headlines">Headlines</a>
+      <a href="#market-trends">Market Trends</a>
+      <a href="#research">Research</a>
+      <a href="#opinion">Opinion</a>
+      <a href="#archive">Archive</a>
+    </nav>
+    <span class="edition">Markets Edition</span>
+  </div>
+</div>
+
+<!-- ════════════════ MASTHEAD ════════════════
+     ✏️ EDIT: publication name and tagline below -->
+<header class="masthead">
+  <div class="wrap">
+    <a class="lockup" href="index.html">
+      <span class="nameplate">Behind The Numbers</span>
+      <img src="logo-mark.png" alt="Behind The Numbers — bar chart logo mark">
+    </a>
+    <div class="tagline">Weekly Insights on Finance, Business, Markets, and Value Creation</div>
+    <hr class="double-rule">
+  </div>
+</header>
+
+<!-- ════════════════ LIVE MARKET DATA STRIP ════════════════
+     Live prices via TradingView's free widget — updates automatically,
+     nothing to maintain. To change which symbols appear, ask Claude. -->
+<div class="tickerbar">
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+      "symbols": [
+        { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" },
+        { "proName": "FOREXCOM:NSXUSD", "title": "Nasdaq 100" },
+        { "proName": "NSE:NIFTY", "title": "Nifty 50" },
+        { "proName": "BSE:SENSEX", "title": "Sensex" },
+        { "proName": "TVC:US10Y", "title": "US 10Y" },
+        { "proName": "TVC:UKOIL", "title": "Brent" },
+        { "proName": "OANDA:XAUUSD", "title": "Gold" },
+        { "proName": "FX_IDC:USDINR", "title": "USD/INR" }
+      ],
+      "showSymbolLogo": false,
+      "colorTheme": "light",
+      "isTransparent": true,
+      "displayMode": "regular",
+      "locale": "en"
+    }
+    </script>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- ════════════════ LEAD STORY (today's brief) ════════════════
+       ✏️ EDIT: this is your top story each day. Change the headline,
+       the deck (subtitle), and the byline. The "Read the full brief"
+       button links to article.html — your full post lives there. -->
+  <section class="hero">
+    <div class="hero-lead">
+      <span class="kicker">Today's Daily Brief</span>
+      <h1><a href="article.html">Markets Hold Their Breath as the Fed Weighs a September Pivot</a></h1>
+      <p class="deck">Equities drift near highs while the bond market quietly prices three cuts by year-end. The gap between those two views is where the risk lives.</p>
+      <p class="byline">By <b>Dhairya Shah</b> · 6 min read</p>  <!-- ✏️ EDIT: your name -->
+      <div class="actions">
+        <a class="btn primary" href="article.html">Read the full brief</a>
+        <button class="btn" data-share="linkedin" type="button">Share on LinkedIn</button>
+      </div>
+    </div>
+
+    <!-- ✏️ EDIT: right-hand rail — quick headlines. Swap the text freely. -->
+    <aside class="hero-rail">
+      <div class="rail-title">Also Today</div>
+      <div class="rail-item">
+        <div class="t"><a href="article.html">RBI minutes hint at a longer hold than the street expects</a></div>
+        <div class="m">Central Banks · 3 min read</div>
+      </div>
+      <div class="rail-item">
+        <div class="t"><a href="article.html">Crude's quiet rally is starting to show up in freight rates</a></div>
+        <div class="m">Commodities · 4 min read</div>
+      </div>
+      <div class="rail-item">
+        <div class="t"><a href="article.html">The dollar smile is back — and EM currencies feel it first</a></div>
+        <div class="m">FX · 3 min read</div>
+      </div>
+      <div class="rail-item">
+        <div class="t"><a href="article.html">Earnings season scorecard: margins beat, guidance disappoints</a></div>
+        <div class="m">Equities · 5 min read</div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ════════════════ TODAY'S HEADLINES ════════════════
+       Curated links to the day's big finance stories from free-to-read
+       outlets. Each headline opens the source in a new tab.
+       ✏️ EDIT: swap the headline text and the href to today's stories. -->
+  <section class="band" id="headlines">
+    <div class="section-head">
+      <h2>Today's Headlines</h2>
+      <span class="more">Free to read · across the wires</span>
+    </div>
+    <div class="headlines-list">
+      <div class="headline-row">
+        <span class="src">Reuters</span>
+        <span class="hl"><a href="https://www.reuters.com/markets/" target="_blank" rel="noopener">Wall Street steadies as crude slips ahead of the make-or-break CPI print</a></span>
+        <span class="ago">Markets</span>
+      </div>
+      <div class="headline-row">
+        <span class="src">AP News</span>
+        <span class="hl"><a href="https://apnews.com/hub/business" target="_blank" rel="noopener">Oil eases as markets weigh hopes for de-escalation in the Gulf</a></span>
+        <span class="ago">Business</span>
+      </div>
+      <div class="headline-row">
+        <span class="src">CNBC</span>
+        <span class="hl"><a href="https://www.cnbc.com/markets/" target="_blank" rel="noopener">Dow holds near a record as investors rotate out of chipmakers</a></span>
+        <span class="ago">Live</span>
+      </div>
+      <div class="headline-row">
+        <span class="src">Yahoo Finance</span>
+        <span class="hl"><a href="https://finance.yahoo.com/" target="_blank" rel="noopener">All eyes on May CPI: the number that decides the Fed's next move</a></span>
+        <span class="ago">Economy</span>
+      </div>
+      <div class="headline-row">
+        <span class="src">BBC Business</span>
+        <span class="hl"><a href="https://www.bbc.com/news/business" target="_blank" rel="noopener">ECB expected to raise rates again Thursday as inflation proves sticky</a></span>
+        <span class="ago">World</span>
+      </div>
+      <div class="headline-row">
+        <span class="src">The Guardian</span>
+        <span class="hl"><a href="https://www.theguardian.com/business" target="_blank" rel="noopener">Treasury yields stay elevated as a soft 10-year auction tests demand</a></span>
+        <span class="ago">Markets</span>
+      </div>
+      <div class="headline-row">
+        <span class="src">Economic Times</span>
+        <span class="hl"><a href="https://economictimes.indiatimes.com/markets" target="_blank" rel="noopener">Sensex, Nifty hold steady as the rupee firms on returning foreign flows</a></span>
+        <span class="ago">India</span>
+      </div>
+      <div class="headline-row">
+        <span class="src">Moneycontrol</span>
+        <span class="hl"><a href="https://www.moneycontrol.com/news/business/markets/" target="_blank" rel="noopener">IPO pipeline heats up after Quantinuum's blockbuster debut</a></span>
+        <span class="ago">Deals</span>
+      </div>
+    </div>
+    <p class="headlines-note">Updates automatically — pulls the day's top finance stories from across the wires. Each headline opens the source in a new tab. (If the live feed is unavailable, the headlines above are shown as a fallback.)</p>
+  </section>
+
+  <!-- ════════════════ DAILY BRIEFS ════════════════
+       ✏️ EDIT: your three most recent briefs. To add a new day, copy one
+       whole <article>...</article> block, paste it first, edit the text,
+       and delete the oldest one. -->
+  <section class="band" id="daily-briefs">
+    <div class="section-head">
+      <h2>Daily Briefs</h2>
+      <a class="more" href="#archive">All briefs →</a>
+    </div>
+    <div class="story-grid">
+      <article class="story">
+        <span class="kicker">June 9</span>
+        <h3><a href="article.html">Oil Slips on De-escalation Hopes, and Suddenly the Rally Can Breathe Again</a></h3>
+        <p>Crude fell 2% on signs the Gulf standoff may cool, and equities exhaled into the CPI print. The whole week's risk appetite is being rented from the oil tape.</p>
+        <p class="byline">By <b>Dhairya Shah</b></p>
+      </article>
+      <article class="story">
+        <span class="kicker">June 8</span>
+        <h3><a href="article.html">The Dow's Record Hides a Rotation Out of Everything AI</a></h3>
+        <p>The index printed a fresh high while chipmakers quietly bled. When the average rises on defensives and the leaders fall, that is not strength — it is a changing of the guard.</p>
+        <p class="byline">By <b>Dhairya Shah</b></p>
+      </article>
+      <article class="story">
+        <span class="kicker">June 5</span>
+        <h3><a href="article.html">Quantinuum's Blockbuster Debut Says the IPO Window Is Wide Open</a></h3>
+        <p>A $1.7bn raise at a $17bn-plus valuation cleared with room to spare. The pipeline behind it — SpaceX included — just got a green light the bankers will not waste.</p>
+        <p class="byline">By <b>Dhairya Shah</b></p>
+      </article>
+      <article class="story">
+        <span class="kicker">June 4</span>
+        <h3><a href="article.html">Treasury Auctions Are the Quiet Risk Nobody Is Pricing</a></h3>
+        <p>Yields stayed stubbornly elevated even as stocks recovered, and demand at recent auctions has been tepid. The bond market is the adult in the room this week.</p>
+        <p class="byline">By <b>Dhairya Shah</b></p>
+      </article>
+      <article class="story">
+        <span class="kicker">June 3</span>
+        <h3><a href="article.html">Gulf Tensions Put an Oil Bid Under Everything — Including Inflation</a></h3>
+        <p>A geopolitical premium is back in crude, and it complicates the disinflation story right as the Fed wants the all-clear. Energy is now the swing vote on rates.</p>
+        <p class="byline">By <b>Dhairya Shah</b></p>
+      </article>
+      <article class="story">
+        <span class="kicker">June 2</span>
+        <h3><a href="article.html">FIIs Are Back: Foreign Money Turns Net Buyer of Indian Equities</a></h3>
+        <p>After four months of selling, foreign institutions flipped to net buyers in May. A softer dollar and cheaper global funding are doing exactly what the playbook predicts.</p>
+        <p class="byline">By <b>Dhairya Shah</b></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ════════════════ MARKET TRENDS ════════════════
+       ✏️ EDIT: update the numbers below. Use class="chg up" for gains
+       and class="chg down" for losses. -->
+  <section class="band" id="market-trends">
+    <div class="section-head">
+      <h2>Market Trends</h2>
+      <span class="more">Weekly view</span>
+    </div>
+    <!-- Live quotes via TradingView's free widget — updates automatically. -->
+    <div class="trends-live">
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+        {
+          "width": "100%",
+          "height": 500,
+          "symbolsGroups": [
+            {
+              "name": "Equities",
+              "symbols": [
+                { "name": "FOREXCOM:SPXUSD", "displayName": "S&P 500" },
+                { "name": "FOREXCOM:NSXUSD", "displayName": "Nasdaq 100" },
+                { "name": "FOREXCOM:DJI", "displayName": "Dow Jones" },
+                { "name": "NSE:NIFTY", "displayName": "Nifty 50" },
+                { "name": "BSE:SENSEX", "displayName": "Sensex" }
+              ]
+            },
+            {
+              "name": "Rates & FX",
+              "symbols": [
+                { "name": "TVC:US10Y", "displayName": "US 10Y Yield" },
+                { "name": "TVC:US02Y", "displayName": "US 2Y Yield" },
+                { "name": "TVC:DXY", "displayName": "Dollar Index" },
+                { "name": "FX_IDC:USDINR", "displayName": "USD/INR" },
+                { "name": "FX:EURUSD", "displayName": "EUR/USD" }
+              ]
+            },
+            {
+              "name": "Commodities",
+              "symbols": [
+                { "name": "TVC:UKOIL", "displayName": "Brent Crude" },
+                { "name": "TVC:USOIL", "displayName": "WTI Crude" },
+                { "name": "OANDA:XAUUSD", "displayName": "Gold" },
+                { "name": "OANDA:XAGUSD", "displayName": "Silver" },
+                { "name": "NYMEX:NG1!", "displayName": "Nat Gas" }
+              ]
+            }
+          ],
+          "showSymbolLogo": false,
+          "colorTheme": "light",
+          "isTransparent": true,
+          "locale": "en"
+        }
+        </script>
+      </div>
+    </div>
+    <p class="trends-note">Live market data — updates automatically. Powered by TradingView's free widget.</p>
+  </section>
+
+  <!-- ════════════════ RESEARCH COLUMNS ════════════════
+       ✏️ EDIT: longer deep-dives. The striped boxes are image
+       placeholders — replace each <div class="ph">…</div> with
+       <img src="your-image.jpg" alt=""> when you have a chart or photo. -->
+  <section class="band" id="research">
+    <div class="section-head">
+      <h2>Research Columns</h2>
+      <span class="more">Deep dives, weekly</span>
+    </div>
+    <div class="research-grid">
+      <article class="story research-card">
+        <div class="ph"><span>chart: SpaceX sum-of-the-parts valuation</span></div>
+        <span class="kicker">Equity Research</span>
+        <h3><a href="spacex-ipo-valuation.html">The SpaceX IPO Math: What a $400 Billion Listing Has to Prove</a></h3>
+        <p>We pull Starlink and launch apart, build the revenue bridge to 2030, and run bull, base and bear cases. Roughly four-fifths of the value sits in one place — and it isn't the rockets.</p>
+        <p class="byline">By <b>Dhairya Shah</b> · 18 min read</p>
+      </article>
+      <article class="story research-card">
+        <div class="ph"><span>chart: FII vs DII flows, 5 years</span></div>
+        <span class="kicker">India Markets</span>
+        <h3><a href="article.html">The Quiet Handover: How Domestic Money Took Over Indian Equities</a></h3>
+        <p>Foreign investors sold $18bn over two years and the Nifty barely blinked. SIP flows have structurally changed who sets the price in Mumbai.</p>
+        <p class="byline">By <b>Dhairya Shah</b> · 10 min read</p>
+      </article>
+      <article class="story research-card">
+        <div class="ph"><span>chart: real yields vs gold price</span></div>
+        <span class="kicker">Commodities</span>
+        <h3><a href="article.html">Gold at $2,900: Hedge, Habit, or Bubble?</a></h3>
+        <p>The old playbook said gold falls when real yields rise. That correlation broke in 2024 and never came back. Central bank buying explains most of it.</p>
+        <p class="byline">By <b>Dhairya Shah</b> · 9 min read</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ════════════════ OPINION ════════════════
+       ✏️ EDIT: your commentary pieces. The circle shows your initials —
+       change the two letters inside <div class="op-avatar"> to yours. -->
+  <section class="band" id="opinion">
+    <div class="section-head">
+      <h2>Opinion &amp; Commentary</h2>
+      <span class="more">Signed columns</span>
+    </div>
+    <div class="opinion-list">
+      <div class="op-item">
+        <div class="op-avatar">DS</div>
+        <div>
+          <h3><a href="article.html">Stop Calling Every Dip a Buying Opportunity</a></h3>
+          <p class="byline">By <b>Dhairya Shah</b> · June 8</p>
+        </div>
+      </div>
+      <div class="op-item">
+        <div class="op-avatar">DS</div>
+        <div>
+          <h3><a href="article.html">The SIP Investor Is the Most Underrated Force in Global Markets</a></h3>
+          <p class="byline">By <b>Dhairya Shah</b> · June 4</p>
+        </div>
+      </div>
+      <div class="op-item">
+        <div class="op-avatar">DS</div>
+        <div>
+          <h3><a href="article.html">Why I Don't Trust This Earnings Season's "Beats"</a></h3>
+          <p class="byline">By <b>Dhairya Shah</b> · June 2</p>
+        </div>
+      </div>
+      <div class="op-item">
+        <div class="op-avatar">DS</div>
+        <div>
+          <h3><a href="article.html">Cash Is a Position. Treat It Like One.</a></h3>
+          <p class="byline">By <b>Dhairya Shah</b> · May 29</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ ARCHIVE ════════════════
+       ✏️ EDIT: one row per past post. Copy a row, paste it at the top,
+       and edit the date, category and headline. -->
+  <section class="band" id="archive">
+    <div class="section-head">
+      <h2>Archive</h2>
+      <span class="more">Past editions</span>
+    </div>
+    <div class="archive-list">
+      <div class="archive-row"><span class="d">Jun 10, 2026</span><span class="c">Research</span><span class="t"><a href="spacex-ipo-valuation.html">The SpaceX IPO Math: What a $400 Billion Listing Has to Prove</a></span></div>
+      <div class="archive-row"><span class="d">Jun 09, 2026</span><span class="c">Daily Brief</span><span class="t"><a href="article.html">Oil Slips on De-escalation Hopes, and Suddenly the Rally Can Breathe Again</a></span></div>
+      <div class="archive-row"><span class="d">Jun 08, 2026</span><span class="c">Daily Brief</span><span class="t"><a href="article.html">The Dow's Record Hides a Rotation Out of Everything AI</a></span></div>
+      <div class="archive-row"><span class="d">Jun 05, 2026</span><span class="c">Daily Brief</span><span class="t"><a href="article.html">Quantinuum's Blockbuster Debut Says the IPO Window Is Wide Open</a></span></div>
+      <div class="archive-row"><span class="d">Jun 04, 2026</span><span class="c">Daily Brief</span><span class="t"><a href="article.html">Treasury Auctions Are the Quiet Risk Nobody Is Pricing</a></span></div>
+      <div class="archive-row"><span class="d">Jun 03, 2026</span><span class="c">Daily Brief</span><span class="t"><a href="article.html">Gulf Tensions Put an Oil Bid Under Everything — Including Inflation</a></span></div>
+      <div class="archive-row"><span class="d">Jun 02, 2026</span><span class="c">Daily Brief</span><span class="t"><a href="article.html">FIIs Are Back: Foreign Money Turns Net Buyer of Indian Equities</a></span></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ════════════════ NEWSLETTER ════════════════
+     Subscriptions run through your LinkedIn newsletter — free,
+     one click for readers, and grows your LinkedIn audience. -->
+<section class="newsletter">
+  <div class="wrap inner">
+    <div>
+      <h2>The brief, before the bell.</h2>
+      <p>Weekly insights on finance, business, markets, and value creation — delivered straight to your LinkedIn feed and inbox. No noise, no spam.</p>
+    </div>
+    <div>
+      <a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7466052500509351936" target="_blank" rel="noopener">Subscribe on LinkedIn</a>
+      <p class="form-note">One click · free forever · unsubscribe anytime.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════
+     ✏️ EDIT: the about text, your LinkedIn URL, and the credit line. -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="brand">Behind The Numbers</div>
+        <p>Independent daily analysis of global markets — US equities, Indian markets, macro, rates, commodities and FX. Written by <b>Dhairya Shah</b>.</p>
+      </div>
+      <div>
+        <h4>Sections</h4>
+        <ul>
+          <li><a href="#daily-briefs">Daily Briefs</a></li>
+          <li><a href="#headlines">Today's Headlines</a></li>
+          <li><a href="#market-trends">Market Trends</a></li>
+          <li><a href="#research">Research Columns</a></li>
+          <li><a href="#opinion">Opinion</a></li>
+          <li><a href="#archive">Archive</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <!-- ✏️ EDIT: paste your real LinkedIn profile URL below -->
+          <li><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7466052500509351936" target="_blank" rel="noopener">Subscribe on LinkedIn</a></li>
+          <li><a href="https://www.linkedin.com/in/dhairya-shah-41382b75" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="article.html#comments">Join the discussion</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Behind The Numbers. All views are personal and not investment advice.</span>
+      <span class="visit-counter" id="visit-counter" hidden="hidden">
+        <span class="visit-dot"></span><span class="visit-num" id="visit-count">—</span> visits
+      </span>
+      <span data-today="">—</span>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+</body>
+</html>
