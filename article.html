@@ -68,6 +68,19 @@
     <h2>What the bond market sees</h2>
     <p>The 2-year yield, the purest read on Fed expectations, has fallen 38 basis points since early April. That is not a panic move — it is a steady, deliberate repricing, the kind that happens when institutional money changes its mind slowly and then all at once. The curve has re-steepened to its widest level of the cycle, which historically happens for one of two reasons: the market expects cuts into a soft landing, or it expects cuts into something worse.</p>
 
+    <!-- ✏️ CHART: edit the numbers in data-series to update the line.
+         data-labels can be sparse (blank entries are skipped). -->
+    <figure class="figure">
+      <figcaption class="fig-cap">The market is quietly repricing the Fed
+        <span class="fig-cap-sub">US 2-year Treasury yield, %, weekly — down 38bps since early April</span>
+      </figcaption>
+      <div class="chart" data-chart="line"
+           data-series="4.72,4.70,4.63,4.66,4.57,4.54,4.48,4.45,4.40,4.36,4.34"
+           data-labels="Apr,,,,May,,,,,,Jun"
+           data-unit="%"></div>
+      <p class="fig-src">Source: Behind The Numbers analysis · Treasury yield data. Illustrative.</p>
+    </figure>
+
     <div class="pull">"Equities are priced for the first scenario. Bonds are hedging the second. Both cannot be fully right."</div>
 
     <p>Equities, for their part, are priced for the benign version. The index trades at 21.5x forward earnings, with the median analyst still penciling in double-digit earnings growth for next year. That is a forecast that leaves very little room for the labor market to be telling us something real.</p>
@@ -172,5 +185,6 @@
 </footer>
 
 <script src="site.js"></script>
+<script src="charts.js"></script>
 </body>
 </html>
