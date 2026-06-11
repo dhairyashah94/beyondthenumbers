@@ -245,7 +245,7 @@
     script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js';
     script.async = true;
     script.text = JSON.stringify({
-      symbols: [[item.n + '|' + item.s + '|12M']],
+      symbols: [[item.n, item.s + '|12M']],
       chartOnly: false,
       width: '100%',
       height: 400,
