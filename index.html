@@ -76,11 +76,11 @@
   <section class="hero">
     <div class="hero-lead">
       <span class="kicker">Today's Daily Brief</span>
-      <h1><a href="daily-brief-2026-06-10.html">Ceasefire Breaks, Oil Holds $91 — and a CPI Print the Fed Can't Ignore</a></h1>
-      <p class="deck">The US resumed strikes on Iran overnight after an Apache was downed over the Strait of Hormuz. Risk assets wobbled, crude held firm — and now markets walk into a May inflation report that could cement the Fed's hold, or worse.</p>
+      <h1><a href="daily-brief-2026-06-11.html">A 4.2% CPI Meets a Two-Front War — and the Fed's Next Move May Be a Hike</a></h1>
+      <p class="deck">The hottest inflation print in three years collided with a second day of US strikes on Iran. The Dow lost 953 points, Brent holds near $96 — and futures now price a rate increase, not a cut, as the Fed's most likely next move.</p>
       <p class="byline">By <b>Dhairya Shah</b> · 6 min read</p>  <!-- ✏️ EDIT: your name -->
       <div class="actions">
-        <a class="btn primary" href="daily-brief-2026-06-10.html">Read the full brief</a>
+        <a class="btn primary" href="daily-brief-2026-06-11.html">Read the full brief</a>
         <button class="btn" data-share="linkedin" type="button">Share on LinkedIn</button>
       </div>
     </div>
@@ -383,6 +383,7 @@
       <span class="more">Past editions</span>
     </div>
     <div class="archive-list">
+      <div class="archive-row"><span class="d">Jun 11, 2026</span><span class="c">Daily Brief</span><span class="t"><a href="daily-brief-2026-06-11.html">A 4.2% CPI Meets a Two-Front War — and the Fed's Next Move May Be a Hike</a></span></div>
       <div class="archive-row"><span class="d">Jun 10, 2026</span><span class="c">Daily Brief</span><span class="t"><a href="daily-brief-2026-06-10.html">Ceasefire Breaks, Oil Holds $91 — and a CPI Print the Fed Can't Ignore</a></span></div>
       <div class="archive-row"><span class="d">Jun 10, 2026</span><span class="c">Research</span><span class="t"><a href="spacex-ipo-valuation.html">The SpaceX IPO Math: What a $400 Billion Listing Has to Prove</a></span></div>
       <div class="archive-row"><span class="d">Jun 09, 2026</span><span class="c">Daily Brief</span><span class="t"><a href="article.html">Oil Slips on De-escalation Hopes, and Suddenly the Rally Can Breathe Again</a></span></div>
@@ -399,15 +400,20 @@
 <!-- ════════════════ NEWSLETTER ════════════════
      Subscriptions run through your LinkedIn newsletter — free,
      one click for readers, and grows your LinkedIn audience. -->
-<section class="newsletter">
+<section class="newsletter" id="newsletter">
   <div class="wrap inner">
     <div>
       <h2>The brief, before the bell.</h2>
-      <p>Weekly insights on finance, business, markets, and value creation — delivered straight to your LinkedIn feed and inbox. No noise, no spam.</p>
+      <p>The daily brief in your inbox every market morning — markets, macro, rates, commodities and India. Six minutes, no noise, no spam.</p>
     </div>
     <div>
-      <a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7466052500509351936" target="_blank" rel="noopener">Subscribe on LinkedIn</a>
-      <p class="form-note">One click · free forever · unsubscribe anytime.</p>
+      <form name="daily-brief" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" data-subscribe="">
+        <input type="hidden" name="form-name" value="daily-brief">
+        <p hidden="hidden" aria-hidden="true" style="display:none;"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <input type="email" name="email" placeholder="you@example.com" required="required" aria-label="Email address">
+        <button class="btn" type="submit">Subscribe</button>
+      </form>
+      <p class="form-note">Free · every market morning · unsubscribe anytime. Prefer LinkedIn? <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7466052500509351936" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">Subscribe there instead</a>.</p>
     </div>
   </div>
 </section>
@@ -436,6 +442,7 @@
         <h4>Connect</h4>
         <ul>
           <!-- ✏️ EDIT: paste your real LinkedIn profile URL below -->
+          <li><a href="#newsletter">Subscribe by email</a></li>
           <li><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7466052500509351936" target="_blank" rel="noopener">Subscribe on LinkedIn</a></li>
           <li><a href="https://www.linkedin.com/in/dhairya-shah-41382b75" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="article.html#comments">Join the discussion</a></li>
@@ -453,6 +460,7 @@
 </footer>
 
 <script src="site.js"></script>
+<script src="search.js"></script>
 <script src="charts.js"></script>
 </body>
 </html>
