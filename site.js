@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════
    BEHIND THE NUMBERS — site behavior
-   (dates, share buttons, comments, newsletter)
+   (dates, share buttons, live headlines, newsletter)
    You don't need to edit this file.
    ═══════════════════════════════════════════════════════════════ */
 
@@ -48,70 +48,6 @@
       }
     }
   });
-
-  // ── Comments (stored in each reader's browser) ──────────────
-  // For real shared comments visible to everyone, see the
-  // Publishing Guide — it explains the free Giscus option.
-  var form = document.getElementById('comment-form');
-  var list = document.getElementById('comment-list');
-
-  function initials(name) {
-    return name.trim().split(/\s+/).slice(0, 2).map(function (w) { return w[0]; }).join('').toUpperCase();
-  }
-
-  function renderComment(c) {
-    var div = document.createElement('div');
-    div.className = 'comment';
-    var av = document.createElement('div');
-    av.className = 'op-avatar';
-    av.textContent = initials(c.name || '?');
-    var body = document.createElement('div');
-    var who = document.createElement('div');
-    who.className = 'who';
-    who.textContent = c.name;
-    var when = document.createElement('span');
-    when.className = 'when';
-    when.textContent = c.when;
-    who.appendChild(when);
-    var what = document.createElement('div');
-    what.className = 'what';
-    what.textContent = c.text;
-    body.appendChild(who);
-    body.appendChild(what);
-    div.appendChild(av);
-    div.appendChild(body);
-    list.appendChild(div);
-  }
-
-  if (form && list) {
-    var storeKey = 'btn-comments-' + (document.body.getAttribute('data-article-id') || 'page');
-    var saved = [];
-    try { saved = JSON.parse(localStorage.getItem(storeKey) || '[]'); } catch (err) { saved = []; }
-    saved.forEach(renderComment);
-    var countEl = document.getElementById('comment-count');
-    function updateCount() {
-      if (countEl) countEl.textContent = list.querySelectorAll('.comment').length;
-    }
-    updateCount();
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var name = form.querySelector('[name="name"]').value.trim();
-      var text = form.querySelector('[name="text"]').value.trim();
-      if (!name || !text) return;
-      var c = {
-        name: name,
-        text: text,
-        when: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-      };
-      saved.push(c);
-      try { localStorage.setItem(storeKey, JSON.stringify(saved)); } catch (err) {}
-      renderComment(c);
-      updateCount();
-      form.reset();
-      showToast('Comment posted');
-    });
-  }
 
   // ── Newsletter form ─────────────────────────────────────────
   var nl = document.getElementById('newsletter-form');
@@ -188,63 +124,6 @@
         if (moreEl) moreEl.textContent = 'Live · updates automatically';
       })
       .catch(function () { /* keep the static fallback headlines */ });
-  }
-
-  // ── Visit counter ───────────────────────────────────────────
-  // ✏️ TO SHOW REAL TOTAL VISITS ACROSS ALL VISITORS (free, 2 min):
-  //   1. Make a free account at https://www.goatcounter.com
-  //   2. It gives you a code (your subdomain), e.g. "behindthenumbers"
-  //   3. Put that code between the quotes below, replacing the blank.
-  // Until you do, the footer shows visits counted in each reader's own
-  // browser, so the number is always real-looking and never stuck at 0.
-  var GOATCOUNTER_CODE = "";  // ← e.g. "behindthenumbers"
-
-  var counterWrap = document.getElementById('visit-counter');
-  var counterNum = document.getElementById('visit-count');
-
-  function fmt(n) {
-    return Number(n).toLocaleString('en-US');
-  }
-  function showCount(n) {
-    if (!counterWrap || !counterNum) return;
-    counterNum.textContent = fmt(n);
-    counterWrap.hidden = false;
-  }
-
-  // Local fallback: counts page views stored in this reader's browser.
-  function localCount() {
-    var key = 'btn-visits';
-    var n = 0;
-    try { n = parseInt(localStorage.getItem(key) || '0', 10) || 0; } catch (e) {}
-    n += 1;
-    try { localStorage.setItem(key, String(n)); } catch (e) {}
-    return n;
-  }
-
-  if (counterWrap && counterNum) {
-    if (GOATCOUNTER_CODE && GOATCOUNTER_CODE.indexOf('YOUR') === -1) {
-      // Real shared counter via GoatCounter (records this visit + reads total).
-      var base = 'https://' + GOATCOUNTER_CODE + '.goatcounter.com';
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://gc.zgo.at/count.js';
-      s.setAttribute('data-goatcounter', base + '/count');
-      document.body.appendChild(s);
-
-      fetch(base + '/counter/' + encodeURIComponent(location.pathname) + '.json')
-        .then(function (r) { return r.json(); })
-        .then(function (d) {
-          // d.count is total pageviews for this path; use site-wide total instead:
-          return fetch(base + '/counter/TOTAL.json').then(function (r2) { return r2.json(); });
-        })
-        .then(function (d) {
-          var c = (d && d.count) ? String(d.count).replace(/[^0-9]/g, '') : null;
-          showCount(c || localCount());
-        })
-        .catch(function () { showCount(localCount()); });
-    } else {
-      showCount(localCount());
-    }
   }
 })();
 

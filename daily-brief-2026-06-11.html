@@ -19,7 +19,6 @@
       <a href="index.html#headlines">Headlines</a>
       <a href="index.html#market-trends">Market Trends</a>
       <a href="index.html#research">Research</a>
-      <a href="index.html#opinion">Opinion</a>
       <a href="index.html#archive">Archive</a>
     </nav>
     <span class="edition">Markets Edition</span>
@@ -195,6 +194,8 @@
         <div class="t">Get the next brief in your inbox.</div>
         <div class="s">Every market morning, free. Unsubscribe anytime.</div>
       </div>
+      <!-- Subscriber emails are captured by Netlify Forms: submissions appear
+           under Netlify dashboard → Forms → "daily-brief". -->
       <form name="daily-brief" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" data-subscribe="">
         <input type="hidden" name="form-name" value="daily-brief">
         <p hidden="hidden" aria-hidden="true" style="display:none;"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
@@ -213,24 +214,6 @@
       </div>
     </div>
   </div>
-
-  <!-- ════════════════ COMMENTS ════════════════ -->
-  <section class="comments" id="comments">
-    <div class="section-head">
-      <h2>Comments (<span id="comment-count">0</span>)</h2>
-    </div>
-    <div id="comment-list"></div>
-    <form class="comment-form" id="comment-form">
-      <div class="row">
-        <input type="text" name="name" placeholder="Your name" required="required">
-        <textarea name="text" rows="4" placeholder="Share your view — what did this brief get right or wrong?" required="required"></textarea>
-      </div>
-      <div class="actions">
-        <button class="btn primary" type="submit">Post comment</button>
-        <span class="note">Be civil. Markets are hard for everyone.</span>
-      </div>
-    </form>
-  </section>
 </article>
 
 <!-- ════════════════ FOOTER ════════════════ -->
@@ -247,7 +230,6 @@
           <li><a href="index.html#daily-briefs">Daily Briefs</a></li>
           <li><a href="index.html#market-trends">Market Trends</a></li>
           <li><a href="index.html#research">Research Columns</a></li>
-          <li><a href="index.html#opinion">Opinion</a></li>
           <li><a href="index.html#archive">Archive</a></li>
         </ul>
       </div>
@@ -255,15 +237,11 @@
         <h4>Connect</h4>
         <ul>
           <li><a href="https://www.linkedin.com/in/dhairya-shah-41382b75" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="#comments">Join the discussion</a></li>
         </ul>
       </div>
     </div>
     <div class="legal">
       <span>© 2026 Behind The Numbers. All views are personal and not investment advice.</span>
-      <span class="visit-counter" id="visit-counter" hidden="hidden">
-        <span class="visit-dot"></span><span class="visit-num" id="visit-count">—</span> visits
-      </span>
       <span data-today="">—</span>
     </div>
   </div>
