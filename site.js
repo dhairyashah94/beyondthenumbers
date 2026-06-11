@@ -247,3 +247,46 @@
     }
   }
 })();
+
+/* ═══════════════════════════════════════════════════════════════
+   Newsletter subscribe forms (Netlify Forms)
+   Any <form data-subscribe> is submitted in the background; on
+   success the form is replaced with a thank-you note. Works only
+   on the live Netlify site — locally it shows a polite fallback.
+   ═══════════════════════════════════════════════════════════════ */
+(function () {
+  var forms = document.querySelectorAll('form[data-subscribe]');
+  forms.forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      var email = (form.querySelector('input[name="email"]') || {}).value || '';
+      if (btn) { btn.disabled = true; btn.textContent = 'Subscribing…'; }
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error('bad status');
+          var ok = document.createElement('div');
+          ok.className = 'form-success';
+          ok.innerHTML = 'You\u2019re in. \u2713<small>The next brief lands in your inbox before the bell \u2014 ' +
+            email.replace(/[<>&]/g, '') + '</small>';
+          form.parentNode.replaceChild(ok, form);
+        })
+        .catch(function () {
+          if (btn) { btn.disabled = false; btn.textContent = 'Subscribe'; }
+          var note = form.querySelector('.form-error');
+          if (!note) {
+            note = document.createElement('p');
+            note.className = 'form-error';
+            note.style.cssText = 'font-family: var(--sans); font-size: 12.5px; margin-top: 8px; color: #E8A598; flex-basis: 100%;';
+            form.appendChild(note);
+          }
+          note.textContent = 'That didn\u2019t go through \u2014 please try again, or subscribe via LinkedIn below.';
+        });
+    });
+  });
+})();

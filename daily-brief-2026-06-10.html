@@ -174,8 +174,20 @@
     </p>
   </div>
 
-  <!-- ════════════════ DISCUSS ON LINKEDIN ════════════════ -->
+  <!-- ════════════════ SUBSCRIBE + DISCUSS ════════════════ -->
   <div class="article-end">
+    <div class="subscribe-panel">
+      <div>
+        <div class="t">Get the next brief in your inbox.</div>
+        <div class="s">Every market morning, free. Unsubscribe anytime.</div>
+      </div>
+      <form name="daily-brief" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" data-subscribe="">
+        <input type="hidden" name="form-name" value="daily-brief">
+        <p hidden="hidden" aria-hidden="true" style="display:none;"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <input type="email" name="email" placeholder="you@example.com" required="required" aria-label="Email address">
+        <button class="btn" type="submit">Subscribe</button>
+      </form>
+    </div>
     <div class="discuss-panel">
       <div>
         <div class="t">Agree? Disagree? Take it to LinkedIn.</div>
@@ -244,6 +256,7 @@
 </footer>
 
 <script src="site.js"></script>
+<script src="search.js"></script>
 <script src="charts.js"></script>
 </body>
 </html>
