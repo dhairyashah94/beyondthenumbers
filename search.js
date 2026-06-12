@@ -53,7 +53,7 @@
     { s: 'NASDAQ:IXIC', n: 'Nasdaq Composite', t: 'Index', k: 'tech' },
     { s: 'DJ:DJI', n: 'Dow Jones Industrial', t: 'Index', k: 'dow' },
     { s: 'NSE:NIFTY', n: 'Nifty 50', t: 'Index · India', k: 'nifty india' },
-    { s: 'BSE:SENSEX', n: 'Sensex', t: 'Index · India', k: 'bse india' },
+    { s: 'INDEX:SENSEX', n: 'Sensex', t: 'Index · India', k: 'bse india' },
     { s: 'TVC:NI225', n: 'Nikkei 225', t: 'Index · Japan', k: 'japan' },
     { s: 'TVC:HSI', n: 'Hang Seng', t: 'Index · HK', k: 'hong kong china' },
     { s: 'TVC:DXY', n: 'US Dollar Index', t: 'Index', k: 'dxy dollar' },
