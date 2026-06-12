@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oracle Q4 FY2026 — Earnings Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root{
+    --bg:#0B0E13; --bg2:#0F141B; --surface:#141A22; --surface2:#1A212B;
+    --line:#222B38; --line2:#2C3645;
+    --text:#E8EBF0; --dim:#98A2B2; --faint:#5F6A7A;
+    --grow:#2DD4BF; --grow-soft:#5EEAD4; --grow-deep:#0E5F57;
+    --burn:#F0553B; --burn-deep:#5A1F16;
+    --warn:#E2A53F;
+    --slate:#6C82A6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:'Inter',system-ui,sans-serif;
+    font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    padding:0 18px 60px;
+  }
+  .wrap{max-width:880px;margin:0 auto}
+
+  /* recurring duality rule: demand(teal) -> cost(red) */
+  .rule{height:2px;border:0;background:linear-gradient(90deg,var(--grow) 0%,var(--slate) 50%,var(--burn) 100%);opacity:.85;border-radius:2px}
+
+  /* ---------- HERO ---------- */
+  header{padding:54px 0 30px}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--dim); display:flex; flex-wrap:wrap; gap:6px 14px; align-items:center;
+  }
+  .eyebrow .tick{color:var(--burn)}
+  h1{
+    font-family:'Space Grotesk',sans-serif; font-weight:700;
+    font-size:clamp(38px,8.5vw,68px); line-height:1.02; letter-spacing:-.02em;
+    margin:20px 0 0;
+  }
+  h1 .em{color:var(--burn)}
+  .dek{font-size:clamp(16px,2.4vw,19px); color:var(--dim); max-width:60ch; margin-top:20px; line-height:1.55}
+  .verdict{
+    margin-top:26px; display:flex; align-items:flex-start; gap:13px;
+    background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--burn);
+    border-radius:10px; padding:15px 17px; font-size:14.5px; color:var(--text);
+  }
+  .verdict .arrow{font-family:'JetBrains Mono',monospace;color:var(--burn);font-weight:700;font-size:16px;line-height:1.5}
+  .verdict b{color:#fff}
+
+  /* ---------- SCORECARD ---------- */
+  .scorecard{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:40px}
+  .tile{background:var(--surface);padding:18px 16px 16px;min-height:108px;display:flex;flex-direction:column;justify-content:space-between}
+  .tile.warnT{background:linear-gradient(180deg,#191116,#151016)}
+  .tile .lab{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+  .tile .val{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(24px,5vw,32px);letter-spacing:-.01em;line-height:1;margin-top:10px}
+  .tile .val.red{color:var(--burn)}
+  .tile .delta{font-family:'JetBrains Mono',monospace;font-size:12px;margin-top:8px;color:var(--grow-soft)}
+  .tile .delta.red{color:var(--burn)}
+  .tile .delta.neutral{color:var(--faint)}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:50px 0 8px}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+  .sec-num{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint);letter-spacing:.1em;padding-top:6px}
+  h2{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(24px,5vw,34px);letter-spacing:-.015em;line-height:1.08}
+  h2 .accentG{color:var(--grow)} h2 .accentR{color:var(--burn)}
+  .read{font-size:15.5px;color:#C7CDD8;max-width:64ch;margin-top:14px;line-height:1.62}
+  .read b{color:#fff;font-weight:600}
+  .read .g{color:var(--grow-soft);font-weight:600} .read .r{color:var(--burn);font-weight:600}
+
+  .chart-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 14px 14px;margin-top:22px}
+  .chart-title{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--dim);padding:0 4px 4px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+  .chart-title .unit{color:var(--faint)}
+  .chart-wrap{position:relative;height:300px;width:100%}
+  .chart-cap{font-size:12px;color:var(--faint);margin-top:10px;padding:0 4px;line-height:1.5}
+
+  /* ---------- BULL / BEAR ---------- */
+  .bullbear{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+  .col{border:1px solid var(--line);border-radius:14px;padding:20px 18px;background:var(--surface)}
+  .col.bull{border-top:3px solid var(--grow)}
+  .col.bear{border-top:3px solid var(--burn)}
+  .col h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:18px;display:flex;align-items:center;gap:9px;margin-bottom:14px}
+  .col.bull h3{color:var(--grow)} .col.bear h3{color:var(--burn)}
+  .col h3 .sig{font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:700}
+  .col ul{list-style:none}
+  .col li{font-size:13.8px;color:#C7CDD8;padding:9px 0 9px 16px;position:relative;border-top:1px solid var(--line);line-height:1.5}
+  .col li:first-child{border-top:0}
+  .col li::before{content:"";position:absolute;left:0;top:16px;width:6px;height:6px;border-radius:1px}
+  .col.bull li::before{background:var(--grow)} .col.bear li::before{background:var(--burn)}
+  .col li b{color:#fff}
+
+  /* ---------- DATA TABLE ---------- */
+  .tbl-wrap{margin-top:22px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  thead th{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--dim);text-align:right;padding:13px 14px;background:var(--surface2)}
+  thead th:first-child{text-align:left}
+  tbody td{padding:11px 14px;text-align:right;border-top:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--text)}
+  tbody td:first-child{text-align:left;font-family:'Inter',sans-serif;color:var(--dim);font-size:13px}
+  tbody tr:nth-child(even){background:#11161e}
+  .pos{color:var(--grow-soft)} .neg{color:var(--burn)} .flat{color:var(--faint)}
+  .grp td{background:var(--surface2);color:var(--faint);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;text-align:left;padding:8px 14px}
+
+  /* ---------- WATCH ---------- */
+  .watch{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .watch .w{background:var(--surface);padding:18px}
+  .watch .w .q{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:#fff;margin-bottom:7px}
+  .watch .w .a{font-size:13px;color:var(--dim);line-height:1.5}
+
+  footer{margin-top:46px;padding-top:22px;border-top:1px solid var(--line);font-size:11.5px;color:var(--faint);line-height:1.7}
+  footer b{color:var(--dim)}
+  .src{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.03em}
+
+  @media(max-width:620px){
+    body{padding:0 14px 48px}
+    .scorecard{grid-template-columns:repeat(2,1fr)}
+    .bullbear{grid-template-columns:1fr}
+    .watch{grid-template-columns:1fr}
+    .chart-wrap{height:280px}
+    .verdict{flex-direction:row}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">
+      <span>Earnings Brief</span><span class="tick">·</span><span>NYSE: ORCL</span><span class="tick">·</span><span>Reported June 10, 2026</span><span class="tick">·</span><span>FY ends May 31</span>
+    </div>
+    <h1>Record everything —<br><span class="em">except cash.</span></h1>
+    <p class="dek">Oracle closed fiscal 2026 with a $638&nbsp;billion backlog and 93% cloud-infrastructure growth. It also burned $23.7&nbsp;billion in free cash flow building the data centers meant to deliver it. The market, already nervous, mostly shrugged.</p>
+    <div class="verdict">
+      <span class="arrow">▼</span>
+      <div>Shares slipped <b>~2%</b> on the print — after sliding roughly <b>16%</b> in the week heading in. A clean beat on revenue, EPS and backlog, yet it didn't settle the question hanging over the stock: <b>when does the cash burn turn?</b></div>
+    </div>
+
+    <div class="scorecard">
+      <div class="tile"><div class="lab">Q4 Revenue</div><div class="val">$19.2B</div><div class="delta">▲ 21% YoY</div></div>
+      <div class="tile"><div class="lab">Q4 Cloud rev</div><div class="val">$9.9B</div><div class="delta">▲ 47% YoY</div></div>
+      <div class="tile"><div class="lab">Cloud Infra (IaaS)</div><div class="val">+93%</div><div class="delta neutral">OCI / AI workloads</div></div>
+      <div class="tile"><div class="lab">Q4 EPS · non-GAAP</div><div class="val">$2.11</div><div class="delta">▲ 24% YoY</div></div>
+      <div class="tile"><div class="lab">RPO · backlog</div><div class="val">$638B</div><div class="delta">▲ 363% YoY</div></div>
+      <div class="tile warnT"><div class="lab">FY26 Free cash flow</div><div class="val red">−$23.7B</div><div class="delta red">CapEx $55.7B (+162%)</div></div>
+    </div>
+  </header>
+
+  <hr class="rule">
+
+  <!-- 1 — BACKLOG -->
+  <section>
+    <div class="sec-head"><span class="sec-num">01</span><h2>The backlog that <span class="accentG">rewired the story</span></h2></div>
+    <p class="read">Remaining performance obligations — contracted revenue not yet booked — is the figure that turned Oracle from a mature software name into an AI-infrastructure trade. RPO closed at <b>$638B</b>, up <span class="g">363% year-on-year</span> and up <b>$85B in the quarter alone</b> (from $553B in Q3). Management says the bulk of the increase is a small number of very large AI contracts where customers <b>prepaid for GPU capacity</b> — roughly $75B of the backlog is prepaid or customer-supplied AI hardware. Extraordinary forward visibility, but unusually concentrated.</p>
+    <div class="chart-card">
+      <div class="chart-title"><span>Remaining Performance Obligations</span><span class="unit">USD billions</span></div>
+      <div class="chart-wrap"><canvas id="rpoChart"></canvas></div>
+      <div class="chart-cap">Selected checkpoints; Q2 FY26 not shown. RPO climbed every reported quarter of FY26 after the step-change in Q1.</div>
+    </div>
+  </section>
+
+  <!-- 2 — MIX -->
+  <section>
+    <div class="sec-head"><span class="sec-num">02</span><h2>Cloud is now <span class="accentG">half the company</span></h2></div>
+    <p class="read">For the first time, cloud is larger than the legacy license business. Full-year cloud revenue hit <b>$34.0B (+39%)</b>, led by infrastructure at <b>+77%</b>, while software licensing was <span class="flat">flat at $24.5B (−1%)</span>. The pivot from a database-license company to a cloud-infrastructure company is effectively complete — and Oracle is now competing head-on with AWS, Azure and Google for AI training and inference, leaning on a sticky enterprise base that already runs its databases and ERP.</p>
+    <div class="chart-card">
+      <div class="chart-title"><span>FY2026 revenue mix</span><span class="unit">$67.4B total</span></div>
+      <div class="chart-wrap"><canvas id="mixChart"></canvas></div>
+      <div class="chart-cap">Cloud $34.0B · Software license & support $24.5B · Services $5.7B · Hardware $3.1B.</div>
+    </div>
+  </section>
+
+  <!-- 3 — THE CATCH (signature) -->
+  <section>
+    <div class="sec-head"><span class="sec-num">03</span><h2>The catch: <span class="accentR">cash out the door</span></h2></div>
+    <p class="read">Here's the price of the growth. Oracle threw off a record <span class="g">$32.0B in operating cash flow</span>, then spent <span class="r">$55.7B</span> — up 162% — almost entirely on data-center build-out. Free cash flow landed at <span class="r">negative $23.7B</span>. To bridge the gap, Oracle raised <b>$48B</b> this year in debt and equity and expects to raise about <b>$40B more</b> in FY2027, including a $20B share sale. Gross margin slipped ~5 points as low-margin infrastructure scaled.</p>
+    <div class="chart-card">
+      <div class="chart-title"><span>FY2026 cash bridge</span><span class="unit">USD billions</span></div>
+      <div class="chart-wrap"><canvas id="cashChart"></canvas></div>
+      <div class="chart-cap">Free cash flow = operating cash flow − capital expenditure. Reported CapEx of $55.7B; net cash outlay ~$48B after customer prepayments and timing.</div>
+    </div>
+  </section>
+
+  <!-- 4 — THE BET -->
+  <section>
+    <div class="sec-head"><span class="sec-num">04</span><h2>The bet on <span class="accentG">FY2027 and beyond</span></h2></div>
+    <p class="read">Management is asking investors to look through the burn. It <b>reaffirmed $90B of revenue</b> for FY2027 — <span class="g">34% growth</span>, nearly double this year's pace — and nudged non-GAAP EPS guidance up to <b>$8.05</b>, ahead of the ~$8.01 consensus. The longer-term frame from its analyst day: a <b>+31% revenue CAGR</b> and <b>+28% EPS CAGR through FY2030</b>. The thesis in one line — the $638B backlog converts to profitable revenue fast enough to outrun the capital it's consuming.</p>
+    <div class="chart-card">
+      <div class="chart-title"><span>Total revenue — actual &amp; FY27 guidance</span><span class="unit">USD billions</span></div>
+      <div class="chart-wrap"><canvas id="outlookChart"></canvas></div>
+      <div class="chart-cap">FY24–FY26 actual; FY27 is company guidance ($90B). Net CapEx outlay guided to ~$70B in FY27 — burn continues near-term.</div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- BULL / BEAR -->
+  <section>
+    <div class="sec-head"><span class="sec-num">05</span><h2>The two sides of the trade</h2></div>
+    <div class="bullbear">
+      <div class="col bull">
+        <h3><span class="sig">+</span> The bull case</h3>
+        <ul>
+          <li><b>$638B backlog (+363%)</b> — forward visibility no enterprise-software peer can match; roughly 5× in a year.</li>
+          <li><b>IaaS +93%</b> — OCI is taking real AI-infrastructure share, not just riding generic cloud demand.</li>
+          <li><b>Cloud ~50% of revenue</b> — the transformation is done; mix and growth rate keep re-rating the story.</li>
+          <li><b>Guidance raised</b> — $90B / $8.05 EPS for FY27 beats consensus; +31% rev CAGR targeted to FY30.</li>
+          <li><b>Embedded moat</b> — databases and ERP make the installed base expensive and slow to leave.</li>
+        </ul>
+      </div>
+      <div class="col bear">
+        <h3><span class="sig">−</span> The bear case</h3>
+        <ul>
+          <li><b>FCF −$23.7B</b> — record growth is being bought with record cash outlays; CapEx +162%.</li>
+          <li><b>Financing dependence</b> — $48B raised this year, ~$40B more next, including a $20B equity sale (dilution).</li>
+          <li><b>Margins compressing</b> — gross margin down ~5 pts as low-margin infrastructure scales.</li>
+          <li><b>Concentration risk</b> — much of the backlog is a handful of giant prepaid-GPU AI deals; conversion isn't guaranteed.</li>
+          <li><b>Rising leverage</b> — combined debt and lease obligations ~$160B+ and climbing as the build-out runs.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATA TABLE -->
+  <section>
+    <div class="sec-head"><span class="sec-num">06</span><h2>The numbers</h2></div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>Q4 FY26</th><th>YoY</th><th>FY2026</th><th>YoY</th></tr></thead>
+        <tbody>
+          <tr><td>Total revenue</td><td>$19.2B</td><td class="pos">+21%</td><td>$67.4B</td><td class="pos">+17%</td></tr>
+          <tr><td>Cloud revenue</td><td>$9.9B</td><td class="pos">+47%</td><td>$34.0B</td><td class="pos">+39%</td></tr>
+          <tr><td>&nbsp;&nbsp;Cloud Infra (IaaS)</td><td>$5.8B</td><td class="pos">+93%</td><td>$18.1B</td><td class="pos">+77%</td></tr>
+          <tr><td>&nbsp;&nbsp;Cloud Apps (SaaS)</td><td>$4.1B</td><td class="pos">+10%</td><td>$15.9B</td><td class="pos">+11%</td></tr>
+          <tr><td>Software license &amp; support</td><td>—</td><td class="flat">—</td><td>$24.5B</td><td class="neg">−1%</td></tr>
+          <tr><td>Operating income · non-GAAP</td><td>$8.6B</td><td class="pos">+22%</td><td>$28.9B</td><td class="pos">+16%</td></tr>
+          <tr><td>EPS · non-GAAP</td><td>$2.11</td><td class="pos">+24%</td><td>$7.63</td><td class="pos">+27%</td></tr>
+          <tr><td>EPS · GAAP</td><td>$1.45</td><td class="pos">+21%</td><td>$5.83</td><td class="pos">+34%</td></tr>
+          <tr class="grp"><td colspan="5">Cash &amp; backlog — full year</td></tr>
+          <tr><td>Operating cash flow</td><td>—</td><td class="flat">—</td><td>$32.0B</td><td class="pos">+54%</td></tr>
+          <tr><td>Capital expenditure</td><td>—</td><td class="flat">—</td><td>$55.7B</td><td class="neg">+162%</td></tr>
+          <tr><td>Free cash flow</td><td>—</td><td class="flat">—</td><td class="neg">−$23.7B</td><td class="neg">neg.</td></tr>
+          <tr><td>RPO (backlog)</td><td>$638B</td><td class="pos">+363%</td><td>$638B</td><td class="pos">+363%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- WATCH -->
+  <section>
+    <div class="sec-head"><span class="sec-num">07</span><h2>What to watch next</h2></div>
+    <div class="watch">
+      <div class="w"><div class="q">Does FCF inflect?</div><div class="a">Net CapEx is guided to ~$70B in FY27, so free cash flow likely stays negative near-term. The turn — whenever it comes — is the whole debate.</div></div>
+      <div class="w"><div class="q">Backlog → revenue</div><div class="a">How fast $638B of RPO converts into recognized, profitable revenue. Speed of conversion is what justifies the capital.</div></div>
+      <div class="w"><div class="q">Financing &amp; dilution</div><div class="a">A planned ~$40B raise (incl. $20B equity) and rising debt/lease load test the balance sheet and the investment-grade rating.</div></div>
+      <div class="w"><div class="q">Next checkpoints</div><div class="a">Q1 FY2027 results on Sept 10, 2026. Investor Day Oct 28 in Las Vegas (AI World). Co-CEOs Sicilia &amp; Magouyrk; CFO Maxson.</div></div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="src">SOURCES:</span> Oracle Q4 FY2026 press release &amp; Form 8-K (June 10, 2026); Q4 FY2026 earnings call transcript; CNBC. <b>Figures as reported by Oracle.</b> Q4 and FY26 results include one-time net investment gains; excluding them, Q4 non-GAAP EPS growth was ~11% in constant currency.<br><br>
+    This brief is an informational summary, not investment advice or a recommendation to buy or sell any security. Verify figures against primary filings before acting.
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  if(typeof Chart==='undefined') return;
+  Chart.defaults.font.family="'JetBrains Mono','Inter',monospace";
+  Chart.defaults.color="#98A2B2";
+  Chart.defaults.font.size=11;
+
+  const TEAL="#2DD4BF", TEAL_SOFT="#5EEAD4", BURN="#F0553B", SLATE="#6C82A6", GRID="rgba(255,255,255,0.05)";
+
+  // value-label plugin: reads dataset.labelsText[] and draws near each bar's end
+  function makeLabelPlugin(){
+    return {
+      id:'vlabels',
+      afterDatasetsDraw(chart){
+        const ds=chart.data.datasets[0];
+        if(!ds.labelsText) return;
+        const meta=chart.getDatasetMeta(0);
+        const ctx=chart.ctx;
+        ctx.save();
+        ctx.font="700 12px 'JetBrains Mono', monospace";
+        ctx.textAlign="center";
+        meta.data.forEach((el,i)=>{
+          const t=ds.labelsText[i]; if(!t) return;
+          const raw=ds.data[i];
+          let endVal = Array.isArray(raw)? raw[1] : raw;
+          const pos=el.tooltipPosition();
+          // place above bar for positive, below for negative
+          const above = endVal>=0;
+          const y = above ? el.y-9 : el.y+18;
+          ctx.fillStyle = (ds.labelColors && ds.labelColors[i]) || "#E8EBF0";
+          ctx.fillText(t, pos.x, y);
+        });
+        ctx.restore();
+      }
+    };
+  }
+
+  // ---------- 1. RPO ----------
+  new Chart(document.getElementById('rpoChart'),{
+    type:'bar',
+    data:{
+      labels:['1 yr ago','Q1 FY26','Q3 FY26','Q4 FY26'],
+      datasets:[{
+        data:[138,455,553,638],
+        backgroundColor:['#21424A','#2A6B66','#2DA89A',TEAL],
+        borderRadius:5, borderSkipped:false, maxBarThickness:74,
+        labelsText:['$138B','$455B','$553B','$638B'],
+        labelColors:['#8AA0A6','#9FE0D6','#7EEADE',TEAL_SOFT]
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      layout:{padding:{top:24}},
+      plugins:{legend:{display:false},tooltip:{enabled:false}},
+      scales:{
+        x:{grid:{display:false},border:{color:'#2C3645'},ticks:{color:'#98A2B2',font:{size:11.5}}},
+        y:{grid:{color:GRID},border:{display:false},ticks:{callback:v=>'$'+v+'B',maxTicksLimit:5},suggestedMax:720}
+      }
+    },
+    plugins:[makeLabelPlugin()]
+  });
+
+  // ---------- 2. MIX (donut) ----------
+  new Chart(document.getElementById('mixChart'),{
+    type:'doughnut',
+    data:{
+      labels:['Cloud','Software license','Services','Hardware'],
+      datasets:[{
+        data:[34.0,24.5,5.7,3.1],
+        backgroundColor:[TEAL,SLATE,'#3C4658','#2A323F'],
+        borderColor:'#141A22', borderWidth:3, hoverOffset:6
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false, cutout:'64%',
+      plugins:{
+        legend:{position:'bottom',labels:{color:'#C7CDD8',font:{size:12,family:"'Inter'"},padding:14,boxWidth:11,boxHeight:11,usePointStyle:true,pointStyle:'rectRounded',
+          generateLabels:(chart)=>{
+            const d=chart.data; return d.labels.map((l,i)=>({text:l+'  $'+d.datasets[0].data[i].toFixed(1)+'B',
+              fillStyle:d.datasets[0].backgroundColor[i],strokeStyle:d.datasets[0].backgroundColor[i],index:i}));
+          }}},
+        tooltip:{callbacks:{label:(c)=>' '+c.label+': $'+c.parsed.toFixed(1)+'B ('+Math.round(c.parsed/67.3*100)+'%)'}}
+      }
+    },
+    plugins:[{
+      id:'center',
+      afterDraw(chart){
+        const {ctx,chartArea}=chart;
+        const cx=(chartArea.left+chartArea.right)/2;
+        const cy=(chartArea.top+chartArea.bottom)/2;
+        ctx.save();ctx.textAlign='center';
+        ctx.fillStyle=TEAL_SOFT;ctx.font="700 30px 'Space Grotesk',sans-serif";
+        ctx.fillText('50%',cx,cy-2);
+        ctx.fillStyle='#98A2B2';ctx.font="600 11px 'JetBrains Mono',monospace";
+        ctx.fillText('CLOUD',cx,cy+18);
+        ctx.restore();
+      }
+    }]
+  });
+
+  // ---------- 3. CASH BRIDGE (waterfall) ----------
+  new Chart(document.getElementById('cashChart'),{
+    type:'bar',
+    data:{
+      labels:['Op cash flow','CapEx','Free cash flow'],
+      datasets:[{
+        data:[[0,32.0],[32.0,-23.7],[0,-23.7]],
+        backgroundColor:[TEAL,BURN,BURN],
+        borderRadius:4, borderSkipped:false, maxBarThickness:80,
+        labelsText:['+$32.0B','−$55.7B','−$23.7B'],
+        labelColors:[TEAL_SOFT,'#FF7E69','#FF7E69']
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      layout:{padding:{top:24,bottom:8}},
+      plugins:{legend:{display:false},tooltip:{enabled:false}},
+      scales:{
+        x:{grid:{display:false},border:{color:'#2C3645'},ticks:{color:'#98A2B2',font:{size:11.5}}},
+        y:{grid:{color:(c)=>c.tick.value===0?'rgba(255,255,255,0.28)':GRID},border:{display:false},
+           ticks:{callback:v=>(v>0?'+':'')+'$'+v+'B',maxTicksLimit:7},suggestedMin:-32,suggestedMax:40}
+      }
+    },
+    plugins:[makeLabelPlugin()]
+  });
+
+  // ---------- 4. OUTLOOK ----------
+  const guideColor='rgba(45,212,191,0.32)';
+  new Chart(document.getElementById('outlookChart'),{
+    type:'bar',
+    data:{
+      labels:['FY24','FY25','FY26','FY27e'],
+      datasets:[{
+        data:[53.0,57.4,67.4,90.0],
+        backgroundColor:['#2A4A4D','#2F6B66','#2DA89A',guideColor],
+        borderColor:['#2A4A4D','#2F6B66','#2DA89A',TEAL],
+        borderWidth:[0,0,0,2],
+        borderRadius:5, borderSkipped:false, maxBarThickness:70,
+        labelsText:['$53B','$57B','$67.4B','$90B'],
+        labelColors:['#8AA0A6','#9FE0D6','#7EEADE',TEAL_SOFT]
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      layout:{padding:{top:24}},
+      plugins:{legend:{display:false},tooltip:{enabled:false}},
+      scales:{
+        x:{grid:{display:false},border:{color:'#2C3645'},ticks:{color:'#98A2B2',font:{size:11.5}}},
+        y:{grid:{color:GRID},border:{display:false},ticks:{callback:v=>'$'+v+'B',maxTicksLimit:5},suggestedMax:100}
+      }
+    },
+    plugins:[makeLabelPlugin(),{
+      id:'guideTag',
+      afterDatasetsDraw(chart){
+        const meta=chart.getDatasetMeta(0);const el=meta.data[3];if(!el)return;
+        const ctx=chart.ctx;ctx.save();
+        ctx.font="600 9.5px 'JetBrains Mono',monospace";ctx.fillStyle="#5EEAD4";ctx.textAlign="center";
+        ctx.fillText('GUIDE',el.x,el.y+16);ctx.restore();
+      }
+    }]
+  });
+})();
+</script>
+</body>
+</html>

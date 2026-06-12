@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Move to Cloudflare Pages — Behind The Numbers</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .guide-wrap { max-width: 780px; margin: 0 auto; padding: 0 24px 80px; }
+  .guide-head { text-align: center; padding: 48px 0 8px; }
+  .guide-head .kicker { display: block; margin-bottom: 14px; }
+  .guide-head h1 {
+    font-family: var(--display);
+    font-size: clamp(32px, 4.4vw, 46px);
+    line-height: 1.08;
+    font-weight: 600;
+    text-wrap: pretty;
+  }
+  .guide-head .deck {
+    margin: 16px auto 0;
+    font-size: 19px;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    max-width: 620px;
+    text-wrap: pretty;
+  }
+  .time-pills {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 22px;
+    flex-wrap: wrap;
+  }
+  .time-pill {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 7px 14px;
+    border: 1px solid var(--rule-strong);
+    border-radius: 2px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  .why {
+    margin-top: 40px;
+    background: var(--paper-tint);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--navy);
+    padding: 22px 26px;
+    border-radius: 3px;
+  }
+  .why h2 {
+    font-family: var(--display);
+    font-size: 21px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .why p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    text-wrap: pretty;
+  }
+  .why p + p { margin-top: 9px; }
+  .why strong { color: var(--ink); font-weight: 600; }
+
+  .phase {
+    margin-top: 52px;
+    border-top: 3px solid var(--rule-strong);
+    padding-top: 14px;
+  }
+  .phase-label {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--navy);
+  }
+  .phase h2 {
+    font-family: var(--display);
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.15;
+    margin-top: 4px;
+  }
+  .phase > p.intro {
+    margin-top: 10px;
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    gap: 20px;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .step:last-child { border-bottom: none; }
+  .step .num {
+    font-family: var(--display);
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1;
+    border-right: 2px solid var(--rule);
+    padding-right: 0;
+  }
+  .step .body h3 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-wrap: pretty;
+  }
+  .step .body p {
+    margin-top: 9px;
+    font-size: 16.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    text-wrap: pretty;
+  }
+  .step .body p + p { margin-top: 10px; }
+  .step .body strong { color: var(--ink); font-weight: 600; }
+  .step .body a { color: var(--navy); text-decoration: underline; text-underline-offset: 2px; }
+  .step .body ul { margin: 10px 0 0; padding-left: 20px; }
+  .step .body li { font-size: 16.5px; line-height: 1.55; color: var(--ink-soft); margin-bottom: 5px; }
+
+  .seen {
+    margin-top: 12px;
+    font-family: var(--sans);
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    background: var(--paper-tint);
+    border-left: 3px solid var(--navy);
+    padding: 11px 16px;
+  }
+  .seen b {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 11px;
+    color: var(--navy);
+    display: block;
+    margin-bottom: 3px;
+  }
+  .btn-name {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    background: var(--navy);
+    color: #FDFCF8;
+    padding: 2px 9px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  code {
+    font-family: var(--mono, ui-monospace, monospace);
+    font-size: 0.92em;
+    background: rgba(27,37,54,0.06);
+    padding: 1px 6px;
+    border-radius: 3px;
+  }
+
+  .opt-tag {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--navy);
+    border: 1px solid var(--navy);
+    border-radius: 2px;
+    padding: 3px 9px;
+    margin-bottom: 4px;
+  }
+
+  .daily-flow {
+    margin-top: 52px;
+    background: var(--navy-deep);
+    color: #F4EFE5;
+    padding: 40px 36px;
+    border-radius: 3px;
+  }
+  .daily-flow .phase-label { color: #9DB8D6; }
+  .daily-flow h2 { font-family: var(--display); font-size: 28px; font-weight: 600; margin-top: 4px; color: #FFFFFF; }
+  .daily-flow p.intro { margin-top: 10px; color: rgba(244,239,229,0.78); font-size: 16px; line-height: 1.55; }
+  .flow-row {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(244,239,229,0.16);
+  }
+  .flow-row:last-child { border-bottom: none; }
+  .flow-row .fn { font-family: var(--display); font-size: 20px; font-weight: 600; color: #9DB8D6; }
+  .flow-row .ft { font-size: 16px; line-height: 1.5; color: rgba(244,239,229,0.9); }
+  .flow-row .ft strong { color: #FFFFFF; font-weight: 600; }
+
+  .faq { margin-top: 52px; border-top: 3px solid var(--rule-strong); padding-top: 14px; }
+  .faq .phase-label { display: block; margin-bottom: 22px; }
+  .faq-item { padding: 18px 0; border-bottom: 1px solid var(--rule); }
+  .faq-item .q { font-size: 17px; font-weight: 600; }
+  .faq-item .a { margin-top: 8px; font-size: 16px; line-height: 1.6; color: var(--ink-soft); }
+  .faq-item .a a { color: var(--navy); text-decoration: underline; }
+
+  @media (max-width: 560px) {
+    .step { grid-template-columns: 36px 1fr; gap: 14px; }
+    .step .num { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════ MASTHEAD ════════════════ -->
+<header class="masthead compact">
+  <div class="wrap">
+    <a class="lockup" href="index.html">
+      <span class="nameplate">Behind The Numbers</span>
+      <img src="logo-mark.png" alt="Behind The Numbers — bar chart logo mark">
+    </a>
+    <hr class="double-rule">
+  </div>
+</header>
+
+<div class="guide-wrap">
+
+  <div class="guide-head">
+    <span class="kicker">Migration Guide · For you only · Not part of the public site</span>
+    <h1>Move Your Site to Cloudflare Pages</h1>
+    <p class="deck">Netlify charges per publish and you hit the monthly ceiling. Cloudflare Pages hosts the exact same site for free and never charges for republishing — so you can post a brief every day without watching a meter.</p>
+    <div class="time-pills">
+      <span class="time-pill">⏱ 20–25 min, once</span>
+      <span class="time-pill">🧩 No coding</span>
+      <span class="time-pill">💻 In your browser</span>
+      <span class="time-pill">🆓 Free forever</span>
+    </div>
+  </div>
+
+  <!-- ───────── WHY ───────── -->
+  <div class="why">
+    <h2>Why we're moving</h2>
+    <p>Your Netlify bill wasn't traffic — it was <strong>publishing</strong>. Twenty deploys used all 300 credits; your actual visitors cost half a credit. On a daily publication, 20 deploys is a low ceiling you'll hit every month.</p>
+    <p><strong>Cloudflare Pages doesn't charge per deploy.</strong> You can republish as often as you like. Same files, same site, no meter. The only Netlify-specific piece — your email subscribe form — gets swapped to a free service called Formspree in Phase 1, which I've already wired into your files.</p>
+  </div>
+
+  <!-- ───────── PHASE 1: FORMSPREE ───────── -->
+  <section class="phase">
+    <span class="phase-label">Phase 1 — Keep your subscribe form working</span>
+    <h2>Formspree delivers subscriber emails to your inbox.</h2>
+    <p class="intro">Netlify's built-in form catcher only works on Netlify. Formspree does the same job on any host — it emails you whenever someone subscribes. Your forms are already set up for it; they just need your personal form ID.</p>
+
+    <div class="step">
+      <div class="num">1</div>
+      <div class="body">
+        <h3>Create a free Formspree account</h3>
+        <p>Go to <a href="https://formspree.io/register" target="_blank" rel="noopener">formspree.io/register</a> and sign up with the email address where you want to receive subscriber notifications. The free plan handles 50 submissions a month — plenty to start.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">2</div>
+      <div class="body">
+        <h3>Create a new form and copy its ID</h3>
+        <p>Click <span class="btn-name">+ New form</span>. Name it <strong>Daily Brief Subscribers</strong> and set the notification email to yours. Click <strong>Create form</strong>.</p>
+        <p>Formspree shows an endpoint that looks like <code>https://formspree.io/f/abcdwxyz</code>. The part after <code>/f/</code> — here <code>abcdwxyz</code> — is your <strong>form ID</strong>. Copy it.</p>
+        <div class="seen"><b>What you'll see</b>A form dashboard with that endpoint URL near the top. The 8-character code at the end is all you need.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">3</div>
+      <div class="body">
+        <h3>Drop the ID into your files</h3>
+        <p>Every subscribe form in your site currently points at a placeholder, <code>YOUR_FORM_ID</code>. It appears in five files: <code>index.html</code> and the four brief pages.</p>
+        <p><span class="opt-tag">Easiest</span> Paste your form ID to me in chat and I'll bake it into all five files and hand you the finished package — nothing to edit by hand.</p>
+        <p><span class="opt-tag">Or yourself</span> Open each file, find <code>YOUR_FORM_ID</code>, and replace it with your real ID. Same code in every file, so a find-and-replace across the folder does it in one shot.</p>
+        <div class="seen"><b>Until then</b>The form still looks and behaves normally on the site — it just shows a "demo mode" confirmation instead of collecting real emails until a real ID is in place.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── PHASE 2: CLOUDFLARE ───────── -->
+  <section class="phase">
+    <span class="phase-label">Phase 2 — Put the site on Cloudflare Pages</span>
+    <h2>Cloudflare Pages turns your files into the live website.</h2>
+    <p class="intro">Pick one of two routes. If you already created the GitHub repo from the earlier setup, use Route A — it keeps one-click publishing. If you'd rather not deal with GitHub, Route B is a plain drag-and-drop.</p>
+
+    <div class="step">
+      <div class="num">A</div>
+      <div class="body">
+        <h3><span class="opt-tag">Recommended</span> Connect your GitHub repo</h3>
+        <p>This keeps the publish-by-editing workflow you set up before — only the host changes from Netlify to Cloudflare.</p>
+        <ul>
+          <li>Sign up at <a href="https://dash.cloudflare.com/sign-up" target="_blank" rel="noopener">dash.cloudflare.com/sign-up</a> (free).</li>
+          <li>In the left menu open <strong>Workers &amp; Pages</strong> → <span class="btn-name">Create</span> → <strong>Pages</strong> tab → <strong>Connect to Git</strong>.</li>
+          <li>Authorize Cloudflare to see your GitHub, then pick your <strong>behind-the-numbers</strong> repo.</li>
+          <li>On the build-settings screen, leave <strong>Framework preset</strong> as <em>None</em> and leave the build command <strong>empty</strong>. Set <strong>Build output directory</strong> to <code>/</code> (just a slash). Click <span class="btn-name">Save and Deploy</span>.</li>
+        </ul>
+        <div class="seen"><b>What you'll see</b>About a minute later, a live link like <code>behind-the-numbers.pages.dev</code>. From now on, every edit you commit on GitHub auto-publishes here — free, no deploy limit.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">B</div>
+      <div class="body">
+        <h3><span class="opt-tag">No GitHub</span> Drag-and-drop upload</h3>
+        <p>Simplest possible route. The trade-off: to publish an update you re-upload the folder (still free, unlimited).</p>
+        <ul>
+          <li>Sign up at <a href="https://dash.cloudflare.com/sign-up" target="_blank" rel="noopener">dash.cloudflare.com/sign-up</a>.</li>
+          <li>Open <strong>Workers &amp; Pages</strong> → <span class="btn-name">Create</span> → <strong>Pages</strong> tab → <strong>Upload assets</strong>.</li>
+          <li>Name the project <strong>behind-the-numbers</strong>, then drag in the <strong>files inside</strong> your unzipped website folder — <code>index.html</code> must sit at the top level, not inside a sub-folder.</li>
+          <li>Click <span class="btn-name">Deploy site</span>.</li>
+        </ul>
+        <div class="seen"><b>To publish later</b>Open the project → <strong>Create deployment</strong> → drag the updated files in again. Or send me your changes and I'll hand back a ready folder.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">C</div>
+      <div class="body">
+        <h3>Give it a name and you're done</h3>
+        <p>Your free address is <code>your-project.pages.dev</code> — that's the link you put on LinkedIn. To set a custom domain later (e.g. behindthenumbers.com), open the project → <strong>Custom domains</strong> → <strong>Set up a domain</strong>. Optional, and the only thing that ever costs money (the domain itself).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── AFTER ───────── -->
+  <section class="daily-flow">
+    <span class="phase-label">After the switch</span>
+    <h2>Two small cleanups</h2>
+    <p class="intro">Once your Cloudflare link works and the form is tested, tidy up the old setup:</p>
+    <div class="flow-row">
+      <div class="fn">1</div>
+      <div class="ft">Update the link you share on <strong>LinkedIn</strong> to the new <code>.pages.dev</code> address.</div>
+    </div>
+    <div class="flow-row">
+      <div class="fn">2</div>
+      <div class="ft">In Netlify, you can <strong>delete the old site</strong> (Site configuration → Delete site) so it stops counting against you. No rush — it won't charge for sitting idle, but removing it avoids confusion.</div>
+    </div>
+    <p class="intro" style="margin-top:20px;">Test the form once: subscribe with your own email on the live site and confirm the notification lands in your inbox (the first submission asks you to confirm the form in Formspree — a one-time click).</p>
+  </section>
+
+  <!-- ───────── FAQ ───────── -->
+  <section class="faq">
+    <span class="phase-label">Common questions</span>
+    <div class="faq-item">
+      <div class="q">Will I lose my existing Netlify subscribers?</div>
+      <div class="a">Any emails already captured live in your Netlify dashboard under <strong>Forms</strong> — export them (there's a download/CSV option) before you delete the site, then add them to your list. Going forward, new ones arrive via Formspree.</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">Is Cloudflare Pages really free for this?</div>
+      <div class="a">Yes. Static sites like yours get unlimited bandwidth and unlimited requests on the free plan, plus 500 builds a month if you use the GitHub route — far more than a daily brief needs. There's no per-deploy charge, which was the whole Netlify problem.</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">Do headlines, the date, and market data still auto-update?</div>
+      <div class="a">Yes — those refresh on their own for every visitor regardless of host. The market ticker and live quotes come straight from TradingView; nothing about the move changes them.</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">Can I keep using Netlify until June 27 instead?</div>
+      <div class="a">You can — your current site keeps serving visitors, you just can't publish new briefs until credits reset. Moving to Cloudflare removes that limit permanently, which is why it's worth doing once.</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">What if the form doesn't send?</div>
+      <div class="a">Check that the real form ID replaced <code>YOUR_FORM_ID</code> in every file, and that you confirmed the form from Formspree's first-submission email. If it's still stuck, paste me the form's endpoint and I'll check the wiring.</div>
+    </div>
+  </section>
+
+  <p style="margin-top:48px; text-align:center; font-family:var(--sans); font-size:13px; color:var(--ink-faint);">
+    Keep this page for reference. It isn't linked from your public site. · <a href="index.html" style="color:var(--navy);">← Back to the site</a>
+  </p>
+
+</div>
+
+</body>
+</html>

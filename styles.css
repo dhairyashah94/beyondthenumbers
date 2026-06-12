@@ -139,6 +139,17 @@ img { max-width: 100%; display: block; }
   overflow-x: auto;
 }
 .tickerbar .tradingview-widget-container { max-width: 1180px; margin: 0 auto; }
+.ticker-note {
+  display: block;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 2px 18px 6px;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+  color: var(--muted, #8A91A0);
+}
 .trends-live { border-top: 2px solid var(--rule-strong); }
 .tickerbar .wrap {
   display: flex;

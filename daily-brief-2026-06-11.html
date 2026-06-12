@@ -194,11 +194,10 @@
         <div class="t">Get the next brief in your inbox.</div>
         <div class="s">Every market morning, free. Unsubscribe anytime.</div>
       </div>
-      <!-- Subscriber emails are captured by Netlify Forms: submissions appear
-           under Netlify dashboard → Forms → "daily-brief". -->
-      <form name="daily-brief" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" data-subscribe="">
-        <input type="hidden" name="form-name" value="daily-brief">
-        <p hidden="hidden" aria-hidden="true" style="display:none;"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <!-- Subscriber emails are delivered to your inbox via Formspree.
+           Submissions go to your Formspree form (ID xkoaqlza) and arrive by email. -->
+      <form method="POST" action="https://formspree.io/f/xkoaqlza" data-subscribe="">
+        <p hidden="hidden" aria-hidden="true" style="display:none;"><label>Leave this empty: <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
         <input type="email" name="email" placeholder="you@example.com" required="required" aria-label="Email address">
         <button class="btn" type="submit">Subscribe</button>
       </form>

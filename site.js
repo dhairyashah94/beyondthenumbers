@@ -49,18 +49,6 @@
     }
   });
 
-  // ── Newsletter form ─────────────────────────────────────────
-  var nl = document.getElementById('newsletter-form');
-  if (nl) {
-    nl.addEventListener('submit', function (e) {
-      var action = nl.getAttribute('action') || '';
-      if (action.indexOf('YOUR_FORM_ID') !== -1) {
-        e.preventDefault();
-        showToast('Almost there — connect your signup form to activate (free)');
-      }
-    });
-  }
-
   // ── Auto-updating headlines ─────────────────────────────────
   // Pulls the day's top finance stories automatically so you never
   // have to edit them by hand. Uses Google News' free RSS feed via a
@@ -128,10 +116,12 @@
 })();
 
 /* ═══════════════════════════════════════════════════════════════
-   Newsletter subscribe forms (Netlify Forms)
-   Any <form data-subscribe> is submitted in the background; on
-   success the form is replaced with a thank-you note. Works only
-   on the live Netlify site — locally it shows a polite fallback.
+   Newsletter subscribe forms (Formspree)
+   Any <form data-subscribe> is submitted in the background to its
+   own action URL (a Formspree endpoint); on success the form is
+   replaced with a thank-you note. Works on any host — Cloudflare
+   Pages, GitHub Pages, Netlify — once the form's action points at a
+   real Formspree form ID.
    ═══════════════════════════════════════════════════════════════ */
 (function () {
   var forms = document.querySelectorAll('form[data-subscribe]');
@@ -142,10 +132,21 @@
       var email = (form.querySelector('input[name="email"]') || {}).value || '';
       if (btn) { btn.disabled = true; btn.textContent = 'Subscribing…'; }
 
-      fetch('/', {
+      var endpoint = form.getAttribute('action') || '';
+      // If the form still has the placeholder ID, show a demo confirmation
+      // instead of firing a real (failing) request.
+      if (endpoint.indexOf('YOUR_FORM_ID') !== -1) {
+        var demo = document.createElement('div');
+        demo.className = 'form-success';
+        demo.innerHTML = 'You\u2019re in. \u2713<small>Demo mode \u2014 connect a Formspree form ID to start collecting emails.</small>';
+        form.parentNode.replaceChild(demo, form);
+        return;
+      }
+
+      fetch(endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(form)).toString()
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
       })
         .then(function (res) {
           if (!res.ok) throw new Error('bad status');
