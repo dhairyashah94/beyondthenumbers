@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Micron (MU): Inside the Record HBM Quarter — and What Comes Next — Behind The Numbers</title>
+<meta name="description" content="Micron's FQ3 beat across every line on a record gross margin, with high-bandwidth memory the engine. A neutral look at what the results show and what the outlook implies for the year ahead.">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ── Results & outlook furniture (scoped) ───────────────── */
+  .statbar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    border: 1px solid var(--rule-strong); border-left: 5px solid var(--navy); margin: 6px 0 4px;
+    font-family: var(--sans); background: var(--paper); }
+  .statbar .rb { padding: 14px 18px; border-right: 1px solid var(--rule); }
+  .statbar .rb:last-child { border-right: none; }
+  .statbar .rb .l { font-size: 10px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-faint); }
+  .statbar .rb .v { font-family: var(--display, var(--serif)); font-size: 30px; font-weight: 700; line-height: 1.05; margin-top: 5px; color: var(--navy); }
+  .statbar .rb .v small { font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--ink-soft); }
+  .statbar .rb.up .v { color: var(--up); }
+  .statbar .rb .s { font-size: 11.5px; color: var(--ink-soft); margin-top: 3px; }
+  @media (max-width: 720px){ .statbar { grid-template-columns: 1fr 1fr; } .statbar .rb:nth-child(2n){border-right:none;} }
+
+  table.est { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 14px; margin: 20px 0 6px; }
+  table.est th, table.est td { padding: 9px 12px; text-align: right; border-bottom: 1px solid var(--rule); }
+  table.est thead th { font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); border-bottom: 2px solid var(--rule-strong); }
+  table.est td:first-child, table.est th:first-child { text-align: left; }
+  table.est tbody tr:nth-child(odd) { background: rgba(0,0,0,0.018); }
+  table.est .grp { font-weight: 700; color: var(--navy); background: var(--paper) !important; border-bottom: none; padding-top: 16px; }
+  table.est .pos { color: var(--up); font-weight: 700; }
+  table.est .neg { color: var(--down); font-weight: 700; }
+  table.est .hl td { background: rgba(46,125,91,0.08) !important; font-weight: 700; }
+  .tbl-note { font-family: var(--sans); font-size: 11px; color: var(--ink-faint); margin: 4px 0 0; }
+
+  .risk { display: grid; grid-template-columns: 28px 1fr; gap: 0 14px; align-items: baseline;
+    padding: 12px 0; border-bottom: 1px solid var(--rule); font-size: 15.5px; line-height: 1.5; }
+  .risk:last-child { border-bottom: none; }
+  .risk .rn { font-family: var(--sans); font-weight: 700; color: var(--accent); font-size: 15px; }
+  .risk b { font-family: var(--serif, Georgia); }
+</style>
+</head>
+<body data-article-id="2026-06-25-micron-results">
+
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <rect width="400" height="400" fill="#1E3A5F"></rect>
+    <g transform="translate(96,120)">
+      <rect x="0" y="120" width="40" height="40" fill="#2E7D5B"></rect>
+      <rect x="56" y="86" width="40" height="74" fill="#2E7D5B"></rect>
+      <rect x="112" y="44" width="40" height="116" fill="#2E7D5B"></rect>
+      <rect x="168" y="8" width="40" height="152" fill="#2E7D5B"></rect>
+    </g>
+    <text x="200" y="318" fill="#FAF7F0" font-family="Georgia, serif" font-size="29" font-weight="700" text-anchor="middle">MU</text>
+    <text x="200" y="350" fill="#8A91A0" font-family="Helvetica, Arial, sans-serif" font-size="14" letter-spacing="2" text-anchor="middle">RESULTS &amp; OUTLOOK</text>
+  </svg>
+</template>
+
+<!-- ════════════════ TOP BAR ════════════════ -->
+<div class="topbar">
+  <div class="wrap">
+    <span data-today="">—</span>
+    <nav>
+      <a href="index.html#daily-briefs">Daily Brief</a>
+      <a href="index.html#headlines">Headlines</a>
+      <a href="index.html#market-trends">Market Trends</a>
+      <a href="index.html#research">Research</a>
+      <a href="index.html#archive">Archive</a>
+    </nav>
+    <span class="edition">Markets Edition</span>
+  </div>
+</div>
+
+<!-- ════════════════ MASTHEAD ════════════════ -->
+<header class="masthead compact">
+  <div class="wrap">
+    <a class="lockup" href="index.html">
+      <span class="nameplate">Behind The Numbers</span>
+      <img src="logo-mark.png" alt="Behind The Numbers — bar chart logo mark">
+    </a>
+    <hr class="double-rule">
+  </div>
+</header>
+
+<!-- ════════════════ ARTICLE ════════════════ -->
+<article data-screen-label="Micron Results & Outlook (MU)">
+  <header class="article-head">
+    <span class="kicker">Earnings Analysis · U.S. Semiconductors · June 25, 2026</span>
+    <h1>Micron Technology (NASDAQ: MU) — Inside the Record HBM Quarter, and What Comes Next</h1>
+    <p class="deck">FQ3 beat across every line on a record gross margin, and high-bandwidth memory is now the engine of the story rather than a side bet. This is a plain look at what the numbers showed — and what the year ahead is shaping up to look like as AI demand meets the supply that all three memory makers are racing to add.</p>
+    <p class="byline">By <b>Dhairya Shah</b> · Earnings Analysis · 10 min read · Prices and data as of the June 24, 2026 close</p>
+
+    <div class="share-row">
+      <button class="share-btn" data-share="linkedin" type="button">in · LinkedIn</button>
+      <button class="share-btn" data-share="x" type="button">𝕏 · Post</button>
+      <button class="share-btn" data-share="whatsapp" type="button">WhatsApp</button>
+      <button class="share-btn" data-share="copy" type="button">Copy link</button>
+    </div>
+  </header>
+
+  <div class="article-body">
+
+    <!-- Stat bar -->
+    <div class="statbar">
+      <div class="rb up">
+        <div class="l">FQ3 revenue</div>
+        <div class="v">$11.2B</div>
+        <div class="s">+18% q/q · record</div>
+      </div>
+      <div class="rb up">
+        <div class="l">Gross margin</div>
+        <div class="v">51%</div>
+        <div class="s">+~700bp q/q · record</div>
+      </div>
+      <div class="rb up">
+        <div class="l">EPS (non-GAAP)</div>
+        <div class="v">$3.05</div>
+        <div class="s">beat ~$2.71 cons.</div>
+      </div>
+      <div class="rb">
+        <div class="l">HBM mix (est.)</div>
+        <div class="v">~18%</div>
+        <div class="s">of revenue, rising</div>
+      </div>
+    </div>
+    <p class="dash-note">Independent earnings analysis. This note describes results and outlook only; it carries no rating, price target, or recommendation to buy or sell. Forward figures are Behind The Numbers' modeled estimates, not company guidance, and are illustrative. HBM is not separately disclosed by the company; segment figures are approximations. See the full disclosure at the foot of this note.</p>
+
+    <!-- What the quarter showed -->
+    <div class="takeaways">
+      <h3>What the Quarter Showed</h3>
+      <ol>
+        <li><strong>A clean beat.</strong> FQ3 revenue of ~$11.2bn and EPS of ~$3.05 topped consensus of ~$10.75bn / $2.71 by high-single-digits; FQ4 guidance of ~$12.0bn at the midpoint sits above the Street.</li>
+        <li><strong>Record gross margin is the headline.</strong> Non-GAAP gross margin printed ~51%, up ~700 basis points sequentially, as HBM and high-density DDR5 mix lifted blended pricing faster than cost-down.</li>
+        <li><strong>HBM is now structural.</strong> We estimate HBM ran at a greater-than-$8bn annualized pace this quarter, sold out into 2027, with pricing set under long-term agreements — turning memory's worst trait (spot volatility) into visibility.</li>
+        <li><strong>The outlook strengthens.</strong> On the mix shift, our modeled FY27 revenue moves toward ~$54bn with gross margin in the mid-50s — though these are estimates that hinge on demand and pricing holding.</li>
+        <li><strong>The key question has shifted from demand to supply.</strong> The demand picture is strong; what shapes the year ahead is whether 2027 capacity additions from all three makers tip HBM from shortage toward balance.</li>
+      </ol>
+    </div>
+
+    <h2>The result</h2>
+    <p>Micron has spent most of its public life behaving like a commodity cyclical — a price-taker whose earnings swing with the DRAM spot market. This quarter is the clearest sign yet that the AI build-out is partially loosening that link. High-bandwidth memory, the stacked DRAM that sits beside every AI accelerator, is sold under multi-quarter agreements at negotiated prices, to a concentrated set of buyers, against capacity that is already spoken for well into 2027. That is not a spot commodity; it is closer to a contracted specialty component. The more of Micron's mix that HBM represents, the more its earnings start to look like a visible, contracted stream rather than a bet on next quarter's spot price.</p>
+    <p>Three threads run through the print. <strong>Mix</strong>: HBM and leading-edge DDR5/LPDDR5 carry structurally higher margins than legacy nodes, and that shift alone is what drove gross margin to a record ~51%. <strong>Visibility</strong>: with HBM pre-sold and priced, the range of plausible outcomes for the next few quarters is narrower than in any prior up-cycle. <strong>Position</strong>: Micron remains the third HBM supplier behind SK Hynix and Samsung, so qualification progress at large accelerator customers is the swing variable that could move the trajectory either way. None of that is a view on the share price — it is simply where the operating story now sits.</p>
+
+    <!-- Chart 1: revenue + GM -->
+    <figure class="figure">
+      <figcaption class="fig-cap">Revenue inflecting, margin re-rating
+        <span class="fig-cap-sub">Quarterly revenue ($bn, bars) and non-GAAP gross margin (%, line) — BTN estimates from FQ4'26</span>
+      </figcaption>
+      <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Combination chart showing Micron quarterly revenue rising from about 6.8 billion to over 14 billion while gross margin climbs from the high 20s to the high 50s percent" style="width:100%;height:auto;display:block;">
+        <style>
+          .e1l{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:11px;fill:#8A91A0}
+          .e1n{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:11px;fill:#1B2536;font-weight:600;text-anchor:middle}
+          .e1v{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10.5px;font-weight:700;text-anchor:middle}
+          .e1t{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;fill:#1E3A5F}
+        </style>
+        <text x="20" y="20" class="e1t">The mix shift is showing up in both lines at once</text>
+        <line x1="60" y1="262" x2="668" y2="262" stroke="#1B2536" stroke-width="1.2"></line>
+        <g stroke="#efeadf" stroke-width="1">
+          <line x1="60" y1="212" x2="668" y2="212"></line>
+          <line x1="60" y1="162" x2="668" y2="162"></line>
+          <line x1="60" y1="112" x2="668" y2="112"></line>
+          <line x1="60" y1="62" x2="668" y2="62"></line>
+        </g>
+        <g class="e1l" text-anchor="end" fill="#1E3A5F">
+          <text x="52" y="266">0</text><text x="52" y="216">$4</text><text x="52" y="166">$8</text><text x="52" y="116">$12</text>
+        </g>
+        <g class="e1l" text-anchor="start" fill="#B3402F">
+          <text x="676" y="216">30%</text><text x="676" y="141">45%</text><text x="676" y="66">60%</text>
+        </g>
+        <g>
+          <rect x="78" y="177" width="46" height="85" fill="#9DB0C4"></rect><text x="101" y="170" class="e1v" fill="#4A5567">6.8</text>
+          <rect x="164" y="160" width="46" height="102" fill="#9DB0C4"></rect><text x="187" y="153" class="e1v" fill="#4A5567">8.2</text>
+          <rect x="250" y="144" width="46" height="118" fill="#5A7AA3"></rect><text x="273" y="137" class="e1v" fill="#1E3A5F">9.5</text>
+          <rect x="336" y="122" width="46" height="140" fill="#1E3A5F"></rect><text x="359" y="115" class="e1v" fill="#1E3A5F">11.2</text>
+          <rect x="422" y="112" width="46" height="150" fill="#2E7D5B"></rect><text x="445" y="105" class="e1v" fill="#2E7D5B">12.0</text>
+          <rect x="508" y="100" width="46" height="162" fill="#2E7D5B"></rect><text x="531" y="93" class="e1v" fill="#2E7D5B">13.0</text>
+          <rect x="594" y="86" width="46" height="176" fill="#2E7D5B"></rect><text x="617" y="79" class="e1v" fill="#2E7D5B">14.1</text>
+        </g>
+        <polyline points="101,167 187,152 273,132 359,107 445,99 531,89 617,77" fill="none" stroke="#B3402F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></polyline>
+        <g fill="#B3402F"><circle cx="101" cy="167" r="3.5"></circle><circle cx="187" cy="152" r="3.5"></circle><circle cx="273" cy="132" r="3.5"></circle><circle cx="359" cy="107" r="3.5"></circle><circle cx="445" cy="99" r="3.5"></circle><circle cx="531" cy="89" r="3.5"></circle><circle cx="617" cy="77" r="3.5"></circle></g>
+        <g class="e1n">
+          <text x="101" y="280">FQ1</text><text x="187" y="280">FQ2</text><text x="273" y="280">FQ3</text>
+          <text x="359" y="280" fill="#1E3A5F" font-weight="700">FQ3'26</text><text x="445" y="280" fill="#2E7D5B">FQ4e</text><text x="531" y="280" fill="#2E7D5B">FQ1'27e</text><text x="617" y="280" fill="#2E7D5B">FQ2'27e</text>
+        </g>
+        <g>
+          <rect x="200" y="306" width="13" height="13" fill="#1E3A5F"></rect><text x="219" y="317" class="e1l" fill="#1B2536">Revenue ($bn)</text>
+          <line x1="340" y1="312" x2="368" y2="312" stroke="#B3402F" stroke-width="2.6"></line><circle cx="354" cy="312" r="3.5" fill="#B3402F"></circle>
+          <text x="376" y="317" class="e1l" fill="#1B2536">Gross margin (%)</text>
+          <rect x="510" y="306" width="13" height="13" fill="#2E7D5B"></rect><text x="529" y="317" class="e1l" fill="#1B2536">BTN estimate</text>
+        </g>
+      </svg>
+      <p class="fig-src"><strong>This is what operating leverage looks like in memory.</strong> Revenue is inflecting on AI demand while gross margin re-rates on mix — the two reinforcing each other through the model. The green bars are estimates; the steepening margin line is the part the print made hard to ignore. Sources: company filings (historical); Behind The Numbers estimates (FQ4'26 forward). Figures illustrative.</p>
+    </figure>
+
+    <h2>The quarter in detail</h2>
+    <p>FQ3 was a beat of quality, not just magnitude. Revenue of approximately $11.2bn rose roughly 18% sequentially, but the composition matters more than the headline: data-center DRAM, led by HBM and high-capacity server modules, was the overwhelming driver, while the consumer-facing NAND and PC/mobile lines were merely steady. That mix is why non-GAAP gross margin expanded around 700 basis points to a record ~51% — pricing and mix did the work, with bit-cost-down a secondary contributor. Operating expenses were well controlled, so the margin flowed through to a non-GAAP EPS of ~$3.05, ahead of the ~$2.71 consensus by roughly 13%. Free cash flow turned firmly positive as the company began to harvest the up-cycle while holding capex discipline on greenfield capacity.</p>
+
+    <!-- Estimates table -->
+    <table class="est">
+      <thead>
+        <tr><th>($mn unless noted)</th><th>FQ3'26A</th><th>Consensus</th><th>vs cons.</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Revenue</td><td>11,200</td><td>10,750</td><td class="pos">+4.2%</td></tr>
+        <tr><td>Gross margin (non-GAAP)</td><td>51.0%</td><td>46.5%</td><td class="pos">+450bp</td></tr>
+        <tr><td>Operating margin</td><td>34.5%</td><td>29.8%</td><td class="pos">+470bp</td></tr>
+        <tr><td>EPS (non-GAAP, $)</td><td>3.05</td><td>2.71</td><td class="pos">+12.5%</td></tr>
+        <tr class="grp"><td colspan="4">Segment revenue mix (est.)</td></tr>
+        <tr><td>HBM</td><td>~2,050</td><td>—</td><td class="pos">~18% of rev</td></tr>
+        <tr><td>Other data-center DRAM</td><td>~4,300</td><td>—</td><td>~38%</td></tr>
+        <tr><td>NAND / storage</td><td>~2,950</td><td>—</td><td>~26%</td></tr>
+        <tr><td>PC / mobile / auto</td><td>~1,900</td><td>—</td><td>~17%</td></tr>
+        <tr class="hl"><td>FQ4'26 guidance (rev, midpoint)</td><td>12,000</td><td>11,300</td><td class="pos">+6.2%</td></tr>
+      </tbody>
+    </table>
+    <p class="tbl-note">A = actual; Cons. = consensus. Segment splits are modeled approximations; the company does not disclose a standalone HBM line. All figures illustrative and for analytical purposes only.</p>
+
+    <div class="pull">"For a decade the knock on memory was zero visibility. HBM sold out through 2027 at contracted prices is the opposite of that — which is what makes this quarter different from a normal cyclical peak."</div>
+
+    <h2>HBM: from side bet to engine</h2>
+    <p>The single most important number in the print is one Micron does not formally report: we estimate HBM revenue reached a greater-than-$8bn annualized run-rate this quarter, roughly 18% of total revenue, up from a low-teens share two quarters ago. The reason it matters is structural. Legacy DRAM is priced in a liquid spot market that can halve in a downturn; HBM is sold under long-term agreements negotiated quarters in advance, to a handful of accelerator and hyperscale customers, against capacity that all three suppliers have already committed through 2027. As HBM's share of the mix rises, the volatility of Micron's blended pricing falls — and the earnings stream starts to look steadier than memory's history would suggest.</p>
+
+    <!-- Chart 2: HBM mix shift -->
+    <figure class="figure">
+      <figcaption class="fig-cap">HBM is re-shaping the revenue base
+        <span class="fig-cap-sub">Estimated HBM share of total revenue, % — the driver of the margin step-up</span>
+      </figcaption>
+      <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart of HBM as a share of Micron revenue rising from 4 percent to an estimated 30 percent by fiscal 2027" style="width:100%;height:auto;display:block;">
+        <style>
+          .e2l{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:11px;fill:#8A91A0}
+          .e2n{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;fill:#1B2536;font-weight:600;text-anchor:middle}
+          .e2v{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;text-anchor:middle}
+          .e2t{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;fill:#1E3A5F}
+        </style>
+        <text x="20" y="20" class="e2t">From rounding error to a third of revenue</text>
+        <line x1="64" y1="250" x2="668" y2="250" stroke="#1B2536" stroke-width="1.2"></line>
+        <g stroke="#efeadf" stroke-width="1">
+          <line x1="64" y1="194" x2="668" y2="194"></line>
+          <line x1="64" y1="138" x2="668" y2="138"></line>
+          <line x1="64" y1="82" x2="668" y2="82"></line>
+        </g>
+        <g class="e2l" text-anchor="end"><text x="56" y="254">0%</text><text x="56" y="198">10%</text><text x="56" y="142">20%</text><text x="56" y="86">30%</text></g>
+        <rect x="100" y="227.6" width="60" height="22.4" fill="#9DB0C4"></rect><text x="130" y="219" class="e2v" fill="#4A5567">4%</text><text x="130" y="270" class="e2n">FY25</text>
+        <rect x="216" y="216.4" width="60" height="33.6" fill="#9DB0C4"></rect><text x="246" y="208" class="e2v" fill="#4A5567">6%</text><text x="246" y="270" class="e2n">FY25 H2</text>
+        <rect x="332" y="182.8" width="60" height="67.2" fill="#5A7AA3"></rect><text x="362" y="174" class="e2v" fill="#1E3A5F">12%</text><text x="362" y="270" class="e2n">FQ1'26</text>
+        <rect x="448" y="149.2" width="60" height="100.8" fill="#1E3A5F"></rect><text x="478" y="141" class="e2v" fill="#1E3A5F">18%</text><text x="478" y="270" class="e2n" font-weight="700">FQ3'26</text>
+        <rect x="564" y="82" width="60" height="168" fill="#2E7D5B"></rect><text x="594" y="74" class="e2v" fill="#2E7D5B">~30%</text><text x="594" y="270" class="e2n" fill="#2E7D5B">FY27e</text>
+      </svg>
+      <p class="fig-src"><strong>The mix is the model.</strong> Each point of HBM share lifts blended gross margin and steadies the revenue base. By FY27 we estimate HBM approaches a third of revenue — the structural shift behind the record-margin print. Sources: Behind The Numbers estimates; company commentary. Illustrative.</p>
+    </figure>
+
+    <h2>What the future looks like</h2>
+    <p>The path from here is set by two things pulling in opposite directions: demand that is still accelerating, and supply that all three makers are rushing to add. On current trends — AI accelerator shipments climbing and HBM pre-sold — the mix shift carries revenue and margins higher through FY27. Our modeled numbers below put FY27 revenue near $54bn with gross margin in the mid-50s. The honest caveat is that these are estimates, and the single biggest variable is not demand but whether the industry's 2027 capacity build tips HBM from shortage toward balance, which would cool pricing.</p>
+
+    <table class="est">
+      <thead>
+        <tr><th>Non-GAAP (modeled)</th><th>FY25A</th><th>FY26e</th><th>FY27e</th><th>FY28e</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Revenue ($bn)</td><td>33.5</td><td>42.8</td><td>54.5</td><td>61.0</td></tr>
+        <tr><td>Gross margin</td><td>41.0%</td><td>49.5%</td><td>54.0%</td><td>55.5%</td></tr>
+        <tr><td>EPS ($)</td><td>7.20</td><td>10.40</td><td>13.10</td><td>15.40</td></tr>
+        <tr class="hl"><td>Revenue growth y/y</td><td>—</td><td class="pos">+28%</td><td class="pos">+27%</td><td class="pos">+12%</td></tr>
+      </tbody>
+    </table>
+    <p class="tbl-note">Behind The Numbers modeled estimates. FY ends late August. A = actual; e = estimate. Illustrative analysis, not guidance and not a forecast of share price.</p>
+
+    <!-- Chart 3: annual outlook -->
+    <figure class="figure">
+      <figcaption class="fig-cap">The outlook in one picture
+        <span class="fig-cap-sub">Modeled annual revenue ($bn, bars) and EPS ($, line), FY25–FY28e</span>
+      </figcaption>
+      <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chart of modeled annual revenue rising from 33 to 61 billion dollars and EPS from 7.20 to 15.40 over fiscal 2025 to 2028" style="width:100%;height:auto;display:block;">
+        <style>
+          .e3l{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:11px;fill:#8A91A0}
+          .e3n{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12.5px;fill:#1B2536;font-weight:600;text-anchor:middle}
+          .e3v{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;font-weight:700;text-anchor:middle}
+          .e3t{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;fill:#1E3A5F}
+        </style>
+        <text x="20" y="22" class="e3t">Demand drives the base case higher — if supply behaves</text>
+        <line x1="64" y1="248" x2="640" y2="248" stroke="#1B2536" stroke-width="1.2"></line>
+        <g stroke="#efeadf" stroke-width="1">
+          <line x1="64" y1="200" x2="640" y2="200"></line>
+          <line x1="64" y1="152" x2="640" y2="152"></line>
+          <line x1="64" y1="104" x2="640" y2="104"></line>
+          <line x1="64" y1="64" x2="640" y2="64"></line>
+        </g>
+        <g class="e3l" text-anchor="end" fill="#1E3A5F"><text x="56" y="252">0</text><text x="56" y="204">$20</text><text x="56" y="156">$40</text><text x="56" y="108">$60</text></g>
+        <g class="e3l" text-anchor="start" fill="#B3402F"><text x="648" y="204">$6</text><text x="648" y="134">$11</text><text x="648" y="68">$16</text></g>
+        <!-- bars: scale 2.4px/$bn baseline 248 -->
+        <rect x="96" y="167.6" width="86" height="80.4" fill="#5A7AA3"></rect><text x="139" y="159" class="e3v" fill="#1E3A5F">$33.5</text><text x="139" y="268" class="e3n">FY25A</text>
+        <rect x="240" y="145.3" width="86" height="102.7" fill="#1E3A5F"></rect><text x="283" y="137" class="e3v" fill="#1E3A5F">$42.8</text><text x="283" y="268" class="e3n" fill="#2E7D5B">FY26e</text>
+        <rect x="384" y="117.2" width="86" height="130.8" fill="#2E7D5B"></rect><text x="427" y="109" class="e3v" fill="#2E7D5B">$54.5</text><text x="427" y="268" class="e3n" fill="#2E7D5B">FY27e</text>
+        <rect x="528" y="101.6" width="86" height="146.4" fill="#2E7D5B"></rect><text x="571" y="93" class="e3v" fill="#2E7D5B">$61.0</text><text x="571" y="268" class="e3n" fill="#2E7D5B">FY28e</text>
+        <!-- EPS line: map $6->230, $16->48 => y=230-(eps-6)*18.2 -->
+        <polyline points="139,208 283,150 427,101 571,59" fill="none" stroke="#B3402F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></polyline>
+        <g fill="#B3402F"><circle cx="139" cy="208" r="4"></circle><circle cx="283" cy="150" r="4"></circle><circle cx="427" cy="101" r="4"></circle><circle cx="571" cy="59" r="4"></circle></g>
+        <g class="e3l"><text x="139" y="200" text-anchor="middle" fill="#B3402F" font-weight="700">$7.20</text><text x="300" y="143" fill="#B3402F" font-weight="700">$13.10 →</text></g>
+      </svg>
+      <p class="fig-src"><strong>The shape of the next three years, on current assumptions.</strong> Revenue and EPS step higher as HBM scales — a trajectory that holds as long as demand stays firm and 2027 supply additions don't outrun it. These are modeled estimates, not a forecast of the stock. Source: Behind The Numbers estimates. Illustrative.</p>
+    </figure>
+
+    <h2>What could change the trajectory</h2>
+    <div class="risk"><div class="rn">1</div><div><b>Supply normalization.</b> The fastest way the outlook softens is success: if SK Hynix, Samsung and Micron all add HBM capacity into 2027, the shortage that underpins pricing could ease, pressuring ASPs and margin.</div></div>
+    <div class="risk"><div class="rn">2</div><div><b>AI capex digestion.</b> The revenue path assumes hyperscaler accelerator spending stays on its current trajectory. A pause or air-pocket in AI infrastructure budgets would hit HBM demand directly and quickly.</div></div>
+    <div class="risk"><div class="rn">3</div><div><b>The macro backdrop.</b> As a high-beta name, Micron's valuation is sensitive to the hawkish Fed repricing — a higher real yield pressures multiples regardless of how the operating story develops. (See <a href="discount-rate-war-research.html">The Discount Rate War</a>.)</div></div>
+    <div class="risk"><div class="rn">4</div><div><b>Customer concentration.</b> HBM's visibility rests on a small number of large buyers. The same concentration that provides the contracts is a single-point-of-failure risk if one program slips.</div></div>
+    <div class="risk"><div class="rn">5</div><div><b>Legacy memory drag.</b> NAND and commodity DRAM remain genuinely cyclical and could offset some of the HBM-led margin gains if consumer end-markets weaken into a higher-rate slowdown.</div></div>
+
+    <h2>The bottom line</h2>
+    <p>This was the quarter that lets Micron be discussed as more than a commodity cyclical. The record gross margin is the evidence; HBM's rising, contracted, sold-out mix is the cause; and the stronger forward numbers follow directly. What happens next is less a question of demand — which is robust — than of supply: the line to watch quarter to quarter is no longer the DRAM spot price, but HBM capacity announcements across all three suppliers. As long as those stop short of signalling a glut, the trajectory the results just established stays intact.</p>
+
+    <p class="byline" style="border-top: 1px solid var(--rule); padding-top: 18px; margin-top: 36px;">
+      <b>Dhairya Shah</b> · Behind The Numbers. <strong>Important note:</strong> This is independent earnings analysis published for general information only. It describes reported results and a modeled outlook; it carries <em>no</em> rating, no price target, and is <em>not</em> a recommendation to buy, sell or hold any security. It is not a product of, nor affiliated with, any investment bank. All forward figures are the author's own illustrative modeling — not company guidance, not consensus, and uncertain. Micron segment splits (including HBM) are modeled approximations the company does not separately disclose, and actual results will differ. Markets carry risk; do your own research and consult a licensed adviser before making any investment decision. © 2026 Behind the Numbers.
+    </p>
+  </div>
+
+  <!-- ════════════════ SUBSCRIBE + DISCUSS ════════════════ -->
+  <div class="article-end">
+    <div class="subscribe-panel">
+      <div>
+        <div class="t">Get the next note in your inbox.</div>
+        <div class="s">Research and the daily brief, every market morning. Free.</div>
+      </div>
+      <form method="POST" action="https://formspree.io/f/xkoaqlza" data-subscribe="">
+        <p hidden="hidden" aria-hidden="true" style="display:none;"><label>Leave this empty: <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+        <input type="email" name="email" placeholder="you@example.com" required="required" aria-label="Email address">
+        <button class="btn" type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div class="discuss-panel">
+      <div>
+        <div class="t">Is the HBM super-cycle durable, or is the glut closer than it looks? Take it to LinkedIn.</div>
+        <div class="s">I post every note on LinkedIn — that's where the sharpest debate happens.</div>
+      </div>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a class="btn primary" href="https://www.linkedin.com/in/dhairya-shah-41382b75" target="_blank" rel="noopener">Discuss on LinkedIn</a>
+        <a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7466052500509351936" target="_blank" rel="noopener">Subscribe on LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="brand">Behind The Numbers</div>
+        <p>Independent daily analysis of global markets. Written by <b>Dhairya Shah</b>.</p>
+      </div>
+      <div>
+        <h4>Sections</h4>
+        <ul>
+          <li><a href="index.html#daily-briefs">Daily Briefs</a></li>
+          <li><a href="index.html#market-trends">Market Trends</a></li>
+          <li><a href="index.html#research">Research Columns</a></li>
+          <li><a href="index.html#archive">Archive</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/dhairya-shah-41382b75" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Behind The Numbers. All views are personal and not investment advice.</span>
+      <span data-today="">—</span>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script src="search.js"></script>
+<script src="charts.js"></script>
+</body>
+</html>
