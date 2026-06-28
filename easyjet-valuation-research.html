@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>easyJet (EZJ): What's the Business Worth When a War Sets the Fuel Bill? — Behind The Numbers</title>
+<meta name="description" content="A live takeover, a loss-making winter half, and a fuel bill written by a war. easyJet is the textbook case for why valuation runs on normalized earnings — and why adjusted EBITDA is where the fight is won or lost.">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ── Results & valuation furniture (scoped) ───────────────── */
+  .statbar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    border: 1px solid var(--rule-strong); border-left: 5px solid var(--navy); margin: 6px 0 4px;
+    font-family: var(--sans); background: var(--paper); }
+  .statbar .rb { padding: 14px 18px; border-right: 1px solid var(--rule); }
+  .statbar .rb:last-child { border-right: none; }
+  .statbar .rb .l { font-size: 10px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-faint); }
+  .statbar .rb .v { font-family: var(--display, var(--serif)); font-size: 30px; font-weight: 700; line-height: 1.05; margin-top: 5px; color: var(--navy); }
+  .statbar .rb .v small { font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--ink-soft); }
+  .statbar .rb.down .v { color: var(--down); }
+  .statbar .rb.up .v { color: var(--up); }
+  .statbar .rb .s { font-size: 11.5px; color: var(--ink-soft); margin-top: 3px; }
+  @media (max-width: 720px){ .statbar { grid-template-columns: 1fr 1fr; } .statbar .rb:nth-child(2n){border-right:none;} }
+
+  table.est { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 14px; margin: 20px 0 6px; }
+  table.est th, table.est td { padding: 9px 12px; text-align: right; border-bottom: 1px solid var(--rule); }
+  table.est thead th { font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); border-bottom: 2px solid var(--rule-strong); }
+  table.est td:first-child, table.est th:first-child { text-align: left; }
+  table.est tbody tr:nth-child(odd) { background: rgba(0,0,0,0.018); }
+  table.est .grp { font-weight: 700; color: var(--navy); background: var(--paper) !important; border-bottom: none; padding-top: 16px; }
+  table.est .pos { color: var(--up); font-weight: 700; }
+  table.est .neg { color: var(--down); font-weight: 700; }
+  table.est .hl td { background: rgba(46,125,91,0.08) !important; font-weight: 700; }
+  table.est .sub td:first-child { padding-left: 26px; font-weight: 400; color: var(--ink-soft); }
+  .tbl-note { font-family: var(--sans); font-size: 11px; color: var(--ink-faint); margin: 4px 0 0; }
+
+  /* Adjustment ledger */
+  table.ledger { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 14px; margin: 22px 0 6px; }
+  table.ledger th, table.ledger td { padding: 11px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  table.ledger thead th { font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); border-bottom: 2px solid var(--rule-strong); text-align: left; }
+  table.ledger th:nth-child(2), table.ledger td:nth-child(2) { text-align: right; font-family: var(--mono); white-space: nowrap; width: 90px; }
+  table.ledger th:last-child, table.ledger td:last-child { text-align: center; width: 132px; }
+  table.ledger .item b { font-family: var(--serif); }
+  table.ledger .item span { display: block; font-size: 12px; color: var(--ink-soft); margin-top: 3px; line-height: 1.45; }
+  .pill { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 4px 9px; border-radius: 2px; border: 1px solid currentColor; }
+  .pill.hi { color: var(--up); }
+  .pill.mid { color: #B07A1E; }
+  .pill.lo { color: var(--down); }
+  .pill.no { color: var(--ink-faint); }
+
+  .risk { display: grid; grid-template-columns: 28px 1fr; gap: 0 14px; align-items: baseline;
+    padding: 12px 0; border-bottom: 1px solid var(--rule); font-size: 15.5px; line-height: 1.5; }
+  .risk:last-child { border-bottom: none; }
+  .risk .rn { font-family: var(--sans); font-weight: 700; color: var(--accent, var(--navy)); font-size: 15px; }
+  .risk b { font-family: var(--serif, Georgia); }
+</style>
+</head>
+<body data-article-id="2026-06-27-easyjet-valuation">
+
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <rect width="400" height="400" fill="#1E3A5F"></rect>
+    <g transform="translate(120,120)">
+      <rect x="0" y="96" width="46" height="64" fill="#B3402F"></rect>
+      <rect x="66" y="40" width="46" height="120" fill="#9DB0C4"></rect>
+      <rect x="112" y="40" width="46" height="120" fill="#2E7D5B"></rect>
+    </g>
+    <text x="200" y="318" fill="#FAF7F0" font-family="Georgia, serif" font-size="29" font-weight="700" text-anchor="middle">EZJ</text>
+    <text x="200" y="350" fill="#8A91A0" font-family="Helvetica, Arial, sans-serif" font-size="13" letter-spacing="2" text-anchor="middle">NORMALIZED VALUE</text>
+  </svg>
+</template>
+
+<!-- ════════════════ TOP BAR ════════════════ -->
+<div class="topbar">
+  <div class="wrap">
+    <span data-today="">—</span>
+    <nav>
+      <a href="index.html#daily-briefs">Daily Brief</a>
+      <a href="index.html#headlines">Headlines</a>
+      <a href="index.html#market-trends">Market Trends</a>
+      <a href="index.html#research">Research</a>
+      <a href="index.html#archive">Archive</a>
+    </nav>
+    <span class="edition">Markets Edition</span>
+  </div>
+</div>
+
+<!-- ════════════════ MASTHEAD ════════════════ -->
+<header class="masthead compact">
+  <div class="wrap">
+    <a class="lockup" href="index.html">
+      <span class="nameplate">Behind The Numbers</span>
+      <img src="logo-mark.png" alt="Behind The Numbers — bar chart logo mark">
+    </a>
+    <hr class="double-rule">
+  </div>
+</header>
+
+<!-- ════════════════ ARTICLE ════════════════ -->
+<article data-screen-label="easyJet Valuation — Normalizing the Fuel Shock (EZJ)">
+  <header class="article-head">
+    <span class="kicker">Valuation Analysis · UK Airlines · June 27, 2026</span>
+    <h1>easyJet (LSE: EZJ) — What Is the Business Worth When a War Sets the Fuel Bill?</h1>
+    <p class="deck">A live takeover, a winter half that lost £552m before tax, and a fuel line written by the Middle East conflict. easyJet is the cleanest case study going for the question every valuation actually turns on: not what a company earned, but what it can <em>sustainably</em> earn once the one-offs are stripped out — and why adjusted EBITDA is where that argument is won or lost.</p>
+    <p class="byline">By <b>Dhairya Shah</b> · Valuation Analysis · 12 min read · Prices and data as of the June 26, 2026 close</p>
+
+    <div class="share-row">
+      <button class="share-btn" data-share="linkedin" type="button">in · LinkedIn</button>
+      <button class="share-btn" data-share="x" type="button">𝕏 · Post</button>
+      <button class="share-btn" data-share="whatsapp" type="button">WhatsApp</button>
+      <button class="share-btn" data-share="copy" type="button">Copy link</button>
+    </div>
+  </header>
+
+  <div class="article-body">
+
+    <!-- Stat bar -->
+    <div class="statbar">
+      <div class="rb">
+        <div class="l">H1 FY26 revenue</div>
+        <div class="v">£3.95B</div>
+        <div class="s">+12% y/y · winter half</div>
+      </div>
+      <div class="rb down">
+        <div class="l">Reported pre-tax loss</div>
+        <div class="v">£552M</div>
+        <div class="s">vs £448m loss a year ago</div>
+      </div>
+      <div class="rb down">
+        <div class="l">Airline winter LBIT</div>
+        <div class="v">£581M</div>
+        <div class="s">+£180m wider y/y</div>
+      </div>
+      <div class="rb up">
+        <div class="l">Holidays EBIT</div>
+        <div class="v">£48M</div>
+        <div class="s">+50% y/y</div>
+      </div>
+    </div>
+    <p class="dash-note">Independent valuation analysis. This note carries no rating, price target, or recommendation to buy or sell any security, and is not connected to easyJet, Castlelake, or any adviser. Reported figures are drawn from easyJet's H1 FY26 results (six months to 31 March 2026). All add-back estimates, the depreciation split, and the adjusted-EBITDA bridge are Behind The Numbers' own illustrative modeling — not company-disclosed adjusted figures — and are used to demonstrate method, not to assert a value. See the full disclosure at the foot of this note.</p>
+
+    <!-- Takeaways -->
+    <div class="takeaways">
+      <h3>The Thesis in Five Lines</h3>
+      <ol>
+        <li><strong>The reported number is almost useless for valuation.</strong> easyJet's winter half is structurally loss-making before any shock; layer a war-driven fuel spike on top and the £552m pre-tax loss tells you little about what the business actually earns through a cycle.</li>
+        <li><strong>Valuation runs on <em>maintainable</em> earnings.</strong> Both a discounted-cash-flow and a multiple approach price the steady-state earning power of the asset — so genuinely one-off costs have to be identified and stripped out before you capitalize anything.</li>
+        <li><strong>The fuel spike is the textbook one-off — but only partly.</strong> A war moving Brent is exogenous and non-recurring; the trouble is that fuel is volatile <em>every</em> year, so the line between "extraordinary shock" and "normal volatility you must bear" is a judgement, not a fact.</li>
+        <li><strong>Identifying the add-backs is the hard, contestable part.</strong> Adjustment creep, hedging noise, knock-on demand effects, and growth-versus-exceptional ambiguity mean the "underlying" figure is an argument — which is exactly why adjusted EBITDA, not statutory profit, is the battleground.</li>
+        <li><strong>That argument <em>is</em> the takeover.</strong> Castlelake's rejected bids and the board's "undervalues the company" defence are, at bottom, two different views of normalized EBITDA and the multiple it deserves.</li>
+      </ol>
+    </div>
+
+    <h2>Two businesses, one winter, and a war in the fuel line</h2>
+    <p>easyJet is really two companies wearing one ticker. The first is a low-cost <strong>airline</strong> — capital-heavy, fuel-exposed, and seasonal to the bone: it loses money flying half-empty planes through the European winter and makes it back across the summer peak. The second is <strong>easyJet holidays</strong>, an asset-light package-holiday business that is growing fast, earning real margin, and behaving nothing like the airline. In the six months to 31 March 2026, the airline ran an operating loss of £581m while holidays grew earnings 50% to £48m on a 22% rise in customers. Same company, opposite signals.</p>
+    <p>Onto that already-loss-making winter landed an external shock. The Middle East conflict pushed jet fuel sharply higher and clouded near-term demand, and easyJet said as much: management attributed roughly £180m of year-on-year deterioration in airline losses to a combination of higher fuel, strategic start-up costs at its new Milan and Rome bases, competitive overcapacity in some beach markets, and cost inflation. The headline outcome was a £552m pre-tax loss — but that headline blends three very different kinds of cost, and a valuation has to take them apart.</p>
+
+    <!-- Chart 2: two businesses -->
+    <figure class="figure">
+      <figcaption class="fig-cap">One ticker, two opposite businesses
+        <span class="fig-cap-sub">Winter-half (H1) segment result, £m — airline operating loss (red) vs easyJet holidays EBIT (green)</span>
+      </figcaption>
+      <svg viewBox="0 0 700 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grouped bar chart: the airline winter loss widened from 401 to 581 million pounds while easyJet holidays profit grew from 32 to 48 million" style="width:100%;height:auto;display:block;">
+        <style>
+          .s2l{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:11px;fill:#8A91A0}
+          .s2n{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12.5px;fill:#1B2536;font-weight:600;text-anchor:middle}
+          .s2v{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12.5px;font-weight:700;text-anchor:middle}
+          .s2t{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;fill:#1E3A5F}
+        </style>
+        <text x="20" y="22" class="s2t">Holidays earns through the winter the airline can't</text>
+        <!-- zero line at y=140; scale 0.18 px/£m, range +120..-640 -->
+        <g stroke="#efeadf" stroke-width="1">
+          <line x1="70" y1="86" x2="660" y2="86"></line>
+          <line x1="70" y1="194" x2="660" y2="194"></line>
+          <line x1="70" y1="248" x2="660" y2="248"></line>
+        </g>
+        <line x1="70" y1="140" x2="660" y2="140" stroke="#1B2536" stroke-width="1.2"></line>
+        <g class="s2l" text-anchor="end" fill="#1E3A5F">
+          <text x="62" y="90">+£100m</text><text x="62" y="144">0</text><text x="62" y="198">−£300m</text><text x="62" y="252">−£600m</text>
+        </g>
+        <!-- group H1'25 centered ~250 -->
+        <text x="250" y="300" class="s2n">H1 FY25</text>
+        <rect x="170" y="140" width="64" height="72" fill="#B3402F"></rect><text x="202" y="226" class="s2v" fill="#B3402F">−£401m</text>
+        <rect x="262" y="134" width="64" height="6" fill="#2E7D5B"></rect><text x="294" y="126" class="s2v" fill="#2E7D5B">+£32m</text>
+        <!-- group H1'26 centered ~480 -->
+        <text x="480" y="300" class="s2n">H1 FY26</text>
+        <rect x="400" y="140" width="64" height="105" fill="#B3402F"></rect><text x="432" y="259" class="s2v" fill="#B3402F">−£581m</text>
+        <rect x="492" y="131" width="64" height="9" fill="#2E7D5B"></rect><text x="524" y="123" class="s2v" fill="#2E7D5B">+£48m</text>
+        <!-- legend -->
+        <g><rect x="220" y="312" width="12" height="12" fill="#B3402F"></rect><text x="238" y="322" class="s2l" fill="#1B2536">Airline (LBIT)</text>
+        <rect x="370" y="312" width="12" height="12" fill="#2E7D5B"></rect><text x="388" y="322" class="s2l" fill="#1B2536">easyJet holidays (EBIT)</text></g>
+      </svg>
+      <p class="fig-src"><strong>The case for a sum-of-the-parts view.</strong> The two segments don't just differ in size — they differ in <em>kind</em>. A growing, asset-light holidays business deserves a different multiple from a seasonal, fuel-exposed airline, and lumping them into one statutory loss obscures both. Source: easyJet H1 FY26 results; segment EBIT as reported. Prior-year holidays figure implied by the disclosed 50% increase.</p>
+    </figure>
+
+    <h2>Why you can't value the number the company reported</h2>
+    <p>Every valuation method, underneath the spreadsheet, does the same thing: it estimates what the business can earn on a <em>sustainable, mid-cycle basis</em> and capitalizes that. A discounted-cash-flow model projects a maintainable free-cash-flow stream and discounts it; an EV/EBITDA multiple takes a normalized EBITDA and applies a market rating. Both fall apart if you feed them a number distorted by something that won't happen again. A war-driven fuel spike is the definition of something that — in any given form — won't repeat: it tells you about geopolitics in the spring of 2026, not about easyJet's earning power.</p>
+    <p>So the analyst's first job is not arithmetic, it's <strong>normalization</strong>: rebuilding a clean, maintainable earnings figure by adding back the costs that are genuinely non-recurring and leaving in the ones that are simply the business being itself. The mechanism people reach for is a bridge from the reported result to "underlying" or adjusted earnings — and the most-watched rung on that bridge is adjusted EBITDA, because it strips out the financing structure and the depreciation schedule (both of which vary hugely across leased-vs-owned airline fleets) and gets closest to maintainable cash earning power.</p>
+
+    <!-- Chart 1: normalization bridge -->
+    <figure class="figure">
+      <figcaption class="fig-cap">Stripping the one-offs out of the winter loss
+        <span class="fig-cap-sub">Illustrative bridge from reported to underlying airline operating loss, H1 FY26, £m</span>
+      </figcaption>
+      <svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Waterfall chart bridging a reported airline operating loss of 581 million pounds to an underlying loss of about 441 million after adding back a fuel spike, legal provisions and new-base start-up costs" style="width:100%;height:auto;display:block;">
+        <style>
+          .s1l{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:11px;fill:#8A91A0}
+          .s1n{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:11.5px;fill:#1B2536;font-weight:600;text-anchor:middle}
+          .s1v{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:11.5px;font-weight:700;text-anchor:middle}
+          .s1t{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;fill:#1E3A5F}
+        </style>
+        <text x="20" y="20" class="s1t">Roughly £140m of the reported loss is non-recurring</text>
+        <!-- 0 at y=72, scale 0.34 px/£m -->
+        <g stroke="#efeadf" stroke-width="1">
+          <line x1="72" y1="140" x2="660" y2="140"></line>
+          <line x1="72" y1="208" x2="660" y2="208"></line>
+        </g>
+        <line x1="72" y1="72" x2="660" y2="72" stroke="#1B2536" stroke-width="1.2"></line>
+        <g class="s1l" text-anchor="end" fill="#1E3A5F">
+          <text x="64" y="76">0</text><text x="64" y="144">−£200m</text><text x="64" y="212">−£400m</text><text x="64" y="280">−£600m</text>
+        </g>
+        <!-- prior-year reference line -£401m -> y=72+401*.34=208.3 -->
+        <line x1="72" y1="208" x2="660" y2="208" stroke="#1E3A5F" stroke-width="1" stroke-dasharray="2 4"></line>
+        <text x="656" y="201" class="s1l" text-anchor="end" fill="#1E3A5F">H1 FY25 loss −£401m</text>
+        <!-- bars -->
+        <!-- Reported -581 -> bottom y=72+197.5=269.5 -->
+        <rect x="92" y="72" width="78" height="197.5" fill="#1E3A5F"></rect>
+        <text x="131" y="285" class="s1v" fill="#1E3A5F">−£581m</text>
+        <!-- Fuel +75: from 269.5 to 244 -->
+        <rect x="200" y="244" width="64" height="25.5" fill="#2E7D5B"></rect>
+        <text x="232" y="238" class="s1v" fill="#2E7D5B">+75</text>
+        <!-- Legal +35: 244 to 232 -->
+        <rect x="294" y="232" width="64" height="12" fill="#2E7D5B"></rect>
+        <text x="326" y="226" class="s1v" fill="#2E7D5B">+35</text>
+        <!-- Ramp +30: 232 to 222 -->
+        <rect x="388" y="222" width="64" height="10" fill="#2E7D5B"></rect>
+        <text x="420" y="216" class="s1v" fill="#2E7D5B">+30</text>
+        <!-- Underlying -441 -> bottom y=72+150=222 -->
+        <rect x="496" y="72" width="78" height="150" fill="#6E7B8E"></rect>
+        <text x="535" y="238" class="s1v" fill="#4A5567">−£441m</text>
+        <!-- connectors -->
+        <g stroke="#8A91A0" stroke-width="1" stroke-dasharray="3 3">
+          <line x1="170" y1="269.5" x2="200" y2="269.5"></line>
+          <line x1="264" y1="244" x2="294" y2="244"></line>
+          <line x1="358" y1="232" x2="388" y2="232"></line>
+          <line x1="452" y1="222" x2="496" y2="222"></line>
+        </g>
+        <!-- x labels -->
+        <g class="s1n">
+          <text x="131" y="312">Reported</text><text x="131" y="327" class="s1l">airline LBIT</text>
+          <text x="232" y="312">Fuel</text><text x="232" y="327" class="s1l">war spike</text>
+          <text x="326" y="312">Legal</text><text x="326" y="327" class="s1l">provisions</text>
+          <text x="420" y="312">New-base</text><text x="420" y="327" class="s1l">ramp</text>
+          <text x="535" y="312" fill="#4A5567">Underlying</text><text x="535" y="327" class="s1l">winter LBIT</text>
+        </g>
+      </svg>
+      <p class="fig-src"><strong>What normalization looks like.</strong> The green steps are the add-backs; the grey bar is the maintainable winter loss they leave behind. Note the honest part: even normalized, the winter half loses money — that is the airline's seasonality, not a shock — and the underlying figure is still worse than the prior year, because cost inflation and overcapacity are <em>real, recurring</em> costs you do <em>not</em> add back. Add-back amounts are Behind The Numbers illustrative estimates allocating the company-disclosed ~£180m year-on-year deterioration; they are not company-reported exceptional items.</p>
+    </figure>
+
+    <h2>The hard part: which costs are actually extraordinary?</h2>
+    <p>Adding back a "war fuel spike" sounds simple on a slide. In practice, deciding what counts as extraordinary is the single most contestable judgement in the whole exercise — and it is where good analysis separates from wishful thinking. Five problems recur, and easyJet hits all of them.</p>
+
+    <table class="ledger">
+      <thead>
+        <tr><th>Cost in the winter result</th><th>Est. £m</th><th>Add back?</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="item"><b>War-driven fuel spike</b><span>Brent jumped on the Middle East conflict — exogenous, time-stamped, and unconnected to how easyJet operates. The clearest candidate for removal.</span></td>
+          <td>~75</td>
+          <td><span class="pill hi">Defensible</span></td>
+        </tr>
+        <tr>
+          <td class="item"><b>Exceptional legal provisions</b><span>One-off in name. But "exceptional" provisions have a habit of reappearing every year under a new label — the analyst has to check it is genuinely a single event.</span></td>
+          <td>~35</td>
+          <td><span class="pill mid">Debatable</span></td>
+        </tr>
+        <tr>
+          <td class="item"><b>New-base start-up (Milan, Rome)</b><span>Discretionary growth spend, not a shock. It depresses today's profit to build tomorrow's — but the company keeps opening bases, so it is arguably a recurring cost of the growth strategy.</span></td>
+          <td>~30</td>
+          <td><span class="pill lo">Recurring-ish</span></td>
+        </tr>
+        <tr>
+          <td class="item"><b>Cost inflation &amp; beach overcapacity</b><span>Painful, but this is the market and the cost base being what they are. Genuinely part of maintainable economics — adding it back would simply flatter the number.</span></td>
+          <td>~40</td>
+          <td><span class="pill no">Leave in</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="tbl-note">Illustrative decomposition of the ~£180m year-on-year increase in airline losses into Behind The Numbers' estimated buckets. Amounts are modeled, not disclosed; the "add back?" column reflects analytical judgement, not company classification.</p>
+
+    <p>Pull those four rows apart and the difficulties become concrete:</p>
+    <div class="risk"><div class="rn">1</div><div><b>One-off versus ever-present volatility.</b> Fuel spikes are "extraordinary" individually, yet fuel is volatile <em>every single year</em>. Strip out every bad fuel year and you build a fantasy business that never pays a realistic energy bill. The discipline is to remove the war-driven <em>excess</em> over a normal hedged cost — not the whole fuel line — which requires a defensible view of what "normal" is.</div></div>
+    <div class="risk"><div class="rn">2</div><div><b>Adjustment creep.</b> Management is structurally incentivized to classify anything bad as "exceptional" and anything good as "underlying." Restructuring charges that recur annually, integration costs that never end, perennial "one-off" provisions — left unpoliced, the adjusted number drifts ever further above reality. Skepticism is the analyst's core job here.</div></div>
+    <div class="risk"><div class="rn">3</div><div><b>Knock-on effects are hard to isolate.</b> A fuel shock doesn't only raise the fuel line. It dents demand, shifts forward bookings, moves FX, and changes the value of hedges — so the "pure" extraordinary cost is entangled with second-order effects that are partly structural. Clean separation is an estimate, never a fact.</div></div>
+    <div class="risk"><div class="rn">4</div><div><b>Hedging muddies the print.</b> easyJet was about 72% hedged for H2 FY26 at ~$726/tonne, so the reported fuel cost is already part-insulated, and mark-to-market movements on hedges can swing the P&L for reasons unrelated to operations. The cash cost, the hedged cost, and the reported cost are three different numbers — and only one of them belongs in a normalized figure.</div></div>
+    <div class="risk"><div class="rn">5</div><div><b>Growth spend versus exceptional cost.</b> The Milan and Rome start-up costs depress profit today but are a deliberate investment, not a misfortune. Whether to add them back depends on whether you are valuing the business <em>as it stands</em> or <em>as it is becoming</em> — a framing choice that materially moves the answer.</div></div>
+
+    <!-- Chart 3: defensibility ladder -->
+    <figure class="figure">
+      <figcaption class="fig-cap">Not all add-backs are created equal
+        <span class="fig-cap-sub">Each cost bucket sized by £m and shaded by how defensible it is to strip out — the further down, the weaker the case</span>
+      </figcaption>
+      <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Horizontal bars ranking add-backs by defensibility: war fuel spike most defensible, legal provisions debatable, new base ramp recurring, cost inflation should be left in" style="width:100%;height:auto;display:block;">
+        <defs>
+          <pattern id="hatchG" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+            <rect width="7" height="7" fill="#2E7D5B" opacity="0.18"></rect>
+            <line x1="0" y1="0" x2="0" y2="7" stroke="#2E7D5B" stroke-width="3"></line>
+          </pattern>
+          <pattern id="hatchR" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+            <rect width="7" height="7" fill="#B3402F" opacity="0.12"></rect>
+            <line x1="0" y1="0" x2="0" y2="7" stroke="#B3402F" stroke-width="3"></line>
+          </pattern>
+        </defs>
+        <style>
+          .s3l{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:11px;fill:#8A91A0}
+          .s3lab{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;fill:#1B2536;font-weight:600}
+          .s3v{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12.5px;font-weight:700}
+          .s3t{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;fill:#1E3A5F}
+          .s3tag{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase}
+        </style>
+        <text x="20" y="22" class="s3t">"Adjusted" is a spectrum, not a switch</text>
+        <!-- scale: bar starts x=230, 3.4 px/£m -->
+        <!-- row 1: fuel 75 -> w=255 -->
+        <text x="20" y="76" class="s3lab">War-driven fuel spike</text>
+        <rect x="230" y="62" width="255" height="22" fill="#2E7D5B"></rect>
+        <text x="493" y="78" class="s3v" fill="#2E7D5B">£75m</text>
+        <text x="20" y="92" class="s3tag" fill="#2E7D5B">Defensible one-off</text>
+        <!-- row 2: legal 35 -> w=119 -->
+        <text x="20" y="132" class="s3lab">Exceptional legal provisions</text>
+        <rect x="230" y="118" width="119" height="22" fill="#2E7D5B" opacity="0.55"></rect>
+        <text x="357" y="134" class="s3v" fill="#2E7D5B">£35m</text>
+        <text x="20" y="148" class="s3tag" fill="#B07A1E">Debatable — check it's truly single</text>
+        <!-- row 3: ramp 30 -> w=102 -->
+        <text x="20" y="188" class="s3lab">New-base start-up (Milan, Rome)</text>
+        <rect x="230" y="174" width="102" height="22" fill="url(#hatchG)"></rect>
+        <text x="340" y="190" class="s3v" fill="#4A5567">£30m</text>
+        <text x="20" y="204" class="s3tag" fill="#B3402F">Recurring cost of growth</text>
+        <!-- row 4: inflation 40 -> w=136 -->
+        <text x="20" y="244" class="s3lab">Cost inflation &amp; overcapacity</text>
+        <rect x="230" y="230" width="136" height="22" fill="url(#hatchR)"></rect>
+        <text x="374" y="246" class="s3v" fill="#4A5567">£40m</text>
+        <text x="20" y="260" class="s3tag" fill="#B3402F">Leave in — maintainable</text>
+        <!-- axis -->
+        <line x1="230" y1="276" x2="230" y2="54" stroke="#1B2536" stroke-width="1"></line>
+      </svg>
+      <p class="fig-src"><strong>Where the bodies are buried.</strong> Only the top bar is an unarguable removal. Each row below it is a weaker case — and a bidder building an aggressive "adjusted EBITDA" will reach further down the ladder than a conservative analyst will. The disagreement over how far to go is, quite literally, a disagreement over value. Shading: solid = defensible, faded = debatable, hatched = recurring/leave-in. Buckets are Behind The Numbers estimates.</p>
+    </figure>
+
+    <div class="pull">"Statutory profit tells you what happened. Adjusted EBITDA is an argument about what <em>normally</em> happens — and in a takeover, whoever wins that argument sets the price."</div>
+
+    <h2>Why adjusted EBITDA becomes the battleground</h2>
+    <p>Put the pieces together and you can see why, for a business like this, adjusted EBITDA is not an accounting footnote — it is the whole valuation. Run the bridge from the reported winter loss down through depreciation and the one-off add-backs and you arrive at a figure that is still negative (winter always is) but dramatically less alarming than the statutory headline. That normalized figure, annualized across the seasonal cycle and paired with the cash-generative summer, is what any acquirer actually capitalizes.</p>
+
+    <table class="est">
+      <thead>
+        <tr><th>Illustrative bridge — H1 FY26 (£m)</th><th>Amount</th><th></th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Reported group operating loss (EBIT)</td><td class="neg">(533)</td><td>airline (581) + holidays 48</td></tr>
+        <tr class="sub"><td>add: depreciation &amp; amortisation</td><td>~300</td><td>fleet-heavy, est.</td></tr>
+        <tr><td><strong>Reported EBITDA</strong></td><td class="neg">(233)</td><td>before adjustments</td></tr>
+        <tr class="sub"><td>add: war-driven fuel spike</td><td>~75</td><td>exogenous</td></tr>
+        <tr class="sub"><td>add: exceptional legal provisions</td><td>~35</td><td>if genuinely one-off</td></tr>
+        <tr class="sub"><td>add: new-base start-up costs</td><td>~30</td><td>contestable</td></tr>
+        <tr class="hl"><td><strong>Adjusted EBITDA (illustrative)</strong></td><td>(93)</td><td>maintainable winter run-rate</td></tr>
+      </tbody>
+    </table>
+    <p class="tbl-note">Behind The Numbers illustrative bridge for demonstration only. Depreciation is estimated; the add-backs are the same modeled buckets used above. easyJet does not report this adjusted figure. The point is the method and the size of the gap — roughly £140m between reported and adjusted EBITDA on these assumptions — not the precise endpoint.</p>
+
+    <p>Three reasons this rung carries the weight. First, EBITDA neutralizes the financing and accounting choices that make airlines hard to compare — owned versus leased fleets, different depreciation lives, IFRS 16 lease treatment — so it travels across peers and across a buyer's leveraged model. Second, EV/EBITDA is the multiple the market and acquirers actually quote for the sector, so the normalized EBITDA number <em>is</em> the input that gets multiplied into a price. Third — and this is the catch — adjusted EBITDA is a non-GAAP figure with no single legal definition: <strong>management decides what "adjusted" means.</strong> That is precisely why it is contestable, and why a careful reader treats every add-back as a claim to be tested rather than a fact to be accepted.</p>
+
+    <h2>What it means for the bid</h2>
+    <p>This is not abstract. Castlelake has approached easyJet four times — at 560p, 600p, 625p, and most recently a sweetened proposal valuing the company at roughly £4.93bn — and the board has rejected each as undervaluing the business, while granting more time and limited diligence to test a higher number. Strip away the choreography and the disagreement is exactly the one this note is about: <strong>what is easyJet's normalized, mid-cycle earning power, and what multiple does it deserve?</strong></p>
+    <p>A bidder running leveraged-buyout math wants the lowest defensible adjusted EBITDA — it keeps the entry price down and lets the war-scarred reported numbers do the arguing. The board wants the highest defensible version — fuel spike removed, holidays' growth capitalized generously, summer cash flow front-and-centre, winter losses dismissed as seasonal and exceptional. Both are building the same bridge from the same reported loss; they just stop adding back at different rungs of the ladder in Chart 3. The gap between their two "underlying" numbers, multiplied out, is most of the gap between 625p and whatever clears the deal.</p>
+    <p>That is the practical lesson of valuing a company through an extraordinary shock. The reported loss is loud but uninformative; the real work is the disciplined, skeptical reconstruction of maintainable earnings — and the moment money is on the table, that reconstruction stops being an academic exercise and becomes the negotiation itself.</p>
+
+    <h2>What could change the picture</h2>
+    <div class="risk"><div class="rn">1</div><div><b>Summer is the proof.</b> The whole normalized case rests on the peak half delivering. A weak summer — on demand, pricing, or another fuel leg higher — would validate the bears and shrink the maintainable EBITDA everyone is arguing over.</div></div>
+    <div class="risk"><div class="rn">2</div><div><b>Fuel is structurally recurring.</b> If geopolitical risk keeps Brent elevated, "one-off" fuel spikes start to look like a permanent feature — and the case for adding them back weakens with every repeat.</div></div>
+    <div class="risk"><div class="rn">3</div><div><b>The adjustments are judgement, not fact.</b> Every figure in the bridges here is an estimate. Reasonable analysts will allocate the £180m deterioration differently, and small changes in the add-backs move the adjusted number — and therefore the implied value — meaningfully.</div></div>
+    <div class="risk"><div class="rn">4</div><div><b>Deal path is uncertain.</b> Castlelake must firm up or walk away; ownership-restriction rules complicate the bidding group; and a collapse of the talks would reprice the equity back toward fundamentals fast. The premium in the shares is contingent, not banked.</div></div>
+    <div class="risk"><div class="rn">5</div><div><b>Holidays carries the story.</b> Much of the bull case is the asset-light holidays arm compounding. Any stumble in delivery there removes the cleanest part of the valuation and throws weight back onto the seasonal, fuel-exposed airline.</div></div>
+
+    <h2>The bottom line</h2>
+    <p>easyJet's winter print is a near-perfect teaching case. A £552m pre-tax loss looks catastrophic and tells you almost nothing, because it folds a structural off-season, a deliberate growth investment, and a war-driven fuel shock into a single line. Valuation lives one layer down — in the patient separation of what won't recur from what will, and in the adjusted EBITDA that separation produces. That number is not handed to you; it is built, defended, and contested. With a bidder at the door, the contest has a price tag, and the side that wins the argument over normalized earnings will, in the end, set the value of the company.</p>
+
+    <p class="byline" style="border-top: 1px solid var(--rule); padding-top: 18px; margin-top: 36px;">
+      <b>Dhairya Shah</b> · Behind The Numbers. <strong>Important note:</strong> This is independent analysis published for general information only. It explains a valuation method and applies it to publicly reported results; it carries <em>no</em> rating, no price target, and is <em>not</em> a recommendation to buy, sell or hold any security, nor advice in connection with any takeover offer. It is not a product of, nor affiliated with, any investment bank, easyJet, Castlelake, or any party to the bid. All adjusted figures, add-back estimates, the depreciation split, and the EBITDA bridges are the author's own illustrative modeling to demonstrate technique — they are not company-disclosed adjusted measures, and actual figures will differ. Markets carry risk; do your own research and consult a licensed adviser before making any investment decision. © 2026 Behind the Numbers.
+    </p>
+  </div>
+
+  <!-- ════════════════ SUBSCRIBE + DISCUSS ════════════════ -->
+  <div class="article-end">
+    <div class="subscribe-panel">
+      <div>
+        <div class="t">Get the next note in your inbox.</div>
+        <div class="s">Research and the daily brief, every market morning. Free.</div>
+      </div>
+      <form method="POST" action="https://formspree.io/f/xkoaqlza" data-subscribe="">
+        <p hidden="hidden" aria-hidden="true" style="display:none;"><label>Leave this empty: <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+        <input type="email" name="email" placeholder="you@example.com" required="required" aria-label="Email address">
+        <button class="btn" type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div class="discuss-panel">
+      <div>
+        <div class="t">How far down the add-back ladder would you go on easyJet? Take it to LinkedIn.</div>
+        <div class="s">I post every note on LinkedIn — that's where the sharpest debate happens.</div>
+      </div>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a class="btn primary" href="https://www.linkedin.com/in/dhairya-shah-41382b75" target="_blank" rel="noopener">Discuss on LinkedIn</a>
+        <a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7466052500509351936" target="_blank" rel="noopener">Subscribe on LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="brand">Behind The Numbers</div>
+        <p>Independent daily analysis of global markets. Written by <b>Dhairya Shah</b>.</p>
+      </div>
+      <div>
+        <h4>Sections</h4>
+        <ul>
+          <li><a href="index.html#daily-briefs">Daily Briefs</a></li>
+          <li><a href="index.html#market-trends">Market Trends</a></li>
+          <li><a href="index.html#research">Research Columns</a></li>
+          <li><a href="index.html#archive">Archive</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/dhairya-shah-41382b75" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Behind The Numbers. All views are personal and not investment advice.</span>
+      <span data-today="">—</span>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script src="search.js"></script>
+<script src="charts.js"></script>
+</body>
+</html>
