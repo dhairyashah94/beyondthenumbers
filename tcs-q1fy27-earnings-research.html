@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Running to Stand Still: Inside TCS's 14% Quarter — Behind The Numbers</title>
+<meta name="description" content="TCS opened earnings season with revenue up 14% — but the rupee and a soft base did most of the lifting, margins slipped to 24%, and profit rose just 5% after a legal charge. The one line growing fast is AI. A Behind The Numbers earnings brief on TCS Q1 FY27.">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Scoped earnings furniture — reused from the flagship template */
+  .keychain { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border-top: 3px solid var(--rule-strong); border-bottom: 1px solid var(--rule-strong); margin: 30px 0 8px; font-family: var(--sans); }
+  .keychain .kc { padding: 16px 16px 18px; border-right: 1px solid var(--rule); }
+  .keychain .kc:last-child { border-right: none; }
+  .keychain .kc .n { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-faint); line-height: 1.3; min-height: 26px; }
+  .keychain .kc .v { font-family: var(--display, var(--serif)); font-size: 30px; font-weight: 700; line-height: 1; margin-top: 10px; color: var(--navy); }
+  .keychain .kc .s { font-size: 11px; color: var(--ink-soft); margin-top: 6px; line-height: 1.35; }
+  @media (max-width: 720px) { .keychain { grid-template-columns: repeat(2, 1fr); } .keychain .kc:nth-child(2n) { border-right: none; } }
+
+  /* Scorecard table */
+  .scorecard { width: 100%; border-collapse: collapse; font-family: var(--sans); margin: 6px 0 8px; font-size: 13.5px; }
+  .scorecard caption { text-align: left; font-family: var(--sans); font-size: 14px; font-weight: 700; color: var(--navy); padding: 0 0 4px; }
+  .scorecard thead th { text-align: right; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-faint); border-bottom: 2px solid var(--ink); padding: 10px 10px; vertical-align: bottom; }
+  .scorecard thead th.lft { text-align: left; }
+  .scorecard tbody td { padding: 11px 10px; border-bottom: 1px solid var(--rule); text-align: right; vertical-align: top; }
+  .scorecard tbody td.lft { text-align: left; }
+  .scorecard tbody td.econ { font-weight: 700; color: var(--ink); white-space: nowrap; }
+  .scorecard tbody td.pos { color: #2E7D5B; font-weight: 700; }
+  .scorecard tbody td.neg { color: #B3402F; font-weight: 700; }
+  .scorecard tbody td.flat { color: var(--ink-soft); font-weight: 700; }
+  .scorecard tbody td.read { text-align: left; font-size: 12.5px; color: var(--ink-soft); line-height: 1.4; min-width: 200px; }
+  .scorecard tbody tr.netrow td { background: #EEF2F7; border-top: 2px solid var(--ink); }
+  .scorecard tbody tr.netrow td.econ { color: var(--navy); }
+  .sc-note { font-family: var(--sans); font-size: 11px; color: var(--ink-faint); margin: 4px 0 30px; line-height: 1.5; }
+  @media (max-width: 720px) { .scorecard { font-size: 12px; } .scorecard .hide-sm { display: none; } }
+
+  /* Deal ledger */
+  .dealbook { border-top: 3px solid var(--rule-strong); border-bottom: 1px solid var(--rule-strong); margin: 32px 0 8px; font-family: var(--sans); }
+  .dealbook .drow { display: grid; grid-template-columns: 170px 1fr; gap: 20px; padding: 14px 4px; border-bottom: 1px solid var(--rule); align-items: baseline; }
+  .dealbook .drow:last-child { border-bottom: none; }
+  .dealbook .dwho { font-weight: 700; font-size: 14px; color: var(--navy); }
+  .dealbook .dwhat { font-size: 13.5px; color: var(--ink-soft); line-height: 1.45; }
+  @media (max-width: 620px) { .dealbook .drow { grid-template-columns: 1fr; gap: 3px; } }
+</style>
+</head>
+<body data-article-id="2026-07-09-tcs-q1fy27">
+
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <rect width="400" height="400" fill="#1E3A5F"></rect>
+    <rect x="120" y="200" width="34" height="80" fill="#8A91A0"></rect>
+    <rect x="168" y="160" width="34" height="120" fill="#C08A2E"></rect>
+    <rect x="216" y="130" width="34" height="150" fill="#FAF7F0"></rect>
+    <text x="200" y="330" fill="#FAF7F0" font-family="Georgia, serif" font-size="30" font-weight="700" text-anchor="middle">TCS</text>
+    <text x="200" y="360" fill="#8A91A0" font-family="Helvetica, Arial, sans-serif" font-size="14" letter-spacing="2" text-anchor="middle">Q1 FY27</text>
+  </svg>
+</template>
+
+<!-- ════════════════ TOP BAR ════════════════ -->
+<div class="topbar">
+  <div class="wrap">
+    <span data-today="">—</span>
+    <nav>
+      <a href="index.html#daily-briefs">Daily Brief</a>
+      <a href="index.html#headlines">Headlines</a>
+      <a href="index.html#market-trends">Market Trends</a>
+      <a href="index.html#research">Research</a>
+      <a href="index.html#archive">Archive</a>
+    </nav>
+    <span class="edition">Earnings Edition</span>
+  </div>
+</div>
+
+<!-- ════════════════ MASTHEAD ════════════════ -->
+<header class="masthead compact">
+  <div class="wrap">
+    <a class="lockup" href="index.html">
+      <span class="nameplate">Behind The Numbers</span>
+      <img src="logo-mark.png" alt="Behind The Numbers — bar chart logo mark">
+    </a>
+    <hr class="double-rule">
+  </div>
+</header>
+
+<!-- ════════════════ ARTICLE ════════════════ -->
+<article data-screen-label="Research — TCS Q1 FY27 Earnings">
+  <header class="article-head">
+    <span class="kicker">Earnings · India IT · Thursday, July 9, 2026</span>
+    <h1>Running to Stand Still: Inside TCS's 14% Quarter</h1>
+    <p class="deck">India's largest IT company opened earnings season with a headline that looked like a comeback — revenue up 14%. Look closer. A weak rupee and a soft year-ago base did most of the lifting, the operating margin slipped to 24%, and net profit rose just 5% after a legal charge. The one line growing fast is artificial intelligence. This is the quarter of a labour-arbitrage machine trying to reinvent itself as an AI shop before the old engine stalls.</p>
+    <p class="byline">By <b>Dhairya Shah</b> · 9 min read · A Behind The Numbers earnings brief · Consolidated results for the quarter ended June 30, 2026</p>
+
+    <div class="share-row">
+      <button class="share-btn" data-share="linkedin" type="button">in · LinkedIn</button>
+      <button class="share-btn" data-share="x" type="button">𝕏 · Post</button>
+      <button class="share-btn" data-share="whatsapp" type="button">WhatsApp</button>
+      <button class="share-btn" data-share="copy" type="button">Copy link</button>
+    </div>
+  </header>
+
+  <div class="article-body">
+
+    <!-- Key chain -->
+    <div class="keychain">
+      <div class="kc"><div class="n">Revenue</div><div class="v">₹72,275cr</div><div class="s">+14% YoY (INR)</div></div>
+      <div class="kc"><div class="n">Net profit</div><div class="v">₹13,420cr</div><div class="s">+5% YoY, dented by a charge</div></div>
+      <div class="kc"><div class="n">Operating margin</div><div class="v">24.0%</div><div class="s">down from 24.5% a year ago</div></div>
+      <div class="kc"><div class="n">New order book (TCV)</div><div class="v">$9.5bn</div><div class="s">steady vs $9.4bn last year</div></div>
+      <div class="kc"><div class="n">Annualised AI revenue</div><div class="v">$2.6bn</div><div class="s">+13.6% in a single quarter</div></div>
+    </div>
+    <p class="dash-note">Consolidated figures for Q1 FY27 (quarter ended June 30, 2026), as reported by TCS on July 9, 2026. Net profit is reported around ₹13,349–13,420 crore across bases; margins are quoted excluding the exceptional legal charge described below. The decomposition, driver scorecard and index charts are Behind The Numbers analytical frameworks built from the company's disclosures — not the company's own presentation. Verify all figures against TCS's filing before acting.</p>
+
+    <!-- Executive summary -->
+    <div class="takeaways">
+      <h3>The Quarter in Five Lines</h3>
+      <ol>
+        <li><strong>The 14% is real, but it isn't demand.</strong> Revenue in rupees jumped 14% year-on-year to ₹72,275 crore — largely because the rupee weakened and the June-2025 quarter was unusually soft. In constant currency the underlying pace was a fraction of that.</li>
+        <li><strong>Profit grew far slower than sales.</strong> Net profit rose only about 5% to ₹13,420 crore, weighed down by a ₹668 crore charge to settle a decade-old legal claim. The gap between 14% revenue and 5% profit is the story.</li>
+        <li><strong>Margins went the wrong way.</strong> The operating margin eased to 24.0%, down from 24.5% a year ago and below the 25% at which TCS exited FY26 — wage hikes and pricing pressure biting into the model.</li>
+        <li><strong>The order book held; AI accelerated.</strong> New deal wins (TCV) were a steady $9.5 billion, but annualised AI revenue hit $2.6 billion, up 13.6% in one quarter — anchored by an $800 million AI-led transformation deal with Sweden's SKF.</li>
+        <li><strong>The headcount is shrinking.</strong> The workforce fell to 593,798 as attrition stayed contained at 13.6%. A services giant that grows revenue while cutting people is telling you where it thinks the next margin dollar comes from.</li>
+      </ol>
+    </div>
+
+    <h2>1 · The headline that flatters</h2>
+    <p>Every earnings season opens the same way in Mumbai: TCS reports first, and the market treats its number as the weather forecast for the whole IT sector. This quarter the forecast looked sunny — revenue from operations of ₹72,275 crore, up a striking 14% on the same quarter a year earlier. After two years of grinding, low-single-digit growth, a 14-handle reads like a turn in the cycle. It isn't. It is an exchange-rate story wearing a growth-story costume.</p>
+    <p>Two things inflated the headline. The first is the rupee: it weakened materially against the dollar over the year, and because a large share of TCS's revenue is billed in dollars and other hard currencies, every dollar of billing simply converted into more rupees. That lifts the reported top line without a single extra hour of work being sold. The second is the base: the June 2025 quarter was one of TCS's weakest in years, so the year-on-year comparison starts from a low floor. Strip the currency tailwind and the soft base away, and the constant-currency growth — the number that actually measures whether clients are buying more — was a small fraction of 14%. The company that "beat estimates" mostly beat them on the rupee.</p>
+
+    <div class="pull">"The company that beat estimates mostly beat them on the rupee. Fourteen percent in rupees is a few percent in the only currency that measures real demand."</div>
+
+    <h2>2 · Where the 14% actually came from</h2>
+    <p>The cleanest way to see the quarter is to separate what grew from what merely translated. Revenue climbed 14% in rupees; profit climbed roughly 5%. When your top line grows nearly three times faster than your bottom line, the growth is not falling through to the owners — it is being absorbed by costs, currency mechanics and one-off charges on the way down. That wedge is the single most important chart of the quarter.</p>
+
+    <!-- Chart 1: revenue vs profit growth divergence -->
+    <figure class="figure">
+      <figcaption class="fig-cap">Revenue ran; profit walked
+        <span class="fig-cap-sub">Q1 FY27 vs Q1 FY26, each series indexed to 100 at the year-ago quarter (₹ crore, consolidated)</span>
+      </figcaption>
+      <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart: revenue index rose to 114 while net profit index rose only to 105 versus the year-ago quarter" style="width:100%;height:auto;display:block;">
+        <style>
+          .c1a{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10.5px;fill:#8A91A0}
+          .c1t{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;fill:#1E3A5F}
+          .c1lab{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;font-weight:600;fill:#4A5567}
+          .c1val{font-family:'IBM Plex Mono',monospace;font-size:11px;fill:#1B2536}
+          .c1big{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600}
+        </style>
+        <text x="20" y="24" class="c1t">Revenue +14%, net profit +5% — the wedge is the story</text>
+        <!-- gridlines: index 0..120, y 280..70 -->
+        <g stroke="#efeadf" stroke-width="1">
+          <line x1="120" y1="70" x2="640" y2="70"></line>
+          <line x1="120" y1="140" x2="640" y2="140"></line>
+          <line x1="120" y1="210" x2="640" y2="210"></line>
+          <line x1="120" y1="280" x2="640" y2="280"></line>
+        </g>
+        <g class="c1a" text-anchor="end">
+          <text x="112" y="74">120</text><text x="112" y="144">80</text><text x="112" y="214">40</text><text x="112" y="284">0</text>
+        </g>
+        <!-- Revenue group -->
+        <rect x="200" y="105" width="52" height="175" fill="#C7D0DB"></rect>
+        <rect x="266" y="80.5" width="52" height="199.5" fill="#1E3A5F"></rect>
+        <text x="226" y="99" text-anchor="middle" class="c1val">₹63,437cr</text>
+        <text x="292" y="74" text-anchor="middle" class="c1big" fill="#1E3A5F">₹72,275cr</text>
+        <text x="259" y="300" text-anchor="middle" class="c1lab">Revenue</text>
+        <text x="259" y="318" text-anchor="middle" class="c1big" fill="#2E7D5B">+14% YoY</text>
+        <!-- Profit group -->
+        <rect x="440" y="105" width="52" height="175" fill="#C7D0DB"></rect>
+        <rect x="506" y="96.25" width="52" height="183.75" fill="#1E3A5F"></rect>
+        <text x="466" y="99" text-anchor="middle" class="c1val">₹12,760cr</text>
+        <text x="532" y="90" text-anchor="middle" class="c1big" fill="#1E3A5F">₹13,420cr</text>
+        <text x="499" y="300" text-anchor="middle" class="c1lab">Net profit</text>
+        <text x="499" y="318" text-anchor="middle" class="c1big" fill="#B3402F">+5% YoY</text>
+      </svg>
+      <div class="chart-legend">
+        <span class="chart-legend-item"><i style="background:#C7D0DB"></i>Q1 FY26 (year ago)</span>
+        <span class="chart-legend-item"><i style="background:#1E3A5F"></i>Q1 FY27 (this quarter)</span>
+      </div>
+      <p class="fig-src">Source: TCS consolidated results, Q1 FY27 & Q1 FY26. Bars indexed to the year-ago quarter for visual comparison; rupee figures labelled. Behind The Numbers.</p>
+    </figure>
+
+    <p>A ₹668 crore exceptional charge explains part of the shortfall. It came from settling a long-running claim by Computer Sciences Corporation after the US Supreme Court declined to hear TCS's appeal; a further ₹69 crore was booked as interest to the date of settlement. That is a genuine one-off — profit excluding it looks healthier. But the charge is not the whole gap. Even before it, profit growth trailed revenue growth, because the costs that matter to a people business — salaries — rose faster than pricing could recover.</p>
+
+    <h2>3 · The margin tells the truth</h2>
+    <p>If revenue can be flattered by currency, the margin is harder to dress up. TCS reported an operating margin of 24.0% and a net margin of 19.2%. Both are respectable in absolute terms and would be the envy of most industries. But direction is what earnings are about, and the direction is down: 24.0% is below the 24.5% of a year ago and a clear step down from the 25.0% at which TCS closed FY26 — its best full-year margin in four years. The company gave back most of a year's margin progress in a single quarter.</p>
+
+    <!-- Chart 2: operating margin walk -->
+    <figure class="figure">
+      <figcaption class="fig-cap">A year of margin gains, handed back in a quarter
+        <span class="fig-cap-sub">Operating margin, %, consolidated — Q1 FY26, full-year FY26 exit, Q1 FY27</span>
+      </figcaption>
+      <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Line chart: operating margin 24.5% a year ago, 25.0% at FY26 exit, falling to 24.0% this quarter" style="width:100%;height:auto;display:block;">
+        <style>
+          .c2a{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10.5px;fill:#8A91A0}
+          .c2t{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;fill:#1E3A5F}
+          .c2lab{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;font-weight:600;fill:#4A5567}
+          .c2val{font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;fill:#1E3A5F}
+        </style>
+        <text x="20" y="24" class="c2t">The margin peaked at FY26 exit — then slipped</text>
+        <!-- gridlines margin 23.0..25.5 -> y 270..70 -->
+        <g stroke="#efeadf" stroke-width="1">
+          <line x1="120" y1="70" x2="620" y2="70"></line>
+          <line x1="120" y1="110" x2="620" y2="110"></line>
+          <line x1="120" y1="150" x2="620" y2="150"></line>
+          <line x1="120" y1="190" x2="620" y2="190"></line>
+          <line x1="120" y1="230" x2="620" y2="230"></line>
+          <line x1="120" y1="270" x2="620" y2="270"></line>
+        </g>
+        <g class="c2a" text-anchor="end">
+          <text x="112" y="74">25.5%</text><text x="112" y="114">25.0%</text><text x="112" y="154">24.5%</text><text x="112" y="194">24.0%</text><text x="112" y="234">23.5%</text><text x="112" y="274">23.0%</text>
+        </g>
+        <!-- line: (120,150) 24.5 -> (370,110) 25.0 -> (620,190) 24.0 -->
+        <polyline points="120,150 370,110 620,190" fill="none" stroke="#1E3A5F" stroke-width="2.5"></polyline>
+        <circle cx="120" cy="150" r="5" fill="#1E3A5F"></circle>
+        <circle cx="370" cy="110" r="5" fill="#C08A2E"></circle>
+        <circle cx="620" cy="190" r="5" fill="#B3402F"></circle>
+        <text x="120" y="138" text-anchor="middle" class="c2val">24.5%</text>
+        <text x="370" y="98" text-anchor="middle" class="c2val" fill="#C08A2E">25.0%</text>
+        <text x="620" y="178" text-anchor="middle" class="c2val" fill="#B3402F">24.0%</text>
+        <g class="c2lab" text-anchor="middle">
+          <text x="120" y="296">Q1 FY26</text><text x="370" y="296">FY26 exit</text><text x="620" y="296">Q1 FY27</text>
+        </g>
+      </svg>
+      <p class="fig-src">Source: TCS results, Q1 FY26 (24.5%), FY26 full year (25.0%, highest in four years) and Q1 FY27 (24.0%). Behind The Numbers.</p>
+    </figure>
+
+    <p>Two forces pushed it down. TCS completed its annual salary increments for staff globally this quarter and re-aligned pay to India's new Labour Code — real, recurring cost that lands all at once. And AI-led work, the fast-growing part of the book, often carries different economics from the old time-and-materials model: clients increasingly pay for outcomes, not headcount-hours, which compresses the classic pricing lever. A margin at 24% is not a crisis. But a company whose growth is currency-assisted and whose margin is eroding is not, on this evidence, in a genuine up-cycle.</p>
+
+    <h2>4 · The real story: AI, and fewer people</h2>
+    <p>Underneath the soft translation is the strategic shift that actually matters. TCS put a number on its artificial-intelligence business for the first time in a way investors can track: annualised AI revenue of $2.6 billion, up 13.6% in a single quarter. That is still a slice of a roughly $34-billion-a-year run rate — but it is the only line growing at a genuinely fast clip, and it is compounding quarter on quarter. The order book backs it: the marquee win was an $800 million AI-led business-transformation deal with the Swedish engineering group SKF, alongside a strategic partnership with ServiceNow and a clutch of Fortune Global names.</p>
+
+    <div class="dealbook">
+      <div class="drow"><div class="dwho">SKF — $800m</div><div class="dwhat">Mega AI-led business-transformation deal with the Swedish bearings and engineering group — the quarter's anchor win.</div></div>
+      <div class="drow"><div class="dwho">ServiceNow</div><div class="dwhat">Multi-million-dollar strategic partnership agreement to build and take AI-workflow solutions to market.</div></div>
+      <div class="drow"><div class="dwho">Fortune Global 50 (Europe)</div><div class="dwhat">Multi-million-dollar engagement with an unnamed European member of the Fortune Global 50.</div></div>
+      <div class="drow"><div class="dwho">Others</div><div class="dwhat">ABB, Euroclear Group, Hager, a North American utility major, a large US healthcare payer, and two US retailers among the net-new wins.</div></div>
+    </div>
+    <p class="sc-note">Selected deal wins disclosed for Q1 FY27. Deal values, where given, are total contract value. Not a complete list.</p>
+
+    <p>Now put that next to the headcount. The workforce fell to 593,798 — down sharply from the 613,000-plus TCS carried a year earlier — while attrition stayed contained at 13.6%. A labour-arbitrage business is defined by one reflex: growth means hiring. When a services giant grows its reported revenue <em>and</em> shrinks its people at the same time, it is telling you the model is changing. The next dollar of margin is meant to come from software and AI leverage, not from putting another thousand engineers on a client's floor. That is the bet embedded in this quarter — and it is why the AI line, not the 14%, is the number to track.</p>
+
+    <h2>5 · What actually moved the quarter</h2>
+    <p>Stack the forces and the picture resolves. A few tailwinds — currency, a soft base, resilient deal wins, an accelerating AI line — pushed the headline up. A few headwinds — wage hikes, softer pricing, the legal charge, and thin underlying demand — held the profit and the margin down. The scoreboard:</p>
+
+    <figure class="figure">
+      <table class="scorecard">
+        <caption>TCS Q1 FY27 — driver scorecard</caption>
+        <thead>
+          <tr>
+            <th class="lft">Force</th>
+            <th>Direction</th>
+            <th class="hide-sm">Pull on the quarter</th>
+            <th class="lft">The read</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="econ lft">Weak rupee</td>
+            <td class="pos">Tailwind ↑</td>
+            <td class="pos hide-sm">▲ strong</td>
+            <td class="read">Did most of the work behind the 14% headline; a translation gain, not fresh demand.</td>
+          </tr>
+          <tr>
+            <td class="econ lft">Soft year-ago base</td>
+            <td class="pos">Tailwind ↑</td>
+            <td class="pos hide-sm">▲ moderate</td>
+            <td class="read">Q1 FY26 was weak, so the YoY comparison starts low and looks flattering.</td>
+          </tr>
+          <tr>
+            <td class="econ lft">Deal wins / AI book</td>
+            <td class="pos">Tailwind ↑</td>
+            <td class="pos hide-sm">▲ genuine</td>
+            <td class="read">$9.5bn TCV and $2.6bn annualised AI revenue — the real, durable positive.</td>
+          </tr>
+          <tr>
+            <td class="econ lft">Wage hikes & Labour Code</td>
+            <td class="neg">Headwind ↓</td>
+            <td class="neg hide-sm">▼ moderate</td>
+            <td class="read">Global increments landed this quarter, pressing the operating margin lower.</td>
+          </tr>
+          <tr>
+            <td class="econ lft">Legal settlement charge</td>
+            <td class="neg">Headwind ↓</td>
+            <td class="neg hide-sm">▼ one-off</td>
+            <td class="read">₹668cr (plus ₹69cr interest) on the CSC case — a real but non-recurring hit to profit.</td>
+          </tr>
+          <tr>
+            <td class="econ lft">Underlying demand</td>
+            <td class="flat">Soft →</td>
+            <td class="flat hide-sm">▪ muted</td>
+            <td class="read">Constant-currency growth was thin; discretionary client spend is still cautious.</td>
+          </tr>
+          <tr class="netrow">
+            <td class="econ lft">Net</td>
+            <td class="flat">Mixed</td>
+            <td class="flat hide-sm">▪ steady</td>
+            <td class="read">A flattered top line, a squeezed margin, and a genuine AI ramp — a transition quarter, not a turn.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="sc-note">Directions and pulls are Behind The Numbers analytical judgements from TCS's Q1 FY27 disclosures; "pull" describes the sign and rough weight of each force, not a precise contribution. Not investment advice.</p>
+    </figure>
+
+    <h2>The bottom line</h2>
+    <p>TCS did what it always does: it set the tone for the season, and the tone is careful optimism dressed as growth. Fourteen percent is a good headline and a misleading one — most of it is the rupee and an easy base, not clients spending more. The honest signals sit lower in the release: a margin that slipped back to 24%, a profit that grew a third as fast as revenue, and a workforce that is shrinking. Against that, the one unambiguous bright spot is AI — a $2.6 billion annualised line growing double digits every quarter, backed by an $800 million transformation deal. That is where the company is placing its chips. So read this quarter for what it is: not the moment the cycle turned, but the moment you could see TCS betting that AI-led work replaces the labour-arbitrage engine before that engine fully stalls. The 14% will fade with the currency. Whether the $2.6 billion keeps compounding is the number that decides the next few years.</p>
+
+    <p class="byline" style="border-top: 1px solid var(--rule); padding-top: 18px; margin-top: 36px;">
+      <b>Dhairya Shah</b> writes Behind The Numbers. This earnings brief is independent analysis for general information only. It synthesises TCS's own Q1 FY27 and FY26 disclosures together with reporting from Business Standard, Business Today, Upstox and GoodReturns, and Behind The Numbers' own estimates. The revenue/profit index chart, margin walk and driver scorecard are illustrative analytical frameworks, not the company's presentation; figures are as reported on July 9, 2026 and may be restated. Market and financial figures are indicative and should be verified against TCS's primary filing. Nothing here is investment advice. Do your own work before acting.
+    </p>
+  </div>
+
+  <!-- ════════════════ SUBSCRIBE + DISCUSS ════════════════ -->
+  <div class="article-end">
+    <div class="subscribe-panel">
+      <div>
+        <div class="t">Get the next brief in your inbox.</div>
+        <div class="s">Every market morning, free. Unsubscribe anytime.</div>
+      </div>
+      <form method="POST" action="https://formspree.io/f/xkoaqlza" data-subscribe="">
+        <p hidden="hidden" aria-hidden="true" style="display:none;"><label>Leave this empty: <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+        <input type="email" name="email" placeholder="you@example.com" required="required" aria-label="Email address">
+        <button class="btn" type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div class="discuss-panel">
+      <div>
+        <div class="t">Is the AI pivot real, or a rounding error? Tell me on LinkedIn.</div>
+        <div class="s">I post every brief on LinkedIn — that's where the sharpest debate happens.</div>
+      </div>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a class="btn primary" href="https://www.linkedin.com/in/dhairya-shah-41382b75" target="_blank" rel="noopener">Discuss on LinkedIn</a>
+        <a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7466052500509351936" target="_blank" rel="noopener">Subscribe on LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="brand">Behind The Numbers</div>
+        <p>Independent daily analysis of global markets. Written by <b>Dhairya Shah</b>.</p>
+      </div>
+      <div>
+        <h4>Sections</h4>
+        <ul>
+          <li><a href="index.html#daily-briefs">Daily Briefs</a></li>
+          <li><a href="index.html#market-trends">Market Trends</a></li>
+          <li><a href="index.html#research">Research Columns</a></li>
+          <li><a href="index.html#archive">Archive</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/dhairya-shah-41382b75" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Behind The Numbers. All views are personal and not investment advice.</span>
+      <span data-today="">—</span>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script src="search.js"></script>
+<script src="charts.js"></script>
+</body>
+</html>
