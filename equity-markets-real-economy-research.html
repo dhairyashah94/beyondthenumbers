@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Are Global Equity Markets Disconnected from the Real Economy? — Behind The Numbers Research</title>
+<meta name="description" content="A Behind The Numbers big read: record market-cap-to-GDP ratios, unprecedented index concentration, and an AI capex cycle now carrying most of US growth. The evidence on whether equities have decoupled from the real economy.">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .paper-meta { display: flex; flex-wrap: wrap; gap: 8px 26px; font-family: var(--sans); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-faint); border-top: 3px solid var(--rule-strong); border-bottom: 1px solid var(--rule); padding: 12px 2px; margin: 26px 0 0; }
+  .paper-meta b { color: var(--navy); font-weight: 700; }
+  .abstract { border-bottom: 1px solid var(--rule); padding: 22px 2px 24px; margin: 0 0 10px; }
+  .abstract h3 { font-family: var(--sans); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-faint); margin: 0 0 10px; }
+  .abstract p { font-style: italic; font-size: 15.5px; line-height: 1.65; color: var(--ink-soft); margin: 0; }
+  .fig-num { font-family: var(--sans); font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #C08A2E; display: block; margin-bottom: 3px; }
+  .databox { border: 1px solid var(--rule-strong); border-left: 3px solid var(--navy); padding: 18px 20px; margin: 28px 0; background: #F7F4EC; }
+  .databox h4 { font-family: var(--sans); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--navy); margin: 0 0 8px; }
+  .databox p { font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+  .scorecard { width: 100%; border-collapse: collapse; font-family: var(--sans); margin: 6px 0 8px; font-size: 13px; }
+  .scorecard thead th { text-align: left; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-faint); border-bottom: 2px solid var(--ink); padding: 10px 10px; vertical-align: bottom; }
+  .scorecard tbody td { padding: 11px 10px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
+  .scorecard tbody td.econ { font-weight: 700; color: var(--ink); }
+  .scorecard tbody td.num { font-family: 'IBM Plex Mono', monospace; font-weight: 600; color: var(--navy); white-space: nowrap; }
+  .scorecard tbody td.pos { color: #2E7D5B; font-weight: 700; white-space: nowrap; }
+  .scorecard tbody td.neg { color: #B3402F; font-weight: 700; white-space: nowrap; }
+  .sc-note { font-family: var(--sans); font-size: 11px; color: var(--ink-faint); margin: 4px 0 30px; line-height: 1.5; }
+  .refs { font-family: var(--sans); font-size: 12.5px; color: var(--ink-soft); line-height: 1.7; }
+  .refs li { margin-bottom: 6px; }
+  @media (max-width: 720px) { .scorecard .hide-sm { display: none; } }
+</style>
+</head>
+<body data-article-id="2026-07-13-equity-disconnect-research">
+
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <rect width="400" height="400" fill="#1E3A5F"></rect>
+    <polyline points="90,270 150,240 210,250 270,160 310,120" fill="none" stroke="#C08A2E" stroke-width="10"></polyline>
+    <polyline points="90,290 150,285 210,282 270,276 310,272" fill="none" stroke="#FAF7F0" stroke-width="10"></polyline>
+    <text x="200" y="345" fill="#FAF7F0" font-family="Georgia, serif" font-size="26" font-weight="700" text-anchor="middle">RP/26-02</text>
+  </svg>
+</template>
+
+<!-- ════════════════ TOP BAR ════════════════ -->
+<div class="topbar">
+  <div class="wrap">
+    <span data-today="">—</span>
+    <nav>
+      <a href="index.html#daily-briefs">Daily Brief</a>
+      <a href="index.html#headlines">Headlines</a>
+      <a href="index.html#market-trends">Market Trends</a>
+      <a href="index.html#research">Research</a>
+      <a href="index.html#archive">Archive</a>
+    </nav>
+    <span class="edition">The Big Read</span>
+  </div>
+</div>
+
+<!-- ════════════════ MASTHEAD ════════════════ -->
+<header class="masthead compact">
+  <div class="wrap">
+    <a class="lockup" href="index.html">
+      <span class="nameplate">Behind The Numbers</span>
+      <img src="logo-mark.png" alt="Behind The Numbers — bar chart logo mark">
+    </a>
+    <hr class="double-rule">
+  </div>
+</header>
+
+<!-- ════════════════ ARTICLE ════════════════ -->
+<article data-screen-label="The Big Read — Equity Markets vs Real Economy">
+  <header class="article-head">
+    <span class="kicker">The Big Read · Markets vs the Real Economy · Monday, July 13, 2026</span>
+    <h1>Are Global Equity Markets Disconnected from the Real Economy?</h1>
+    <p class="deck">Stocks just closed a third straight winning week while a war burns in the Gulf and the IMF marks global growth down. Market cap is at twice the dot-com peak relative to GDP, ten companies are 40% of the index, and one capex cycle is carrying most of US growth. Time to put the market and the economy on the same page — and see which one is lying.</p>
+    <p class="byline">By <b>Dhairya Shah</b> · 14 min read · A Behind The Numbers big read · Data as of July 10–13, 2026</p>
+    <div class="share-row">
+      <button class="share-btn" data-share="linkedin" type="button">in · LinkedIn</button>
+      <button class="share-btn" data-share="x" type="button">𝕏 · Post</button>
+      <button class="share-btn" data-share="whatsapp" type="button">WhatsApp</button>
+      <button class="share-btn" data-share="copy" type="button">Copy link</button>
+    </div>
+  </header>
+
+  <div class="article-body">
+
+    <div class="takeaways">
+      <h3>The Answer in Five Lines</h3>
+      <ol>
+        <li><strong>The valuation gap is at a record.</strong> US equity market capitalization stands near 218% of GDP (Q1 2026, Federal Reserve data) — about two standard deviations above trend. The dot-com peak was 146%. The Shiller CAPE ratio has touched 40, a level previously seen only in the tech bubble.</li>
+        <li><strong>Growth does not explain it.</strong> The IMF projects global growth of 3.0–3.1% in 2026 — below the 3.4–3.5% pace of 2024–25 and well under the 3.7% average of 2000–19 — while wartime inflation is rising, not falling.</li>
+        <li><strong>Concentration, not breadth, drives the gap.</strong> The top 10 S&amp;P 500 firms are roughly 40% of index value (26.6% at the 2000 peak) but only about a third of index earnings. Since 2019, US market cap has grown roughly 2.7 times faster than nominal GDP.</li>
+        <li><strong>The market and the economy now share one engine.</strong> AI-related investment contributed roughly 74% of US GDP growth in Q1 2026; hyperscaler capex is set to nearly double to $630–750 billion this year — approaching 5% of US GDP, a share last seen in the late-1990s telecom boom.</li>
+        <li><strong>The exposure is asymmetric.</strong> The top 1% of US households hold 50% of corporate equities; the top 10% hold 87%; the bottom half hold 1%. A correction would transmit to the economy through a narrow, wealthy consumption channel — and through the capex cycle itself.</li>
+      </ol>
+    </div>
+
+    <h2>1 · Records on Wall Street, markdowns everywhere else</h2>
+    <p>The question of whether stock markets track the real economy is as old as index investing, and the standard answer — markets lead, economies follow, and over long horizons the two reconcile — has survived most cycles. It is being asked again in 2026 with unusual urgency, because the two series it compares have rarely pointed in such different directions. Equity markets have completed three consecutive winning weeks through mid-July even as a shooting war between the United States and Iran disrupts Gulf shipping; the S&amp;P 500 sits near record highs and its aggregate market capitalization reached a record $67 trillion in the second quarter. The real economy, meanwhile, is being marked down: the IMF's April 2026 World Economic Outlook — subtitled, without irony, <em>Global Economy in the Shadow of War</em> — cut its reference forecast for global growth to 3.1% for 2026, and its July update trims that to 3.0%, against a pre-pandemic (2000–19) average of 3.7%. Global headline inflation is projected to <em>rise</em> to 4.7% this year on energy and food prices before easing in 2027.</p>
+    <p>Slowing growth, rising inflation, elevated public debt, an active regional war — and record equity prices. Either the market is seeing something the growth data can't, or it has quietly stopped pricing the broad economy altogether. So let's do what this newsletter exists to do: put the two series on the same page and look. First the gap itself. Then where it lives — because it has a very specific address. Then the strongest case that nothing is wrong. And finally the uncomfortable part: why, this cycle, Main Street has more riding on Wall Street than the other way around.</p>
+
+    <h2>2 · The gap you can't explain away</h2>
+    <p>The broadest single gauge of market size relative to economic activity is the ratio of equity market capitalization to GDP — the "Buffett indicator." On Federal Reserve financial-accounts data, the US ratio stood at 218% of GDP after the Q1 2026 GDP estimate, roughly 57% above its long-run trend and about two standard deviations from it; intraday trackers computing the ratio on live market values put it near 237–241% in the second week of July, an all-time high. For scale: the ratio hovered between roughly 40% and 100% for the four decades before the late 1990s, peaked at 146% in the dot-com bubble, and reached about 109% before the 2008 crisis. Every previous episode at two standard deviations above trend — the late 1960s, 2000, 2021 — was followed by a drawdown of 25% or more. Valuation ratios based on earnings tell the same story: the S&amp;P 500 trades near 31 times trailing earnings, and the Shiller cyclically-adjusted P/E touched 40 in January 2026, a reading matched only in the tech bubble in a century and a half of data.</p>
+
+    <figure class="figure">
+      <figcaption class="fig-cap"><span class="fig-num">Chart 1</span>US equity market capitalization relative to GDP, 1995–2026
+        <span class="fig-cap-sub">Corporate equities as % of nominal GDP, quarterly (Federal Reserve Z.1 basis); shaded band = Buffett's 2001 "reasonable" range (75–90%)</span>
+      </figcaption>
+      <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Line chart of the Buffett indicator from 1995 to 2026, rising from about 71 percent to 218 percent, far above the dot-com peak of 143 percent" style="width:100%;height:auto;display:block;">
+        <style>
+          .rpax{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10.5px;fill:#8A91A0}
+          .rpt{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;font-weight:700;fill:#1E3A5F}
+          .rplab{font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:11.5px;font-weight:600;fill:#4A5567}
+          .rpval{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;fill:#1E3A5F}
+        </style>
+        <text x="20" y="24" class="rpt">Twice the dot-com peak, two standard deviations above trend</text>
+        <g stroke="#efeadf" stroke-width="1">
+          <line x1="110" y1="60" x2="660" y2="60"></line>
+          <line x1="110" y1="104" x2="660" y2="104"></line>
+          <line x1="110" y1="148" x2="660" y2="148"></line>
+          <line x1="110" y1="192" x2="660" y2="192"></line>
+          <line x1="110" y1="236" x2="660" y2="236"></line>
+          <line x1="110" y1="280" x2="660" y2="280"></line>
+        </g>
+        <g class="rpax" text-anchor="end">
+          <text x="102" y="64">250%</text><text x="102" y="108">200%</text><text x="102" y="152">150%</text><text x="102" y="196">100%</text><text x="102" y="240">50%</text><text x="102" y="284">0</text>
+        </g>
+        <rect x="110" y="200.8" width="530" height="13.2" fill="#2E7D5B" opacity="0.12"></rect>
+        <text x="116" y="211" class="rpax" fill="#2E7D5B">"reasonable": 75–90%</text>
+        <polyline points="110,217.5 161,174.4 195.5,154.2 229.7,216.6 263.9,192 315.2,187.6 349.4,229.8 383.6,205.2 417.7,189.4 451.9,174.4 486.1,161.2 503.2,167.4 520.3,148 537.4,130.4 554.5,104 571.6,152.4 588.7,134.8 605.8,108.4 622.9,82 640,88.2" fill="none" stroke="#1E3A5F" stroke-width="2.5"></polyline>
+        <line x1="640" y1="88.2" x2="655" y2="68.8" stroke="#B3402F" stroke-width="2" stroke-dasharray="4,4"></line>
+        <circle cx="195.5" cy="154.2" r="4.5" fill="#C08A2E"></circle>
+        <circle cx="349.4" cy="229.8" r="4.5" fill="#8A91A0"></circle>
+        <circle cx="640" cy="88.2" r="5" fill="#1E3A5F"></circle>
+        <circle cx="655" cy="68.8" r="5" fill="none" stroke="#B3402F" stroke-width="2"></circle>
+        <text x="195.5" y="140" text-anchor="middle" class="rpval" fill="#C08A2E">2000: 143%</text>
+        <text x="352" y="248" text-anchor="middle" class="rplab">2009: 57%</text>
+        <text x="596" y="76" text-anchor="end" class="rpval">Q1 2026: 218%</text>
+        <text x="660" y="58" text-anchor="end" class="rpval" fill="#B3402F">Jul: ≈240%</text>
+        <g class="rpax" text-anchor="middle">
+          <text x="110" y="300">1995</text><text x="195.5" y="300">2000</text><text x="315.2" y="300">2007</text><text x="417.7" y="300">2013</text><text x="537.4" y="300">2020</text><text x="640" y="300">2026</text>
+        </g>
+      </svg>
+      <p class="fig-src">Sources: Federal Reserve Z.1 via Advisor Perspectives (Q1 2026: 218.1%, 1.8–2.0 SD above trend); live estimate ≈237–241% (MacroMicro; buffettindicator.org, July 10, 2026); historical anchors per Longtermtrends and CMV. Series stylized from quarterly data; verify against primary sources.</p>
+    </figure>
+
+    <p>Set that against output. Between end-2019 and mid-2026, US nominal GDP grew roughly 47% (from $21.7 trillion to about $31.9 trillion). Total US market capitalization grew approximately 126% over the same window (from about $34 trillion to $76.8 trillion). After-tax corporate profits — the fundamental that should arbitrate between the two — grew roughly 60–65% on BEA data: much faster than GDP, much slower than market value. In other words, even after crediting corporate America with a genuinely extraordinary profit expansion, valuation multiples, not fundamentals, account for a large share of the post-pandemic rally. The market has re-rated, not merely re-earned.</p>
+
+    <figure class="figure">
+      <figcaption class="fig-cap"><span class="fig-num">Chart 2</span>The wedge: cumulative growth since end-2019, United States
+        <span class="fig-cap-sub">% change, Q4 2019 → mid-2026</span>
+      </figcaption>
+      <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bar chart: market capitalization up 126 percent since 2019, after-tax corporate profits up about 62 percent, nominal GDP up 47 percent, real GDP up about 15 percent" style="width:100%;height:auto;display:block;">
+        <text x="20" y="24" class="rpt">Market value has grown ~2.7× faster than the economy</text>
+        <g stroke="#efeadf" stroke-width="1">
+          <line x1="369" y1="46" x2="369" y2="212"></line>
+          <line x1="538" y1="46" x2="538" y2="212"></line>
+        </g>
+        <line x1="200" y1="46" x2="200" y2="212" stroke="#1B2536" stroke-width="1.5"></line>
+        <g class="rpax" text-anchor="middle">
+          <text x="200" y="228">0</text><text x="369" y="228">+50%</text><text x="538" y="228">+100%</text>
+        </g>
+        <g>
+          <text x="190" y="72" class="rplab" text-anchor="end">Market capitalization</text>
+          <rect x="200" y="58" width="425.9" height="22" fill="#0F2E4E"></rect>
+          <text x="620" y="73" class="rpval" text-anchor="end" fill="#FAF7F0">+126%</text>
+          <text x="190" y="114" class="rplab" text-anchor="end">After-tax corporate profits</text>
+          <rect x="200" y="100" width="209.6" height="22" fill="#2E7D5B"></rect>
+          <text x="416" y="115" class="rpval" text-anchor="start" fill="#2E7D5B">≈+62%</text>
+          <text x="190" y="156" class="rplab" text-anchor="end">Nominal GDP</text>
+          <rect x="200" y="142" width="158.9" height="22" fill="#8A91A0"></rect>
+          <text x="365" y="157" class="rpval" text-anchor="start" fill="#4A5567">+47%</text>
+          <text x="190" y="198" class="rplab" text-anchor="end">Real GDP</text>
+          <rect x="200" y="184" width="50.7" height="22" fill="#C7D0DB"></rect>
+          <text x="257" y="199" class="rpval" text-anchor="start" fill="#4A5567">≈+15%</text>
+        </g>
+      </svg>
+      <p class="fig-src">Sources: market capitalization $34tn → $76.8tn (Wilshire/Fed basis; buffettindicator.org); nominal GDP $21.7tn → $31.9tn (BEA); profits and real GDP are BTN estimates from BEA data, rounded. Behind The Numbers calculations — indicative, not the source agencies' presentation.</p>
+    </figure>
+
+    <p>The global picture is more moderate but directionally identical. World listed market capitalization is estimated near $154 trillion in 2026 against world output of roughly $115–120 trillion — a global ratio in the vicinity of 130%, historically elevated — with the United States alone accounting for about half of world market value. Global growth, meanwhile, is slowing and its composition worsening: the IMF's July update projects 3.0% for 2026 with headline inflation rising to 4.7%, and its April scenarios put growth as low as 2.0–2.5% if the Middle East conflict broadens. The Fund's own list of top downside risks now includes, explicitly, "a reassessment of expectations surrounding artificial-intelligence-driven productivity" — the central bank of the world economy's way of saying that the market's key assumption is itself a systemic risk factor.</p>
+
+    <h2>3 · The disconnect has an address</h2>
+    <p>Aggregate ratios obscure the mechanism. The re-rating documented above is not spread across thousands of listed firms; it is concentrated to a degree without precedent in modern index history. The ten largest S&amp;P 500 companies now represent roughly 40% of index market value — J.P. Morgan puts the figure at 40.8% as of May, some trackers above 42% — versus a range of 18–23% that held from 1990 to 2015 and a dot-com peak of 26.6%. Nvidia alone carries a weight near 7%, larger than entire sectors. Those same ten firms, however, generate only about one-third of index earnings, and the gap between weight and earnings contribution has widened materially since 2015, when the two were roughly aligned. The equal-weighted S&amp;P 500 — identical companies, equal slices — has lagged the cap-weighted index persistently since 2023, and the cap-weighted index now trades at a premium of nearly 30% to its equal-weighted twin, up from 13% pre-pandemic.</p>
+
+    <figure class="figure">
+      <figcaption class="fig-cap"><span class="fig-num">Chart 3</span>Top-10 share of S&amp;P 500 market capitalization, 1990–2026
+        <span class="fig-cap-sub">% of index market value; latest reading ≈41–43% depending on measurement basis</span>
+      </figcaption>
+      <svg viewBox="0 0 700 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Line chart: top ten share of S&P 500 market cap ranged 18 to 23 percent from 1990 to 2015, peaked at 26.6 percent in 2000, and has risen to about 42 percent in 2026 while the earnings share is about one third" style="width:100%;height:auto;display:block;">
+        <text x="20" y="24" class="rpt">Concentration is far beyond the dot-com peak</text>
+        <g stroke="#efeadf" stroke-width="1">
+          <line x1="110" y1="84.4" x2="660" y2="84.4"></line>
+          <line x1="110" y1="133.3" x2="660" y2="133.3"></line>
+          <line x1="110" y1="182.2" x2="660" y2="182.2"></line>
+          <line x1="110" y1="231.1" x2="660" y2="231.1"></line>
+          <line x1="110" y1="280" x2="660" y2="280"></line>
+        </g>
+        <g class="rpax" text-anchor="end">
+          <text x="102" y="88">40%</text><text x="102" y="137">30%</text><text x="102" y="186">20%</text><text x="102" y="235">10%</text><text x="102" y="284">0</text>
+        </g>
+        <polyline points="110,187.1 183.6,192 257.2,150 330.8,182.2 404.4,187.1 478,192 551.7,143.1 595.8,123.6 625.3,81 640,74.7" fill="none" stroke="#1E3A5F" stroke-width="2.5"></polyline>
+        <circle cx="257.2" cy="150" r="4.5" fill="#C08A2E"></circle>
+        <circle cx="640" cy="74.7" r="5" fill="#B3402F"></circle>
+        <circle cx="640" cy="118.7" r="5" fill="none" stroke="#2E7D5B" stroke-width="2"></circle>
+        <text x="257.2" y="136" text-anchor="middle" class="rpval" fill="#C08A2E">2000 peak: 26.6%</text>
+        <text x="632" y="64" text-anchor="end" class="rpval" fill="#B3402F">2026: ≈42%</text>
+        <text x="632" y="122" text-anchor="end" class="rpval" fill="#2E7D5B">earnings share: ≈33%</text>
+        <g class="rpax" text-anchor="middle">
+          <text x="110" y="300">1990</text><text x="257.2" y="300">2000</text><text x="404.4" y="300">2010</text><text x="551.7" y="300">2020</text><text x="640" y="300">2026</text>
+        </g>
+      </svg>
+      <p class="fig-src">Sources: RBC Wealth Management (18–23% range 1990–2015; 40.7% at end-2025; top-10 earnings share ≈32%), J.P. Morgan Asset Management (40.8%, 26.6% dot-com peak), press tallies of ≈43% in July 2026; float-adjusted measures run lower (≈36.5%, Political Calculations). Series stylized from year-end values.</p>
+    </figure>
+
+    <p>What binds the top of the index together is a single investment thesis. The market's leadership is either building artificial-intelligence infrastructure, supplying it, or expected to monetize it. That thesis is now visible in the national accounts, not just in stock prices: the five largest US hyperscalers have committed roughly $630–690 billion of capital expenditure for 2026 — with estimates including the wider data-center complex approaching $750 billion — nearly double 2025 levels, and Goldman Sachs' baseline model projects the build-out compounding to $1.6 trillion annually by 2031. In the first quarter of 2026, computer and peripheral equipment investment grew at a 67% annualized rate, and analysts attribute roughly 74% of the quarter's 2.1% annualized GDP growth to AI-related investment — more than consumer spending, the traditional engine of two-thirds of the US economy, contributed in total. AI-related capital formation is estimated near 5% of US GDP, the highest share for a single technology cycle since the late-1990s telecom build-out.</p>
+
+    <figure class="figure">
+      <figcaption class="fig-cap"><span class="fig-num">Chart 4</span>The AI capital-expenditure cycle
+        <span class="fig-cap-sub">Left: combined capex of the four largest US hyperscalers, $bn. Right: contribution of AI-related investment to Q1 2026 US GDP growth</span>
+      </figcaption>
+      <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Left panel: hyperscaler capex rising from about 240 billion dollars in 2024 to 388 billion in 2025 to about 630 billion planned for 2026. Right panel: AI-related investment contributed about 74 percent of Q1 2026 US GDP growth" style="width:100%;height:auto;display:block;">
+        <text x="20" y="24" class="rpt">One capex cycle is carrying US growth</text>
+        <g stroke="#efeadf" stroke-width="1">
+          <line x1="60" y1="90" x2="400" y2="90"></line>
+          <line x1="60" y1="150" x2="400" y2="150"></line>
+          <line x1="60" y1="210" x2="400" y2="210"></line>
+          <line x1="60" y1="270" x2="400" y2="270"></line>
+        </g>
+        <g class="rpax" text-anchor="end">
+          <text x="52" y="94">$600bn</text><text x="52" y="154">$400bn</text><text x="52" y="214">$200bn</text><text x="52" y="274">0</text>
+        </g>
+        <rect x="90" y="198" width="80" height="72" fill="#C7D0DB"></rect>
+        <rect x="200" y="153.6" width="80" height="116.4" fill="#8A91A0"></rect>
+        <rect x="310" y="81" width="80" height="189" fill="#0F2E4E"></rect>
+        <text x="130" y="188" text-anchor="middle" class="rpval">$240bn</text>
+        <text x="240" y="143" text-anchor="middle" class="rpval">$388bn</text>
+        <text x="350" y="71" text-anchor="middle" class="rpval">≈$630bn</text>
+        <g class="rpax" text-anchor="middle">
+          <text x="130" y="290">2024</text><text x="240" y="290">2025</text><text x="350" y="290">2026 plan</text>
+        </g>
+        <line x1="430" y1="50" x2="430" y2="290" stroke="#efeadf" stroke-width="1.5"></line>
+        <text x="555" y="150" text-anchor="middle" style="font-family:Georgia,serif;font-size:64px;font-weight:700;fill:#B3402F">≈74%</text>
+        <text x="555" y="182" text-anchor="middle" class="rplab">of Q1 2026 US GDP growth came</text>
+        <text x="555" y="200" text-anchor="middle" class="rplab">from AI-related investment</text>
+        <text x="555" y="240" text-anchor="middle" class="rpval" fill="#1E3A5F">AI capital formation ≈ 5% of US GDP —</text>
+        <text x="555" y="258" text-anchor="middle" class="rpax">highest since the late-1990s telecom boom</text>
+      </svg>
+      <p class="fig-src">Sources: company disclosures via Data Center Richness (Amazon, Google, Microsoft, Meta: $388bn 2025 → up to $630bn 2026; 2024 BTN estimate from filings); BloombergNEF (14 largest operators ≈$750bn 2026); BEA Q1 2026 third estimate with analyst attribution (~74% of 2.1% annualized growth); Beta Finch (≈5% of GDP). Not the agencies' own presentation.</p>
+    </figure>
+
+    <div class="pull">"The index is no longer a mirror of the economy. It is a leveraged bet on one technology transition — and the economy itself has started making the same bet."</div>
+
+    <h2>4 · The best case that nothing is wrong</h2>
+    <p>Three counter-arguments deserve honest weight — and if you post this piece on LinkedIn, you will hear all three within the hour. <strong>First, the leaders earn their weight — partly.</strong> Unlike the dot-com cohort, today's mega-caps are extraordinarily profitable: the ten largest S&amp;P firms generate about a third of index profits, and by one estimate the "Magnificent Seven" account for roughly 70% of the index's economic profit. Alphabet alone earns about $160 billion a year, the most of any company on earth. A market that concentrates value in its most profitable firms is doing something rational, even if the degree is debatable. <strong>Second, listed markets are not the domestic economy.</strong> Roughly 40% of S&amp;P 500 revenue is earned abroad, so comparing US market value to US GDP overstates the gap; globalization-adjusted versions of the Buffett indicator sit far lower (one such adjustment puts it near 114%). Large listed firms are also systematically more profitable, more global and more capital-light than the millions of private businesses GDP counts, and their share of total economic activity has grown for structural reasons — index composition, buybacks, the migration of value from labor to capital — that are not, strictly, mispricing. <strong>Third, markets price the future, not the present.</strong> A slow 2026 with a war premium is precisely the environment in which equities <em>should</em> look expensive on current output if investors genuinely expect AI to raise productivity growth. On that view the valuation gap is a forecast, not a failure.</p>
+    <p>Each argument narrows the indictment; none acquits. Profitability justifies concentration of <em>earnings</em>, but the market has concentrated <em>value</em> roughly ten percentage points faster than earnings. Foreign revenue has been rising for decades and cannot explain why the ratio doubled relative to its own 2007 level. And the "forecast" defense is exactly what the IMF now lists among its principal global risks: if AI-driven productivity disappoints, the forecast embedded in prices — trillions of dollars of it — gets marked down against an economy growing 3%. The disconnect thesis survives its best objections in weakened but recognizable form: prices have not left the economy behind entirely; they have left the <em>measured, present-tense, median</em> economy behind, in favor of a projected one.</p>
+
+    <figure class="figure">
+      <table class="scorecard">
+        <caption style="text-align:left;font-family:var(--sans);font-size:14px;font-weight:700;color:var(--navy);padding:0 0 4px;">The scoreboard · Market versus economy, July 2026</caption>
+        <thead>
+          <tr><th>Indicator</th><th>Latest reading</th><th class="hide-sm">Historical anchor</th><th>Direction</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="econ">Global real GDP growth (IMF)</td><td class="num">3.0–3.1% (2026F)</td><td class="hide-sm num">3.7% avg, 2000–19</td><td class="neg">Below trend ▼</td></tr>
+          <tr><td class="econ">Global headline inflation (IMF)</td><td class="num">4.7% (2026F)</td><td class="hide-sm num">4.1% in 2025</td><td class="neg">Rising ▲</td></tr>
+          <tr><td class="econ">US market cap / GDP</td><td class="num">218% (Q1); ≈240% live</td><td class="hide-sm num">146% at 2000 peak</td><td class="neg">Record ▲</td></tr>
+          <tr><td class="econ">Shiller CAPE</td><td class="num">≈40</td><td class="hide-sm num">44 in Dec 1999</td><td class="neg">2nd-highest ever ▲</td></tr>
+          <tr><td class="econ">Top-10 share of S&amp;P 500 value</td><td class="num">≈41–43%</td><td class="hide-sm num">26.6% at 2000 peak</td><td class="neg">Record ▲</td></tr>
+          <tr><td class="econ">Top-10 share of S&amp;P 500 earnings</td><td class="num">≈33%</td><td class="hide-sm num">aligned with weight in 2015</td><td class="neg">10-pt gap ▼</td></tr>
+          <tr><td class="econ">Hyperscaler capex, 2026</td><td class="num">$630–750bn</td><td class="hide-sm num">≈$450bn in 2025</td><td class="pos">Accelerating ▲</td></tr>
+          <tr><td class="econ">AI share of Q1-26 US GDP growth</td><td class="num">≈74%</td><td class="hide-sm num">consumer ≈ two-thirds, historically</td><td class="neg">Single engine ▼</td></tr>
+          <tr><td class="econ">US equities held by top 10% of households</td><td class="num">87% ($48tn)</td><td class="hide-sm num">bottom 50% hold 1%</td><td class="neg">Concentrated ▼</td></tr>
+        </tbody>
+      </table>
+      <p class="sc-note">Sources: IMF WEO April 2026 and July 2026 Update; Federal Reserve Z.1 and Distributional Financial Accounts (Q1 2026); Advisor Perspectives; J.P. Morgan AM; RBC WM; BEA; company filings. "Direction" reflects Behind The Numbers' reading of each indicator's implication for the disconnection question, not investment advice.</p>
+    </figure>
+
+    <h2>5 · When the market becomes the economy</h2>
+    <p>The classical worry about a market-economy gap is that Wall Street falls and Main Street barely notices — as in 1987, when a 20%+ single-day crash left GDP essentially untouched. The 2026 configuration is different in two ways that make the gap itself a macro-financial vulnerability. <strong>The first channel is the wealth effect, concentrated as never before.</strong> Federal Reserve distributional accounts show the top 1% of US households holding 50% of corporate equities (about $27.6 trillion as of Q1 2026), the top 10% holding 87%, and the bottom half of the country holding roughly 1%. High-income households, their balance sheets swollen by three years of equity gains, have been carrying US consumption while lower-income cohorts retrench. A serious correction would not democratically trim everyone's wealth; it would switch off the specific consumption engine the expansion currently runs on.</p>
+
+    <figure class="figure">
+      <figcaption class="fig-cap"><span class="fig-num">Chart 5</span>Who owns the market: distribution of US corporate equities &amp; mutual fund shares
+        <span class="fig-cap-sub">Share of household equity wealth by wealth percentile, Q1 2026 (Federal Reserve Distributional Financial Accounts)</span>
+      </figcaption>
+      <svg viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stacked bar: top 1 percent of households hold 50 percent of equities, next 9 percent hold 37 percent, the 50th to 90th percentiles hold 12 percent, and the bottom half holds 1 percent" style="width:100%;height:auto;display:block;">
+        <text x="20" y="24" class="rpt">87% of the equity market belongs to the top tenth of households</text>
+        <rect x="40" y="70" width="310" height="58" fill="#0F2E4E"></rect>
+        <rect x="350" y="70" width="229.4" height="58" fill="#37567A"></rect>
+        <rect x="579.4" y="70" width="74.4" height="58" fill="#8A91A0"></rect>
+        <rect x="653.8" y="70" width="6.2" height="58" fill="#B3402F"></rect>
+        <text x="195" y="104" text-anchor="middle" style="font-family:'IBM Plex Mono',monospace;font-size:17px;font-weight:700;fill:#FAF7F0">50%</text>
+        <text x="464" y="104" text-anchor="middle" style="font-family:'IBM Plex Mono',monospace;font-size:17px;font-weight:700;fill:#FAF7F0">37%</text>
+        <text x="616" y="104" text-anchor="middle" style="font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:700;fill:#FAF7F0">12%</text>
+        <g class="rplab">
+          <text x="195" y="152" text-anchor="middle">Top 1%</text>
+          <text x="195" y="168" text-anchor="middle" class="rpax">≈ $27.6tn</text>
+          <text x="464" y="152" text-anchor="middle">Next 9%</text>
+          <text x="464" y="168" text-anchor="middle" class="rpax">90th–99th pct</text>
+          <text x="616" y="152" text-anchor="middle">50th–90th</text>
+          <line x1="657" y1="132" x2="657" y2="176" stroke="#B3402F" stroke-width="1"></line>
+          <text x="657" y="192" text-anchor="middle" fill="#B3402F">Bottom 50%: 1%</text>
+        </g>
+        <text x="40" y="222" class="rpax">58% of US families own stock in some form — but ownership of value is what transmits a correction to spending.</text>
+      </svg>
+      <p class="fig-src">Source: Federal Reserve Distributional Financial Accounts, Q1 2026, as compiled by The Motley Fool (top 1%: 50%, ≈$27.6tn; top 10%: 87%, ≈$48tn; bottom 50%: ≈1%); participation rate from the Fed's Survey of Consumer Finances.</p>
+    </figure>
+
+    <p><strong>The second channel is the capex cycle itself.</strong> Because AI investment now contributes most of measured US growth, the stock market's central assumption — that the build-out continues and pays off — has become a GDP assumption. If equity prices reprice the AI thesis downward, hyperscaler boards do not need a recession to cut $100–200 billion of investment plans; a change of sentiment suffices, and that cut alone would remove more from GDP growth than any plausible consumer wobble. This is the sense in which the disconnection question inverts: the danger is no longer that the market ignores the economy, but that the economy has quietly hitched itself to the market's favorite story. The IMF's inclusion of AI-expectations risk alongside war and fragmentation in its global risk list acknowledges precisely this loop. Add the fiscal channel — capital-gains-sensitive tax revenue, elevated public debt, thinner buffers — and the cost of being wrong is not confined to portfolios.</p>
+
+    <div class="databox">
+      <h4>Flashback · 2020, the dress rehearsal</h4>
+      <p>The cleanest natural experiment on record: in 2020, global output <em>contracted</em> about 3.1% — the deepest peacetime recession since the 1930s — while the S&amp;P 500 returned roughly +16% and world equity indices ended the year solidly higher. The mechanisms were policy liquidity, collapsed discount rates, and index composition tilted toward digital winners. The episode proved that a full calendar-year divergence between markets and measured output is possible and can be rational ex post. It also set the template now being repeated at larger scale: each time the divergence resolves in the market's favor, the incentive to fade the next one weakens — which is how gaps compound.</p>
+    </div>
+
+    <h2>The bottom line</h2>
+    <p>Are global equity markets disconnected from the real economy? After all the charts, the honest answer is: <strong>disconnected from the broad economy, fused to a narrow one.</strong> Aggregate valuations stand further from measured output than at any point in modern financial history, and slowing, war-shadowed global growth cannot close the gap arithmetically. But the gap is not a diffuse mania; it is a concentrated wager. A dozen firms, one technology thesis, and a capital-expenditure cycle worth roughly 5% of US GDP connect today's prices to tomorrow's hoped-for productivity. If the wager pays, the economy grows into its market and the "disconnect" retroactively becomes foresight, as it did after 2020. If it disappoints — the IMF's own listed risk — the correction would propagate through the most concentrated ownership structure on record and through the one investment engine currently generating growth.</p>
+    <p>For policymakers, the implication is uncomfortable: financial-stability risk now runs through equity concentration, not bank leverage. For investors, the actionable finding is narrower and older: the S&amp;P 500 is no longer a diversified claim on the economy — it is approximately a 40% position in ten companies. And for anyone using the market as a barometer of national prosperity, the distributional data is decisive — 87% of the barometer belongs to a tenth of the households. The market is not lying about the economy. It is simply answering a different question: not "how is the economy doing?" but "who will own the next one?"</p>
+
+    <h2 style="font-size:20px;">Sources &amp; further reading</h2>
+    <ol class="refs">
+      <li>International Monetary Fund, <em>World Economic Outlook: Global Economy in the Shadow of War</em>, April 2026; and <em>WEO Update</em>, July 2026.</li>
+      <li>Federal Reserve Board, <em>Financial Accounts of the United States (Z.1)</em> and <em>Distributional Financial Accounts</em>, Q1 2026.</li>
+      <li>Advisor Perspectives (dshort), "Buffett Valuation Indicator," June–July 2026 updates.</li>
+      <li>J.P. Morgan Asset Management, "How extreme is market concentration?", May 2026.</li>
+      <li>RBC Wealth Management, "The Great Narrowing: S&amp;P 500 concentration," January 2026.</li>
+      <li>Bureau of Economic Analysis, Q1 2026 GDP (third estimate), with attribution analysis as reported by TFTC/Renaissance Macro; Beta Finch, "US GDP Q1 2026 Without AI," May 2026.</li>
+      <li>BloombergNEF, "AI Data Center Build Advances at Full Speed," March 2026; Data Center Richness, hyperscaler capex compilation, February 2026.</li>
+      <li>Goldman Sachs Global Institute, "Tracking Trillions: The Assumptions Shaping the Scale of the AI Build-Out," May 2026.</li>
+      <li>Statista Market Outlook, global stock-market capitalization, 2026; World Bank, <em>World Development Indicators</em>.</li>
+      <li>CurrentMarketValuation.com; MacroMicro; buffettindicator.org — live market-cap-to-GDP trackers, July 2026.</li>
+    </ol>
+
+    <p class="byline" style="border-top: 1px solid var(--rule); padding-top: 18px; margin-top: 36px;">
+      <b>Dhairya Shah</b> writes Behind The Numbers. This big read is independent analysis for general information only. It synthesizes the sources listed above as of July 10–13, 2026; stylized chart series are approximations of the underlying data and BTN estimates are marked as such. Verify all figures against primary sources before acting. Nothing here is investment advice.
+    </p>
+  </div>
+
+  <!-- ════════════════ SUBSCRIBE + DISCUSS ════════════════ -->
+  <div class="article-end">
+    <div class="subscribe-panel">
+      <div>
+        <div class="t">Get the next brief in your inbox.</div>
+        <div class="s">Every market morning, free. Unsubscribe anytime.</div>
+      </div>
+      <form method="POST" action="https://formspree.io/f/xkoaqlza" data-subscribe="">
+        <p hidden="hidden" aria-hidden="true" style="display:none;"><label>Leave this empty: <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+        <input type="email" name="email" placeholder="you@example.com" required="required" aria-label="Email address">
+        <button class="btn" type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div class="discuss-panel">
+      <div>
+        <div class="t">Disconnected, or just early? Take it to LinkedIn.</div>
+        <div class="s">I post every research paper on LinkedIn — that's where the sharpest debate happens.</div>
+      </div>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a class="btn primary" href="https://www.linkedin.com/in/dhairya-shah-41382b75" target="_blank" rel="noopener">Discuss on LinkedIn</a>
+        <a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7466052500509351936" target="_blank" rel="noopener">Subscribe on LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="brand">Behind The Numbers</div>
+        <p>Independent daily analysis of global markets. Written by <b>Dhairya Shah</b>.</p>
+      </div>
+      <div>
+        <h4>Sections</h4>
+        <ul>
+          <li><a href="index.html#daily-briefs">Daily Briefs</a></li>
+          <li><a href="index.html#market-trends">Market Trends</a></li>
+          <li><a href="index.html#research">Research Columns</a></li>
+          <li><a href="index.html#archive">Archive</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/dhairya-shah-41382b75" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Behind The Numbers. All views are personal and not investment advice.</span>
+      <span data-today="">—</span>
+    </div>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script src="search.js"></script>
+<script src="charts.js"></script>
+</body>
+</html>
